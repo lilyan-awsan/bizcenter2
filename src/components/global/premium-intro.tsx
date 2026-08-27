@@ -76,9 +76,9 @@ export function PremiumIntro() {
                 />
               )}
               
-              {/* Fallback to SVG if /logo.svg is not found or user wants standard logo */}
+              {/* Fallback to SVG if /logo.png is not found or user wants standard logo */}
               <img 
-                src="/logo.svg" 
+                src="/logo.png" 
                 alt="THE CENTER Logo" 
                 className="w-full h-full object-contain p-4"
                 onError={(e) => {

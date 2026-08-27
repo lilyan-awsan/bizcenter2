@@ -62,9 +62,9 @@ export function Header() {
             layoutId="global-logo" 
             className="w-8 h-8 rounded bg-[var(--color-primary-900)] flex items-center justify-center shrink-0 relative overflow-hidden shadow-sm"
           >
-            {/* Fallback to SVG if /logo.svg is not found */}
+            {/* Fallback to SVG if /logo.png is not found */}
             <img 
-              src="/logo.svg" 
+              src="/logo.png" 
               alt="" 
               className="w-full h-full object-contain p-1.5"
               onError={(e) => {
