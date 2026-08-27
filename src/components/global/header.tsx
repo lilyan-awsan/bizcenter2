@@ -58,12 +58,27 @@ export function Header() {
           className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm"
           aria-label="THE CENTER Home"
         >
-          <div className="w-8 h-8 rounded bg-[var(--color-primary-900)] flex items-center justify-center shrink-0">
-            {/* Simple logo mark approximation */}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <motion.div 
+            layoutId="global-logo" 
+            className="w-8 h-8 rounded bg-[var(--color-primary-900)] flex items-center justify-center shrink-0 relative overflow-hidden shadow-sm"
+          >
+            {/* Fallback to SVG if /logo.svg is not found */}
+            <img 
+              src="/logo.svg" 
+              alt="" 
+              className="w-full h-full object-contain p-1.5"
+              onError={(e) => {
+                const target = e.target as HTMLElement;
+                target.style.display = 'none';
+                target.parentElement?.classList.add('fallback-active');
+              }}
+            />
+            {/* Fallback SVG */}
+            <svg className="absolute hidden fallback-svg w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <style>{`.fallback-active .fallback-svg { display: block; }`}</style>
               <path d="M7 12L12 7L17 12L12 17L7 12Z" fill="#C89B3C"/>
             </svg>
-          </div>
+          </motion.div>
           <span className="font-bold text-[var(--color-primary-900)] text-xl tracking-tight hidden sm:block">THE CENTER</span>
         </Link>
 
