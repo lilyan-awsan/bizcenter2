@@ -1,0 +1,187 @@
+"use client"
+
+import * as React from "react"
+import Link from "next/link"
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
+import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { LanguageSwitcher } from "./language-switcher"
+
+interface MobileMenuProps {
+  services: { label: string; href: string }[]
+  resources: { label: string; href: string }[]
+}
+
+export function MobileMenu({ services, resources }: MobileMenuProps) {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [servicesOpen, setServicesOpen] = React.useState(false)
+  const [resourcesOpen, setResourcesOpen] = React.useState(false)
+
+  // Prevent scroll when open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [isOpen])
+
+  const prefersReducedMotion = useReducedMotion()
+
+  const menuVariants = {
+    closed: { opacity: 0, x: prefersReducedMotion ? 0 : "100%" },
+    open: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        duration: 0.4, 
+        ease: [0.22, 1, 0.36, 1],
+        staggerChildren: prefersReducedMotion ? 0 : 0.04,
+        delayChildren: prefersReducedMotion ? 0 : 0.1
+      } 
+    },
+  }
+
+  const staggerVariants = {
+    closed: { opacity: 0, y: prefersReducedMotion ? 0 : 16 },
+    open: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+  }
+
+  return (
+    <div className="md:hidden">
+      <button
+        onClick={() => setIsOpen(true)}
+        className="p-2 -mr-2 text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-md"
+        aria-label="Open menu"
+        aria-expanded={isOpen}
+      >
+        <Menu className="h-6 w-6" />
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            className="fixed inset-0 z-50 bg-[var(--color-surface)] flex flex-col h-[100dvh] overflow-y-auto"
+          >
+            {/* Header Area */}
+            <div className="flex items-center justify-between px-6 py-4 border-b">
+              <span className="font-bold text-lg text-[var(--color-primary-900)]">THE CENTER</span>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 -mr-2 text-[var(--color-charcoal)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-md"
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex-1 px-6 py-8 flex flex-col gap-6">
+              <motion.div variants={staggerVariants}>
+                <Link href="/" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-[var(--color-charcoal)]">
+                  Home
+                </Link>
+              </motion.div>
+
+              {/* Services Accordion */}
+              <motion.div variants={staggerVariants} className="flex flex-col gap-4">
+                <button 
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className="flex items-center justify-between w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm"
+                  aria-expanded={servicesOpen}
+                >
+                  <span className="text-2xl font-bold text-[var(--color-charcoal)]">Services</span>
+                  <motion.div animate={{ rotate: servicesOpen ? 90 : 0 }}>
+                    <ChevronRight className="h-6 w-6 text-[var(--color-border-strong)]" />
+                  </motion.div>
+                </button>
+                <AnimatePresence>
+                  {servicesOpen && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden flex flex-col gap-3 pl-4 border-l-2 border-[var(--color-border)]"
+                    >
+                      <Link href="/services" onClick={() => setIsOpen(false)} className="text-lg font-semibold text-[var(--color-text-secondary)] py-1 mt-2">
+                        All Services
+                      </Link>
+                      {services.map((s) => (
+                        <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)} className="text-[17px] text-[var(--color-text-secondary)] py-1">
+                          {s.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
+              {/* Resources Accordion */}
+              <motion.div variants={staggerVariants} className="flex flex-col gap-4">
+                <button 
+                  onClick={() => setResourcesOpen(!resourcesOpen)}
+                  className="flex items-center justify-between w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm"
+                  aria-expanded={resourcesOpen}
+                >
+                  <span className="text-2xl font-bold text-[var(--color-charcoal)]">Resources</span>
+                  <motion.div animate={{ rotate: resourcesOpen ? 90 : 0 }}>
+                    <ChevronRight className="h-6 w-6 text-[var(--color-border-strong)]" />
+                  </motion.div>
+                </button>
+                <AnimatePresence>
+                  {resourcesOpen && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden flex flex-col gap-3 pl-4 border-l-2 border-[var(--color-border)]"
+                    >
+                      {resources.map((r) => (
+                        <Link key={r.href} href={r.href} onClick={() => setIsOpen(false)} className="text-[17px] text-[var(--color-text-secondary)] py-1 mt-2">
+                          {r.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
+              <motion.div variants={staggerVariants}>
+                <Link href="/about" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-[var(--color-charcoal)]">
+                  About
+                </Link>
+              </motion.div>
+
+              <motion.div variants={staggerVariants}>
+                <Link href="/contact" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-[var(--color-charcoal)]">
+                  Contact
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Bottom Actions Area */}
+            <motion.div variants={staggerVariants} className="p-6 bg-[var(--color-bg-secondary)] flex flex-col gap-4">
+              <div className="flex items-center justify-between mb-2">
+                <LanguageSwitcher />
+                <Link href="/payment" onClick={() => setIsOpen(false)} className="text-sm font-semibold text-[var(--color-text-secondary)] underline">
+                  Existing Client? Make a Payment
+                </Link>
+              </div>
+              <Button className="w-full h-14 text-lg" onClick={() => { setIsOpen(false); /* route to consult */ }}>
+                Book a Free Consultation
+              </Button>
+            </motion.div>
+
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
