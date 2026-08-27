@@ -15,7 +15,7 @@ export function AdminSupportProcessVisual() {
         duration,
         delay,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     }
   }

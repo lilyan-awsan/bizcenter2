@@ -15,7 +15,7 @@ export function ScopeVisual() {
         duration,
         delay,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     }
   }

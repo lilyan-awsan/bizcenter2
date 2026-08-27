@@ -15,7 +15,7 @@ export function StartupAudienceVisual() {
         duration,
         delay,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     }
   }
