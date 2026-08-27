@@ -5,10 +5,11 @@ import {
   Rocket, Calculator, ClipboardList, FileText, Globe,
   Store, BookOpen, FileCheck, Phone,
   Calendar, MessageSquare, ClipboardCheck, CheckCircle2,
-  MessageCircle, Scale, ShieldCheck, HelpCircle
+  MessageCircle, Scale, ShieldCheck, HelpCircle, Compass
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger"
+import { RevealOnScroll } from "@/components/motion/reveal-on-scroll"
 import { HeroVisual } from "@/components/ui/hero-visual"
 import { GuidanceVisual } from "@/components/ui/guidance-visual"
 import { ScopeVisual } from "@/components/ui/scope-visual"
@@ -432,32 +433,26 @@ export default function Home() {
         {/* Background Decorative Effects */}
         <div className="absolute inset-0 bg-radial-[at_50%_50%] from-[var(--color-primary-600)]/20 to-transparent to-70% rounded-full blur-3xl opacity-50 pointer-events-none" />
         
-        <StaggerContainer className="container relative z-10 mx-auto px-6 max-w-[900px] flex flex-col items-center">
-          <StaggerItem distance={12}>
-            <h2 className="mb-6 text-white text-4xl md:text-5xl">Ready to Take the Next Step?</h2>
-          </StaggerItem>
-          <StaggerItem distance={12}>
-            <p className="text-xl text-[var(--color-primary-100)] mb-10 max-w-[650px] mx-auto text-balance">
-              Schedule a free consultation today to discuss your business or administrative needs. We are here to help you move forward with clarity.
-            </p>
-          </StaggerItem>
-          <StaggerItem distance={8} className="w-full sm:w-auto">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-              <Button size="lg" className="w-full sm:w-auto px-10 bg-white text-[var(--color-primary-900)] hover:bg-[var(--color-offwhite)] group" asChild>
-                <Link href="/contact">
-                  Book a Free Consultation
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-[220ms] group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto px-10 border-white/30 text-white hover:bg-white/10 shadow-none" asChild>
-                <a href="tel:9012071660">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call (901) 207-1660
-                </a>
-              </Button>
-            </div>
-          </StaggerItem>
-        </StaggerContainer>
+        <RevealOnScroll animation="scale" className="container relative z-10 mx-auto px-6 max-w-[900px] flex flex-col items-center">
+          <h2 className="mb-6 text-white text-4xl md:text-5xl">Ready to Take the Next Step?</h2>
+          <p className="text-xl text-[var(--color-primary-100)] mb-10 max-w-[650px] mx-auto text-balance">
+            Schedule a free consultation today to discuss your business or administrative needs. We are here to help you move forward with clarity.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+            <Button size="lg" className="w-full sm:w-auto px-10 bg-white text-[var(--color-primary-900)] hover:bg-[var(--color-offwhite)] group" asChild>
+              <Link href="/contact">
+                Book a Free Consultation
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-[220ms] group-hover:translate-x-1" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto px-10 border-white/30 text-white hover:bg-white/10 shadow-none" asChild>
+              <a href="tel:9012071660">
+                <Phone className="w-4 h-4 mr-2" />
+                Call (901) 207-1660
+              </a>
+            </Button>
+          </div>
+        </RevealOnScroll>
       </section>
 
     </main>

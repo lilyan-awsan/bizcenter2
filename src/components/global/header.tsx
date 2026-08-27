@@ -2,8 +2,10 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { BookConsultationButton } from "@/components/ui/book-consultation-button"
 import { NavDropdown } from "./nav-dropdown"
 import { LanguageSwitcher } from "./language-switcher"
 import { MobileMenu } from "./mobile-menu"
@@ -26,6 +28,13 @@ const RESOURCES = [
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const { scrollY } = useScroll()
+  const pathname = usePathname()
+
+  const isActive = (path: string) => {
+    if (path === '/' && pathname === '/') return true
+    if (path !== '/' && pathname?.startsWith(path)) return true
+    return false
+  }
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20)
@@ -60,15 +69,19 @@ export function Header() {
 
         {/* CENTER: Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-          <Link href="/" className="text-[15px] font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2">
+          <Link href="/" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
             Home
           </Link>
-          <NavDropdown label="Services" items={SERVICES} />
-          <NavDropdown label="Resources" items={RESOURCES} />
-          <Link href="/about" className="text-[15px] font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2">
+          <div className={isActive('/services') ? 'text-[var(--color-primary-900)]' : ''}>
+            <NavDropdown label="Services" items={SERVICES} />
+          </div>
+          <div className={isActive('/resources') || isActive('/faq') ? 'text-[var(--color-primary-900)]' : ''}>
+            <NavDropdown label="Resources" items={RESOURCES} />
+          </div>
+          <Link href="/about" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/about') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
             About
           </Link>
-          <Link href="/contact" className="text-[15px] font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2">
+          <Link href="/contact" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/contact') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
             Contact
           </Link>
         </nav>
@@ -76,13 +89,12 @@ export function Header() {
         {/* RIGHT: Desktop Actions */}
         <div className="hidden md:flex items-center gap-6">
           <LanguageSwitcher className="hidden lg:flex" />
-          <Button size="sm" className="hidden lg:flex px-6 rounded-md shadow-none hover:shadow-sm" asChild>
-            <Link href="/contact">Book a Free Consultation</Link>
-          </Button>
-          {/* Tablet CTA (when space is slightly constrained) */}
-          <Button size="sm" className="lg:hidden px-4" asChild>
-            <Link href="/contact">Book Consultation</Link>
-          </Button>
+          <div className="hidden lg:block">
+            <BookConsultationButton size="sm" className="px-6 rounded-md shadow-none hover:shadow-sm" />
+          </div>
+          <div className="lg:hidden">
+            <BookConsultationButton size="sm" className="px-4 text-[13px]" label="Book Consultation" />
+          </div>
         </div>
 
         {/* RIGHT: Mobile Menu Trigger */}

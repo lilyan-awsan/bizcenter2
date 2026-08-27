@@ -19,10 +19,10 @@ const buttonVariants = cva(
         destructive: "bg-[var(--color-error)] text-white hover:bg-[#8f3232]",
       },
       size: {
-        default: "h-12 px-6 py-3",
-        sm: "h-9 rounded-md px-4 text-xs",
-        lg: "h-14 rounded-md px-8 text-base",
-        icon: "h-12 w-12",
+        default: "h-12 px-6 py-3 min-h-[44px] min-w-[44px]",
+        sm: "h-11 md:h-9 rounded-md px-4 text-xs min-h-[44px] min-w-[44px]",
+        lg: "h-14 rounded-md px-8 text-base min-h-[44px] min-w-[44px]",
+        icon: "h-12 w-12 min-h-[44px] min-w-[44px]",
       },
     },
     defaultVariants: {
@@ -46,9 +46,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     if (!props.disabled && !asChild) {
       return (
         <motion.button
-          whileHover={{ y: -1 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ y: -2, boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)" }}
+          whileTap={{ scale: 0.98, y: 0, boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)" }}
+          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
           className={cn(buttonVariants({ variant, size, className }))}
           ref={ref}
           {...props}

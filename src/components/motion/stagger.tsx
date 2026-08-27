@@ -48,9 +48,10 @@ export function StaggerContainer({
 interface StaggerItemProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   distance?: number
+  delay?: number
 }
 
-export function StaggerItem({ children, distance = 16, className, ...props }: StaggerItemProps) {
+export function StaggerItem({ children, distance = 16, delay, className, ...props }: StaggerItemProps) {
   const prefersReducedMotion = useReducedMotion()
   
   const variants = {

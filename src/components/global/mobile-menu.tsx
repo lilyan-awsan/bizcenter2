@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { BookConsultationButton } from "@/components/ui/book-consultation-button"
 import { LanguageSwitcher } from "./language-switcher"
 
 interface MobileMenuProps {
@@ -17,15 +17,22 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
   const [servicesOpen, setServicesOpen] = React.useState(false)
   const [resourcesOpen, setResourcesOpen] = React.useState(false)
 
-  // Prevent scroll when open
+  // Prevent scroll and listen to escape when open
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"
     } else {
       document.body.style.overflow = "unset"
     }
+    
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false)
+    }
+    window.addEventListener('keydown', handleEsc)
+    
     return () => {
       document.body.style.overflow = "unset"
+      window.removeEventListener('keydown', handleEsc)
     }
   }, [isOpen])
 
@@ -174,9 +181,9 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
                   Existing Client? Make a Payment
                 </Link>
               </div>
-              <Button className="w-full h-14 text-lg" onClick={() => { setIsOpen(false); /* route to consult */ }}>
-                Book a Free Consultation
-              </Button>
+              <div onClick={() => setIsOpen(false)} className="w-full">
+                <BookConsultationButton className="w-full h-14 text-lg" />
+              </div>
             </motion.div>
 
           </motion.div>
