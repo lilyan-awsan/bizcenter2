@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -48,10 +50,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <motion.button
           whileHover={{ y: -2, boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)" }}
           whileTap={{ scale: 0.98, y: 0, boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)" }}
-          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] as any }}
           className={cn(buttonVariants({ variant, size, className }))}
-          ref={ref}
-          {...props}
+          ref={ref as any}
+          {...(props as any)}
         />
       )
     }

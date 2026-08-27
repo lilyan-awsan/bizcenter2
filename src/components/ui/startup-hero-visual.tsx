@@ -7,7 +7,7 @@ import { FileCheck, Laptop, Building2, BriefcaseBusiness } from "lucide-react"
 export function StartupHeroVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number, yDist: number = -8) => {
+  const floatAnimation = (duration: number, delay: number, yDist: number = -8): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, yDist, 0],
@@ -40,7 +40,7 @@ export function StartupHeroVisual() {
         className="absolute bottom-[25%] left-1/2 -translate-x-1/2 w-[220px] z-20 flex flex-col items-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(12, 0, -4)} className="w-full flex flex-col items-center">
           {/* Laptop Screen */}
@@ -65,7 +65,7 @@ export function StartupHeroVisual() {
         className="absolute top-[15%] left-[5%] w-[150px] rounded-xl bg-white shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-4 z-10"
         initial={{ opacity: 0, scale: 0.9, x: -20 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(10, 0.5)} className="flex flex-col gap-2">
           <div className="flex items-center gap-2 mb-1">
@@ -82,7 +82,7 @@ export function StartupHeroVisual() {
         className="absolute top-[25%] right-[5%] w-[160px] rounded-xl bg-[var(--color-primary-900)] text-white shadow-[var(--shadow-xl)] border border-[var(--color-border-dark)] p-4 z-15"
         initial={{ opacity: 0, scale: 0.9, x: 20 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(13, 1)} className="flex flex-col gap-3">
           <div className="flex items-center gap-2">

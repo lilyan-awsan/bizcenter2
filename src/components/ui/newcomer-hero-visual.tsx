@@ -7,7 +7,7 @@ import { Map, Compass, Home, FolderOpen, Users, Navigation } from "lucide-react"
 export function NewcomerHeroVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number, yDist: number = -8) => {
+  const floatAnimation = (duration: number, delay: number, yDist: number = -8): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, yDist, 0],
@@ -40,7 +40,7 @@ export function NewcomerHeroVisual() {
         className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[320px] z-20 flex flex-col items-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(14, 0, -5)} className="w-full flex flex-col items-center">
           <div className="w-[300px] h-[200px] bg-white rounded-2xl border-4 border-[var(--color-border-strong)] p-4 shadow-xl flex flex-col gap-4 relative overflow-hidden">
@@ -85,7 +85,7 @@ export function NewcomerHeroVisual() {
         className="absolute top-[8%] right-[8%] w-[150px] rounded-2xl bg-white shadow-[var(--shadow-xl)] border border-[var(--color-border)] p-4 z-30"
         initial={{ opacity: 0, scale: 0.9, x: 20, rotate: 5 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: 5 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(11, 0.5, -4)} className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
@@ -107,7 +107,7 @@ export function NewcomerHeroVisual() {
         className="absolute top-[18%] left-[5%] w-[160px] rounded-xl bg-[var(--color-primary-900)] text-white shadow-[var(--shadow-lg)] border border-[var(--color-border-dark)] p-4 z-15"
         initial={{ opacity: 0, scale: 0.9, x: -20, rotate: -4 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: -4 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(13, 1)} className="flex flex-col gap-3 items-center text-center">
           <div className="p-2 rounded-full bg-white/10">
@@ -125,7 +125,7 @@ export function NewcomerHeroVisual() {
         className="absolute bottom-[10%] left-[12%] w-[120px] rounded-xl bg-white shadow-[var(--shadow-md)] border border-[var(--color-border)] p-3 z-30"
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.6 }}
       >
         <motion.div animate={floatAnimation(12, 2, -6)} className="flex flex-col gap-3 items-center">
           <FolderOpen className="w-6 h-6 text-[var(--color-primary-600)]" />

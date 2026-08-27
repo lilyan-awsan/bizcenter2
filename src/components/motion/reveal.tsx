@@ -23,7 +23,7 @@ export function FadeIn({ children, delay = 0, once = true, className, ...props }
       viewport={{ once, margin: "-15%" }}
       transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1], delay: prefersReducedMotion ? 0 : delay }}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </motion.div>
@@ -39,9 +39,9 @@ export function RevealUp({ children, delay = 0, distance = 16, once = true, clas
       initial={{ opacity: 0, y: prefersReducedMotion ? 0 : distance }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, margin: "-15%" }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: prefersReducedMotion ? 0 : delay }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as any, delay: prefersReducedMotion ? 0 : delay }}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </motion.div>
@@ -57,9 +57,9 @@ export function ScaleIn({ children, delay = 0, once = true, className, ...props 
       initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.98 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once, margin: "-15%" }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: prefersReducedMotion ? 0 : delay }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as any, delay: prefersReducedMotion ? 0 : delay }}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </motion.div>

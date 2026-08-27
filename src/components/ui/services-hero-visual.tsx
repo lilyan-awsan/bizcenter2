@@ -7,7 +7,7 @@ import { FolderOpen, CalendarCheck, TrendingUp, Files } from "lucide-react"
 export function ServicesHeroVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number) => {
+  const floatAnimation = (duration: number, delay: number): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, -8, 0],
@@ -58,7 +58,7 @@ export function ServicesHeroVisual() {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-56 rounded-xl bg-white shadow-[var(--shadow-xl)] border border-[var(--color-border)] p-5 z-10 flex flex-col gap-4"
         initial={{ opacity: 0, y: 20, x: "-50%" }}
         animate={{ opacity: 1, y: "-50%", x: "-50%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
       >
         <motion.div animate={floatAnimation(12, 0)} className="w-full h-full flex flex-col gap-3">
           <div className="flex items-center gap-3 border-b border-[var(--color-border)] pb-3">
@@ -89,7 +89,7 @@ export function ServicesHeroVisual() {
         className="absolute top-[18%] left-[12%] w-[150px] rounded-xl bg-white/95 glass shadow-[var(--shadow-md)] border border-[var(--color-border)] p-4"
         initial={{ opacity: 0, scale: 0.9, x: -10 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(10, 0.5)} className="flex flex-col items-center gap-2">
           <CalendarCheck className="w-6 h-6 text-[var(--color-accent-600)] mb-1" />
@@ -103,7 +103,7 @@ export function ServicesHeroVisual() {
         className="absolute top-[22%] right-[8%] w-[160px] rounded-xl bg-[var(--color-primary-900)] text-white shadow-[var(--shadow-lg)] border border-[var(--color-border-dark)] p-4"
         initial={{ opacity: 0, scale: 0.9, x: 10 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(14, 1)} className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
@@ -123,7 +123,7 @@ export function ServicesHeroVisual() {
         className="absolute bottom-[20%] left-[8%] w-[140px] rounded-xl bg-white shadow-[var(--shadow-md)] border border-[var(--color-border)] p-4"
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(11, 2)} className="flex flex-col items-center gap-2">
           <div className="p-2 rounded-full bg-[var(--color-bg-secondary)] mb-1">

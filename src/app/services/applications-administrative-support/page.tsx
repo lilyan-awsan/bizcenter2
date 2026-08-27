@@ -6,7 +6,7 @@ import {
   FolderSearch, ClipboardCheck, MessageSquare, Files,
   FolderTree, PenLine, FileText, Send, Building2,
   Clock, Download, MapPin, Info, Users, Mail,
-  ListTodo, Briefcase, FileArchive
+  ListTodo, Briefcase, FileArchive, FileCheck
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger"

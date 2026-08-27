@@ -32,7 +32,7 @@ export function ContactHeroVisual() {
         className="absolute top-[10%] left-[10%] w-[260px] z-20"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(15, 0, -4)} className="w-full">
           <div className="bg-white rounded-2xl border border-[var(--color-border-strong)] shadow-xl overflow-hidden">
@@ -70,7 +70,7 @@ export function ContactHeroVisual() {
         className="absolute top-[15%] right-[5%] w-[180px] rounded-2xl bg-[var(--color-primary-900)] shadow-[var(--shadow-xl)] border border-[var(--color-border-dark)] p-4 z-30"
         initial={{ opacity: 0, scale: 0.9, x: 20, rotate: 4 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: 4 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(12, 1, -6)} className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
@@ -90,7 +90,7 @@ export function ContactHeroVisual() {
         className="absolute bottom-[20%] left-[5%] w-[140px] rounded-xl bg-white shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-3 z-15"
         initial={{ opacity: 0, scale: 0.9, x: -20, rotate: -3 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: -3 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(14, 2, -4)} className="flex flex-col gap-3 items-center text-center">
           <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
@@ -108,7 +108,7 @@ export function ContactHeroVisual() {
         className="absolute bottom-[10%] right-[15%] w-[150px] rounded-xl bg-white shadow-[var(--shadow-md)] border border-[var(--color-border-strong)] p-4 z-30"
         initial={{ opacity: 0, scale: 0.9, y: 20, rotate: 2 }}
         animate={{ opacity: 1, scale: 1, y: 0, rotate: 2 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.6 }}
       >
         <motion.div animate={floatAnimation(11, 0.5, -5)} className="flex items-center gap-3 w-full">
           <div className="p-2 rounded-lg bg-[var(--color-accent-50)]">

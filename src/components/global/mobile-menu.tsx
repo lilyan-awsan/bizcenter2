@@ -45,7 +45,7 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
       x: 0, 
       transition: { 
         duration: 0.4, 
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as any,
         staggerChildren: prefersReducedMotion ? 0 : 0.04,
         delayChildren: prefersReducedMotion ? 0 : 0.1
       } 
@@ -54,7 +54,7 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
 
   const staggerVariants = {
     closed: { opacity: 0, y: prefersReducedMotion ? 0 : 16 },
-    open: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+    open: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] as any } },
   }
 
   return (

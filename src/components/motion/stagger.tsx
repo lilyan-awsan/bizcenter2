@@ -38,7 +38,7 @@ export function StaggerContainer({
       whileInView="show"
       viewport={{ once, margin: "-15%" }}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </motion.div>
@@ -46,7 +46,7 @@ export function StaggerContainer({
 }
 
 interface StaggerItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode
+  children?: React.ReactNode
   distance?: number
   delay?: number
 }
@@ -59,7 +59,7 @@ export function StaggerItem({ children, distance = 16, delay, className, ...prop
     show: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } 
+      transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as any } 
     }
   }
 
@@ -67,7 +67,7 @@ export function StaggerItem({ children, distance = 16, delay, className, ...prop
     <motion.div
       variants={variants}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </motion.div>

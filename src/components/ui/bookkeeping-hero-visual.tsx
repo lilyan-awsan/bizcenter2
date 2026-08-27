@@ -7,7 +7,7 @@ import { Calculator, ReceiptText, BarChart3, PieChart } from "lucide-react"
 export function BookkeepingHeroVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number, yDist: number = -8) => {
+  const floatAnimation = (duration: number, delay: number, yDist: number = -8): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, yDist, 0],
@@ -40,7 +40,7 @@ export function BookkeepingHeroVisual() {
         className="absolute bottom-[15%] left-1/2 -translate-x-1/2 w-[280px] z-20 flex flex-col items-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(14, 0, -5)} className="w-full flex flex-col items-center">
           <div className="w-[260px] h-[180px] bg-white rounded-xl border-4 border-[var(--color-border-strong)] p-3 shadow-lg flex flex-col gap-3 relative">
@@ -82,7 +82,7 @@ export function BookkeepingHeroVisual() {
         className="absolute top-[10%] left-[5%] w-[120px] rounded-2xl bg-white shadow-[var(--shadow-xl)] border border-[var(--color-border)] p-3 z-30"
         initial={{ opacity: 0, scale: 0.9, x: -20, rotate: -5 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: -5 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(10, 0.5, -4)} className="flex flex-col gap-2 items-center">
           <div className="w-full h-8 bg-[var(--color-bg-secondary)] rounded-lg flex items-center justify-end px-2 mb-1 border border-[var(--color-border-hover)]">
@@ -101,7 +101,7 @@ export function BookkeepingHeroVisual() {
         className="absolute top-[20%] right-[2%] w-[130px] rounded-xl bg-white/95 glass shadow-[var(--shadow-md)] border border-[var(--color-border)] p-4 z-15"
         initial={{ opacity: 0, scale: 0.9, x: 20, rotate: 6 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: 6 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(11, 1)} className="flex flex-col gap-2">
           <div className="flex justify-center mb-1">
@@ -122,7 +122,7 @@ export function BookkeepingHeroVisual() {
         className="absolute bottom-[5%] left-[25%] w-[140px] rounded-xl bg-[var(--color-primary-900)] text-white shadow-[var(--shadow-lg)] border border-[var(--color-border-dark)] p-4 z-30"
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.6 }}
       >
         <motion.div animate={floatAnimation(13, 2, -6)} className="flex flex-col items-center gap-3">
           <PieChart className="w-8 h-8 text-[var(--color-accent-400)]" />

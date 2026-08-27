@@ -7,7 +7,7 @@ import { Users, UserPlus, Briefcase, Rocket } from "lucide-react"
 export function WhoWeHelpVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number) => {
+  const floatAnimation = (duration: number, delay: number): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, -6, 0],
@@ -80,7 +80,7 @@ export function WhoWeHelpVisual() {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.1 }}
       >
         <motion.div animate={floatAnimation(10, 0)} className="flex flex-col items-center text-center gap-2">
           <div className="p-2 rounded-full bg-[var(--color-primary-50)]">
@@ -97,7 +97,7 @@ export function WhoWeHelpVisual() {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(13, 1)} className="flex flex-col items-center text-center gap-3">
           <div className="p-2.5 rounded-xl bg-white/10">
@@ -118,7 +118,7 @@ export function WhoWeHelpVisual() {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(9, 0.5)} className="flex flex-col items-center text-center gap-2">
           <div className="p-2 rounded-full bg-[var(--color-accent-50)]">
@@ -134,7 +134,7 @@ export function WhoWeHelpVisual() {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.7 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.7 }}
       >
         <motion.div animate={floatAnimation(11, 2)} className="flex flex-col items-center text-center gap-2">
           <Users className="w-5 h-5 text-[var(--color-charcoal)] mb-1" />

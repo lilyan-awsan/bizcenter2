@@ -7,7 +7,7 @@ import { CheckSquare, FolderClosed, TrendingUp, Calendar as CalendarIcon, Layout
 export function HeroVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number) => {
+  const floatAnimation = (duration: number, delay: number): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, -6, 0],
@@ -54,7 +54,7 @@ export function HeroVisual() {
         className="absolute top-[10%] right-[5%] w-[240px] rounded-xl bg-white/90 glass shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-4 flex flex-col gap-3"
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.2 }}
       >
         <motion.div animate={floatAnimation(10, 0)} className="w-full h-full flex flex-col gap-3">
           <div className="flex items-center gap-2 mb-1">
@@ -77,7 +77,7 @@ export function HeroVisual() {
         className="absolute bottom-[15%] left-[5%] w-[200px] rounded-xl bg-white/90 glass shadow-[var(--shadow-md)] border border-[var(--color-border)] p-4 flex flex-col gap-3"
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(12, 1)} className="w-full h-full flex flex-col gap-3">
           <div className="flex items-center gap-2 mb-2">
@@ -100,7 +100,7 @@ export function HeroVisual() {
         className="absolute top-[30%] left-[2%] w-[160px] rounded-xl bg-white/95 shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-4 flex flex-col items-center justify-center gap-3"
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(9, 2)} className="w-full h-full flex flex-col items-center gap-2">
           <div className="p-3 rounded-full bg-[var(--color-bg-secondary)] mb-1">
@@ -116,7 +116,7 @@ export function HeroVisual() {
         className="absolute bottom-[25%] right-[10%] w-[180px] rounded-xl bg-[var(--color-primary-900)] text-white shadow-[var(--shadow-xl)] border border-[var(--color-border-dark)] p-4 flex flex-col gap-2"
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(14, 0.5)} className="w-full h-full flex flex-col gap-2">
           <div className="flex items-center justify-between">

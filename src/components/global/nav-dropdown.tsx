@@ -78,7 +78,7 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
             initial={{ opacity: 0, y: 8, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.98 }}
-            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] as any }}
             className="absolute top-full left-0 mt-2 w-72 rounded-[var(--radius-lg)] border bg-white shadow-[var(--shadow-lg)] overflow-hidden z-50"
           >
             <div className="p-2 flex flex-col gap-1">

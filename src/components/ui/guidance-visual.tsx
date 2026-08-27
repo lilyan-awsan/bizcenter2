@@ -7,7 +7,7 @@ import { Map, Compass, Route, ListTodo } from "lucide-react"
 export function GuidanceVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number) => {
+  const floatAnimation = (duration: number, delay: number): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, -6, 0],
@@ -62,7 +62,7 @@ export function GuidanceVisual() {
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.1 }}
       >
         <motion.div animate={floatAnimation(11, 0)} className="flex flex-col gap-3">
           <div className="flex items-center gap-3">
@@ -82,7 +82,7 @@ export function GuidanceVisual() {
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(14, 1)} className="flex flex-col items-center gap-3">
           <div className="p-2 rounded-lg bg-white/10">
@@ -102,7 +102,7 @@ export function GuidanceVisual() {
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(10, 0.5)} className="flex flex-col gap-3">
           <div className="flex items-center gap-2 mb-1">

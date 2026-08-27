@@ -7,7 +7,7 @@ import { MessageCircleQuestion, Search, FileText, CheckSquare, HelpCircle, Chevr
 export function FaqHeroVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number, yDist: number = -8) => {
+  const floatAnimation = (duration: number, delay: number, yDist: number = -8): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, yDist, 0],
@@ -32,7 +32,7 @@ export function FaqHeroVisual() {
         className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[340px] z-20 flex flex-col items-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(15, 0, -4)} className="w-full flex flex-col items-center">
           <div className="w-full bg-white rounded-2xl border-4 border-[var(--color-border-strong)] p-4 shadow-xl flex flex-col gap-4 relative overflow-hidden">
@@ -70,7 +70,7 @@ export function FaqHeroVisual() {
         className="absolute top-[8%] left-[5%] w-[160px] rounded-2xl rounded-bl-sm bg-[var(--color-primary-900)] shadow-[var(--shadow-xl)] border border-[var(--color-border-dark)] p-4 z-30"
         initial={{ opacity: 0, scale: 0.9, x: -20, rotate: -6 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: -6 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(11, 0.5, -4)} className="flex flex-col gap-3 items-center">
           <MessageCircleQuestion className="w-8 h-8 text-[var(--color-accent-400)]" />
@@ -86,7 +86,7 @@ export function FaqHeroVisual() {
         className="absolute top-[18%] right-[2%] w-[150px] rounded-xl bg-white shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-4 z-15"
         initial={{ opacity: 0, scale: 0.9, x: 20, rotate: 5 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: 5 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(13, 1)} className="flex flex-col gap-3">
           <div className="w-8 h-8 rounded-lg bg-[var(--color-bg-secondary)] flex items-center justify-center">
@@ -105,7 +105,7 @@ export function FaqHeroVisual() {
         className="absolute bottom-[20%] left-[2%] w-[130px] rounded-xl bg-white shadow-[var(--shadow-md)] border border-[var(--color-border)] p-3 z-30 flex gap-2 items-center"
         initial={{ opacity: 0, scale: 0.9, y: 20, rotate: 2 }}
         animate={{ opacity: 1, scale: 1, y: 0, rotate: 2 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.6 }}
       >
         <motion.div animate={floatAnimation(12, 2, -6)} className="flex items-center gap-3 w-full">
           <div className="p-2 rounded-full bg-[var(--color-accent-50)]">

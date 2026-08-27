@@ -37,7 +37,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
       <section
         ref={ref}
         className={cn(sectionVariants({ theme, container, className }))}
-        {...props}
+        {...(props as any)}
       >
         <div 
           className={cn(

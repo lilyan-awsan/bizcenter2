@@ -40,7 +40,7 @@ export function CookieNotice() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as any }}
           className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 pointer-events-none"
         >
           <div className="bg-[var(--color-primary-900)] text-white rounded-2xl p-6 md:p-8 max-w-[1000px] mx-auto shadow-2xl border border-[var(--color-border-dark)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pointer-events-auto">

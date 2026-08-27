@@ -134,7 +134,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as any }}
               className="bg-white w-full max-w-[600px] max-h-[90vh] overflow-y-auto rounded-3xl shadow-[var(--shadow-2xl)] pointer-events-auto flex flex-col relative no-scrollbar"
               role="dialog"
               aria-modal="true"

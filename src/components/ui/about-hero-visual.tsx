@@ -32,7 +32,7 @@ export function AboutHeroVisual() {
         className="absolute top-[15%] left-[20%] w-[220px] z-20"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.3 }}
       >
         <motion.div animate={floatAnimation(15, 0, -5)} className="w-full">
           <div className="bg-white rounded-[24px] border border-[var(--color-border-strong)] shadow-[var(--shadow-2xl)] p-6 flex flex-col gap-5">
@@ -57,7 +57,7 @@ export function AboutHeroVisual() {
         className="absolute top-[10%] right-[10%] w-[160px] rounded-[20px] bg-[var(--color-primary-900)] shadow-[var(--shadow-xl)] border border-[var(--color-border-dark)] p-4 z-30"
         initial={{ opacity: 0, scale: 0.9, x: 20, rotate: 4 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: 4 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(12, 1, -6)} className="flex flex-col items-center gap-3 text-center">
           <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
@@ -75,7 +75,7 @@ export function AboutHeroVisual() {
         className="absolute bottom-[25%] left-[5%] w-[150px] rounded-[20px] bg-white shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-4 z-15"
         initial={{ opacity: 0, scale: 0.9, x: -20, rotate: -3 }}
         animate={{ opacity: 1, scale: 1, x: 0, rotate: -3 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.5 }}
       >
         <motion.div animate={floatAnimation(14, 2, -4)} className="flex flex-col gap-3">
           <div className="w-10 h-10 rounded-[12px] bg-[var(--color-accent-50)] flex items-center justify-center">
@@ -94,7 +94,7 @@ export function AboutHeroVisual() {
         className="absolute bottom-[10%] right-[20%] w-[180px] rounded-[20px] bg-white shadow-[var(--shadow-lg)] border border-[var(--color-border-strong)] p-4 z-30"
         initial={{ opacity: 0, scale: 0.9, y: 20, rotate: -2 }}
         animate={{ opacity: 1, scale: 1, y: 0, rotate: -2 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.6 }}
       >
         <motion.div animate={floatAnimation(11, 0.5, -5)} className="flex items-center gap-3">
           <div className="flex -space-x-2">

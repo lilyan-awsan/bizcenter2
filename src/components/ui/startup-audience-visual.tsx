@@ -68,7 +68,7 @@ export function StartupAudienceVisual() {
         initial={{ opacity: 0, scale: 0.9, x: 20 }}
         whileInView={{ opacity: 1, scale: 1, x: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.2 }}
       >
         <motion.div animate={floatAnimation(10, 0)} className="flex flex-col items-center gap-2">
           <div className="p-2 rounded-full bg-white/10">
@@ -84,7 +84,7 @@ export function StartupAudienceVisual() {
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(12, 1)} className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
@@ -105,7 +105,7 @@ export function StartupAudienceVisual() {
         initial={{ opacity: 0, scale: 0.9, x: -20 }}
         whileInView={{ opacity: 1, scale: 1, x: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.6 }}
       >
         <motion.div animate={floatAnimation(11, 0.5)} className="flex flex-col items-center gap-3">
           <Users className="w-6 h-6 text-[var(--color-charcoal)]" />

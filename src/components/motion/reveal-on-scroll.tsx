@@ -29,7 +29,7 @@ export function RevealOnScroll({
     if (prefersReducedMotion) {
       return {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] } }
+        visible: { opacity: 1, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] as any } }
       }
     }
 
@@ -37,28 +37,28 @@ export function RevealOnScroll({
       case "fade-up":
         return {
           hidden: { opacity: 0, y: 30 },
-          visible: { opacity: 1, y: 0, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] } }
+          visible: { opacity: 1, y: 0, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] as any } }
         }
       case "fade-left":
         return {
           hidden: { opacity: 0, x: 30 },
-          visible: { opacity: 1, x: 0, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] } }
+          visible: { opacity: 1, x: 0, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] as any } }
         }
       case "fade-right":
         return {
           hidden: { opacity: 0, x: -30 },
-          visible: { opacity: 1, x: 0, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] } }
+          visible: { opacity: 1, x: 0, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] as any } }
         }
       case "scale":
         return {
           hidden: { opacity: 0, scale: 0.95 },
-          visible: { opacity: 1, scale: 1, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] } }
+          visible: { opacity: 1, scale: 1, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] as any } }
         }
       case "fade":
       default:
         return {
           hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] } }
+          visible: { opacity: 1, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] as any } }
         }
     }
   }

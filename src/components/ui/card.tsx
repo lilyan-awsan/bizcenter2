@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
@@ -10,7 +12,7 @@ const Card = React.forwardRef<
   const motionProps = interactive 
     ? {
         whileHover: { y: -4, boxShadow: "var(--shadow-md)" },
-        transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] }
+        transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] as any }
       } 
     : {}
 
@@ -21,8 +23,8 @@ const Card = React.forwardRef<
         "rounded-[var(--radius-lg)] border bg-[var(--color-surface)] text-[var(--color-foreground)] shadow-[var(--shadow-xs)]",
         className
       )}
-      {...motionProps}
-      {...props}
+      {...(motionProps as any)}
+      {...(props as any)}
     />
   )
 })

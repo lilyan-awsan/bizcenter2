@@ -7,7 +7,7 @@ import { ShieldCheck, Scale, FileText, CheckCircle2 } from "lucide-react"
 export function ScopeVisual() {
   const prefersReducedMotion = useReducedMotion()
 
-  const floatAnimation = (duration: number, delay: number) => {
+  const floatAnimation = (duration: number, delay: number): any => {
     if (prefersReducedMotion) return {}
     return {
       y: [0, -5, 0],
@@ -68,7 +68,7 @@ export function ScopeVisual() {
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.2 }}
       >
         <motion.div animate={floatAnimation(9, 0)} className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
@@ -88,7 +88,7 @@ export function ScopeVisual() {
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.4 }}
       >
         <motion.div animate={floatAnimation(11, 1)} className="flex flex-col items-center gap-3">
           <Scale className="w-6 h-6 text-[var(--color-accent-400)]" />
@@ -102,7 +102,7 @@ export function ScopeVisual() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-15%" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any, delay: 0.6 }}
       >
         <motion.div animate={floatAnimation(13, 0.5)} className="flex flex-col gap-2">
           <div className="flex items-center gap-2 mb-1">
