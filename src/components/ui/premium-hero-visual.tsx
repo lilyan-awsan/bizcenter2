@@ -4,7 +4,7 @@ import * as React from "react"
 import { motion, useReducedMotion, useMotionValue, useSpring } from "framer-motion"
 import { ClipboardList, Rocket, FileText, CheckCircle2, FileCheck, ArrowRight, BookOpen, Clock, Calendar } from "lucide-react"
 
-export function PremiumHeroVisual() {
+export function PremiumHeroVisual({ baseDelay = 0 }: { baseDelay?: number }) {
   const prefersReducedMotion = useReducedMotion()
   
   // Mouse tracking for parallax
@@ -81,7 +81,7 @@ export function PremiumHeroVisual() {
         className="absolute top-[15%] left-[25%] w-[120px] rounded-xl bg-white/70 glass border border-white/50 p-4 shadow-sm pointer-events-none"
         initial={{ opacity: 0, scale: 0.8, x: -50, y: 50, rotate: -10 }}
         animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
-        transition={{ duration: 1.2, delay: 1.7, ease: [0.22, 1, 0.36, 1] as any }}
+        transition={{ duration: 1.2, delay: baseDelay + 1.7, ease: [0.22, 1, 0.36, 1] as any }}
         style={{ x: parallaxX }} // Depth multiplier 1
       >
         <motion.div animate={floatBack(0)}>
@@ -99,7 +99,7 @@ export function PremiumHeroVisual() {
         className="absolute top-[30%] right-[10%] w-[140px] rounded-xl bg-white/70 glass border border-white/50 p-4 shadow-sm pointer-events-none"
         initial={{ opacity: 0, scale: 0.8, x: 50, y: -50, rotate: 10 }}
         animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
-        transition={{ duration: 1.2, delay: 1.8, ease: [0.22, 1, 0.36, 1] as any }}
+        transition={{ duration: 1.2, delay: baseDelay + 1.8, ease: [0.22, 1, 0.36, 1] as any }}
         style={{ x: parallaxX }}
       >
         <motion.div animate={floatBack(2)}>
@@ -119,7 +119,7 @@ export function PremiumHeroVisual() {
         className="absolute top-[20%] right-[25%] w-[220px] rounded-[16px] bg-white shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-5 cursor-default hover:shadow-[var(--shadow-xl)] transition-shadow"
         initial={{ opacity: 0, scale: 0.9, x: 40, y: 20 }}
         animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-        transition={{ duration: 1, delay: 2.0, type: "spring", stiffness: 100, damping: 20 }}
+        transition={{ duration: 1, delay: baseDelay + 2.0, type: "spring", stiffness: 100, damping: 20 }}
         style={{ x: useSpring(useMotionValue(mouseX.get() * -8), springConfig), y: useSpring(useMotionValue(mouseY.get() * -8), springConfig) }}
       >
         <motion.div animate={floatMiddle(1)}>
@@ -142,7 +142,7 @@ export function PremiumHeroVisual() {
                 className="h-full bg-[var(--color-primary-500)] rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: "75%" }}
-                transition={{ duration: 1.5, delay: 2.8, ease: "easeOut" }}
+                transition={{ duration: 1.5, delay: baseDelay + 2.8, ease: "easeOut" }}
               />
             </div>
           </div>
@@ -153,7 +153,7 @@ export function PremiumHeroVisual() {
         className="absolute top-[45%] left-[5%] w-[240px] rounded-[16px] bg-white shadow-[var(--shadow-xl)] border border-[var(--color-border)] p-5 z-20 cursor-default hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] transition-shadow"
         initial={{ opacity: 0, scale: 0.9, x: -40, y: 20 }}
         animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-        transition={{ duration: 1, delay: 2.2, type: "spring", stiffness: 100, damping: 20 }}
+        transition={{ duration: 1, delay: baseDelay + 2.2, type: "spring", stiffness: 100, damping: 20 }}
         style={{ x: useSpring(useMotionValue(mouseX.get() * 12), springConfig), y: useSpring(useMotionValue(mouseY.get() * 12), springConfig) }}
       >
         <motion.div animate={floatMiddle(2.5)}>
@@ -188,7 +188,7 @@ export function PremiumHeroVisual() {
         className="absolute bottom-[20%] right-[15%] w-[180px] rounded-[16px] bg-[var(--color-primary-900)] text-white shadow-[var(--shadow-xl)] p-4 z-30 cursor-default"
         initial={{ opacity: 0, scale: 0.8, y: 50 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 2.4, type: "spring", stiffness: 120, damping: 20 }}
+        transition={{ duration: 0.8, delay: baseDelay + 2.4, type: "spring", stiffness: 120, damping: 20 }}
         style={{ x: useSpring(useMotionValue(mouseX.get() * -15), springConfig), y: useSpring(useMotionValue(mouseY.get() * -15), springConfig) }}
       >
         <motion.div animate={floatFront(1.5)} className="flex items-start gap-3">
@@ -210,7 +210,7 @@ export function PremiumHeroVisual() {
         className="absolute top-[10%] left-[50%] px-3 py-1.5 rounded-full bg-white shadow-md border border-[var(--color-border)] flex items-center gap-2 z-40 pointer-events-none"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 2.6, type: "spring" }}
+        transition={{ duration: 0.5, delay: baseDelay + 2.6, type: "spring" }}
       >
         <motion.div animate={floatFront(0.5)}>
           <FileCheck className="w-3.5 h-3.5 text-[var(--color-success)]" />
@@ -222,7 +222,7 @@ export function PremiumHeroVisual() {
         className="absolute bottom-[10%] left-[30%] px-3 py-1.5 rounded-full bg-white shadow-md border border-[var(--color-border)] flex items-center gap-2 z-40 pointer-events-none"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 2.7, type: "spring" }}
+        transition={{ duration: 0.5, delay: baseDelay + 2.7, type: "spring" }}
       >
         <motion.div animate={floatFront(2.5)}>
           <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-accent-600)]" />

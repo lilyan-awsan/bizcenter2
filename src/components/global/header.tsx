@@ -59,10 +59,11 @@ export function Header() {
           aria-label="THE CENTER Home"
         >
           <motion.div 
+            layoutId="global-logo"
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 200, damping: 20 }}
-            className="w-8 h-8 rounded bg-[var(--color-primary-900)] flex items-center justify-center shrink-0 relative overflow-hidden shadow-sm"
+            className="w-8 h-8 rounded bg-[var(--color-primary-900)] flex items-center justify-center shrink-0 relative overflow-hidden shadow-sm z-50"
           >
             {/* Fallback to SVG if /logo.png is not found */}
             <img 

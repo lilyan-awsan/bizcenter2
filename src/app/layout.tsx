@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { ConsultationProvider } from "@/components/providers/consultation-provider"
+import { SplashProvider } from "@/components/providers/splash-provider"
 import { CookieNotice } from "@/components/ui/cookie-notice"
 import { seoConfig } from "@/lib/seoConfig"
 import "./globals.css";
@@ -55,11 +56,13 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-[var(--color-primary-900)] focus:font-semibold">
           Skip to main content
         </a>
-        <ConsultationProvider>
-          <PageShell>
-            {children}
-          </PageShell>
-        </ConsultationProvider>
+        <SplashProvider>
+          <ConsultationProvider>
+            <PageShell>
+              {children}
+            </PageShell>
+          </ConsultationProvider>
+        </SplashProvider>
         <CookieNotice />
       </body>
     </html>

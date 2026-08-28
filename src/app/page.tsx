@@ -16,8 +16,12 @@ import { PremiumHeroVisual } from "@/components/ui/premium-hero-visual"
 import { PremiumServiceCard } from "@/components/ui/premium-service-card"
 import { AnimatedTimeline } from "@/components/ui/animated-timeline"
 import { AmbientBackground } from "@/components/ui/ambient-background"
+import { useSplash } from "@/components/providers/splash-provider"
 
 export default function Home() {
+  const { isFirstVisit } = useSplash()
+  const baseDelay = isFirstVisit ? 3.0 : 0
+  
   return (
     <main className="flex flex-col w-full bg-[#F8F7F4] overflow-hidden">
       
@@ -33,7 +37,7 @@ export default function Home() {
           className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--color-accent-400)] to-transparent opacity-[0.03] mix-blend-overlay pointer-events-none z-30 w-[200%]"
           initial={{ x: "-100%" }}
           animate={{ x: "50%" }}
-          transition={{ duration: 2, delay: 0.2, ease: "easeInOut" }}
+          transition={{ duration: 2, delay: baseDelay + 0.2, ease: "easeInOut" }}
         />
 
         <section className="relative flex-1 flex flex-col justify-center py-20 z-10">
@@ -45,7 +49,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.8, delay: baseDelay + 0.9, ease: [0.22, 1, 0.36, 1] }}
                 className="mb-8"
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 border border-white/40 shadow-sm glass">
@@ -60,17 +64,17 @@ export default function Home() {
                 <motion.h1 
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.8, delay: baseDelay + 1.0, ease: [0.22, 1, 0.36, 1] }}
                   className="text-[52px] lg:text-[64px] leading-[1.1] tracking-tight"
                 >
                   <span className="text-[var(--color-charcoal)] block overflow-hidden">
-                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 1, 0.36, 1] }} className="block">Professional Support.</motion.span>
+                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: baseDelay + 1.0, ease: [0.22, 1, 0.36, 1] }} className="block">Professional Support.</motion.span>
                   </span>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-accent-600)] block overflow-hidden pb-2">
-                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }} className="block">Clear Guidance.</motion.span>
+                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: baseDelay + 1.1, ease: [0.22, 1, 0.36, 1] }} className="block">Clear Guidance.</motion.span>
                   </span>
                   <span className="text-[var(--color-charcoal)] block overflow-hidden">
-                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }} className="block">A Better Way Forward.</motion.span>
+                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: baseDelay + 1.2, ease: [0.22, 1, 0.36, 1] }} className="block">A Better Way Forward.</motion.span>
                   </span>
                 </motion.h1>
               </div>
@@ -78,7 +82,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.8, delay: baseDelay + 1.3, ease: [0.22, 1, 0.36, 1] }}
                 className="mb-12 max-w-[600px]"
               >
                 <p className="text-xl md:text-[22px] text-[var(--color-slate)] leading-relaxed text-balance">
@@ -90,7 +94,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9, y: 15 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.5, type: "spring", stiffness: 200, damping: 15 }}
+                  transition={{ duration: 0.6, delay: baseDelay + 1.5, type: "spring", stiffness: 200, damping: 15 }}
                   className="w-full sm:w-auto"
                 >
                   <Button size="lg" className="w-full px-8 h-14 text-base rounded-[12px] group relative overflow-hidden bg-[var(--color-primary-900)] hover:bg-[var(--color-primary-800)] text-white shadow-[0_4px_20px_rgba(22,50,79,0.3)] hover:shadow-[0_8px_30px_rgba(22,50,79,0.4)] transition-all duration-300" asChild>
@@ -107,7 +111,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9, y: 15 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.6, type: "spring", stiffness: 200, damping: 15 }}
+                  transition={{ duration: 0.6, delay: baseDelay + 1.6, type: "spring", stiffness: 200, damping: 15 }}
                   className="w-full sm:w-auto"
                 >
                   <Button variant="outline" size="lg" className="w-full px-8 h-14 text-base rounded-[12px] border-[var(--color-border-strong)] text-[var(--color-slate)] hover:text-[var(--color-charcoal)] hover:bg-white/50 glass transition-all duration-300" asChild>
@@ -121,7 +125,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 1.8 }}
+                transition={{ duration: 0.8, delay: baseDelay + 1.8 }}
                 className="w-full"
               >
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 pt-8 border-t border-[var(--color-border)]/50">
@@ -139,7 +143,7 @@ export default function Home() {
 
             {/* RIGHT 50%: Layered Visual */}
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-              <PremiumHeroVisual />
+              <PremiumHeroVisual baseDelay={baseDelay} />
             </div>
           </div>
         </section>
@@ -148,7 +152,7 @@ export default function Home() {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 3 }}
+          transition={{ duration: 1, delay: baseDelay + 3.0 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none hidden md:flex"
         >
           <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-slate)]">Scroll</span>
