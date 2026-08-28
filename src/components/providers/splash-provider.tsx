@@ -17,13 +17,9 @@ export function SplashProvider({ children }: { children: React.ReactNode }) {
   const prefersReducedMotion = useReducedMotion()
 
   React.useEffect(() => {
-    // Check if the user has already seen the splash in this session
-    const hasSeenSplash = sessionStorage.getItem("hasSeenSplashV3")
-    
-    if (!hasSeenSplash && !prefersReducedMotion) {
+    if (!prefersReducedMotion) {
       setIsFirstVisit(true)
       setSplashFinished(false)
-      sessionStorage.setItem("hasSeenSplashV3", "true")
     } else {
       setSplashFinished(true)
     }
