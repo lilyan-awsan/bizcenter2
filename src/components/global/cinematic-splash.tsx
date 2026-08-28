@@ -10,10 +10,10 @@ export function CinematicSplash() {
 
   React.useEffect(() => {
     if (isFirstVisit && !splashFinished) {
-      // The total sequence is faster. Trigger dissolve at 1.8s
+      // The total sequence is ~3.5s, we trigger the dissolve at 3.0s to allow the 0.5s fade out
       const timer = setTimeout(() => {
         setSplashFinished(true)
-      }, 1800)
+      }, 3000)
       return () => clearTimeout(timer)
     }
   }, [isFirstVisit, splashFinished, setSplashFinished])
@@ -37,7 +37,7 @@ export function CinematicSplash() {
         <motion.div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-[var(--color-primary-950)] overflow-hidden"
           exit={{ opacity: 0, filter: "blur(10px)", scale: 1.05 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           {/* =======================================
               BACKGROUND: Mesh Gradients & Light Orbs
@@ -71,7 +71,7 @@ export function CinematicSplash() {
                 strokeWidth="0.2"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
+                transition={{ duration: 2.5, ease: "easeInOut" }}
               />
             </motion.svg>
             {/* Floating Folder Outline */}
@@ -79,7 +79,7 @@ export function CinematicSplash() {
               className="absolute top-[20%] left-[20%] w-24 h-16 border border-white/10 rounded-md backdrop-blur-sm"
               initial={{ opacity: 0, y: 50, rotateX: 45, rotateY: -20 }}
               animate={{ opacity: 1, y: 0, rotateX: 20, rotateY: -10 }}
-              transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+              transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
             >
               <div className="w-1/3 h-3 border-b border-r border-white/10 rounded-br-sm absolute -top-3 left-0" />
             </motion.div>
@@ -88,7 +88,7 @@ export function CinematicSplash() {
               className="absolute bottom-[20%] right-[20%] w-20 h-28 border border-[var(--color-accent-400)]/20 rounded-md flex flex-col gap-2 p-3"
               initial={{ opacity: 0, y: -50, rotateX: -20, rotateY: 30 }}
               animate={{ opacity: 1, y: 0, rotateX: -10, rotateY: 15 }}
-              transition={{ duration: 1.1, delay: 0.7, ease: "easeOut" }}
+              transition={{ duration: 2, delay: 0.7, ease: "easeOut" }}
             >
               <div className="w-full h-[1px] bg-[var(--color-accent-400)]/20" />
               <div className="w-4/5 h-[1px] bg-[var(--color-accent-400)]/20" />
@@ -117,7 +117,7 @@ export function CinematicSplash() {
                       strokeWidth="1"
                       initial={{ pathLength: 0, opacity: 0 }}
                       animate={{ pathLength: 1, opacity: [0, 0.5, 0.2] }}
-                      transition={{ duration: 0.8, delay: 0.5 + i * 0.1, ease: "easeOut" }}
+                      transition={{ duration: 1.5, delay: 1 + i * 0.1, ease: "easeOut" }}
                     />
                     <defs>
                       <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -133,7 +133,7 @@ export function CinematicSplash() {
                     style={{ x, y }}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.7 + i * 0.1, type: "spring" }}
+                    transition={{ duration: 0.8, delay: 1.2 + i * 0.1, type: "spring" }}
                   >
                     <node.Icon className="w-4 h-4 text-[var(--color-accent-200)]" />
                   </motion.div>
@@ -185,7 +185,7 @@ export function CinematicSplash() {
                 className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
                 initial={{ x: "-100%" }}
                 animate={{ x: "100%" }}
-                transition={{ duration: 0.6, delay: 1.2, ease: "easeInOut" }}
+                transition={{ duration: 1, delay: 1.5, ease: "easeInOut" }}
               />
             </motion.div>
           </div>

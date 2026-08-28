@@ -20,8 +20,7 @@ import { useSplash } from "@/components/providers/splash-provider"
 
 export default function Home() {
   const { isFirstVisit } = useSplash()
-  // Reduce base delay to match the faster 1.8s splash screen
-  const baseDelay = isFirstVisit ? 1.8 : 0
+  const baseDelay = isFirstVisit ? 3.0 : 0
   
   return (
     <main className="flex flex-col w-full bg-[#F8F7F4] overflow-hidden">
@@ -41,7 +40,7 @@ export default function Home() {
           transition={{ duration: 2, delay: baseDelay + 0.2, ease: "easeInOut" }}
         />
 
-        <section className="relative flex-1 flex flex-col justify-center py-20 z-10">
+        <section className="relative flex-1 flex flex-col pt-8 md:pt-16 pb-20 z-10">
           <div className="container mx-auto px-6 max-w-[var(--container-xl)] h-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
             
             {/* LEFT 50%: Content */}

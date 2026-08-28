@@ -60,7 +60,7 @@ export function PremiumHeroVisual({ baseDelay = 0 }: { baseDelay?: number }) {
 
   return (
     <div 
-      className="relative w-full h-[500px] lg:h-[600px] max-w-[650px] mx-auto select-none perspective-[1000px]"
+      className="relative w-full h-[500px] lg:h-[600px] max-w-[650px] mx-auto select-none perspective-[1000px] -mt-6 lg:-mt-12"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
