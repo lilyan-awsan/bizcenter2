@@ -1,11 +1,35 @@
 "use client"
 
 import * as React from "react"
-import { motion, useReducedMotion } from "framer-motion"
+import { motion, useReducedMotion, useMotionValue, useSpring } from "framer-motion"
 import { ClipboardList, Rocket, FileText, CheckCircle2, FileCheck, ArrowRight, BookOpen, Clock, Calendar } from "lucide-react"
 
 export function PremiumHeroVisual() {
   const prefersReducedMotion = useReducedMotion()
+  
+  // Mouse tracking for parallax
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  
+  const springConfig = { damping: 30, stiffness: 100, mass: 1 }
+  const parallaxX = useSpring(mouseX, springConfig)
+  const parallaxY = useSpring(mouseY, springConfig)
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (prefersReducedMotion) return
+    const { clientX, clientY, currentTarget } = e
+    const { left, top, width, height } = currentTarget.getBoundingClientRect()
+    // Calculate mouse position relative to center of container, normalized from -1 to 1
+    const x = (clientX - left - width / 2) / (width / 2)
+    const y = (clientY - top - height / 2) / (height / 2)
+    mouseX.set(x)
+    mouseY.set(y)
+  }
+
+  const handleMouseLeave = () => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }
 
   // Physics-based floating animations for different depth layers
   const floatFront = (delay: number): any => {
@@ -35,18 +59,30 @@ export function PremiumHeroVisual() {
   }
 
   return (
-    <div className="relative w-full h-[500px] lg:h-[600px] max-w-[650px] mx-auto select-none pointer-events-none">
+    <div 
+      className="relative w-full h-[500px] lg:h-[600px] max-w-[650px] mx-auto select-none perspective-[1000px]"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       
-      {/* Central Background Anchor / Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border-[1px] border-[var(--color-primary-200)] bg-[var(--color-primary-50)] opacity-40 shadow-[0_0_100px_rgba(25,74,94,0.1)]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] rounded-full border-[1px] border-[var(--color-primary-200)] border-dashed opacity-50" />
-
-      {/* Layer 1: Background Elements (File folders, docs) */}
+      {/* Central Background Anchor / Glow with subtle parallax */}
       <motion.div 
-        className="absolute top-[15%] left-[25%] w-[120px] rounded-xl bg-white/70 glass border border-white/50 p-4 shadow-sm"
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] as any }}
+        style={{ x: parallaxX, y: parallaxY }} // Max movement ~10px since multiplier is low or implicit
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border-[1px] border-[var(--color-primary-200)] bg-[var(--color-primary-50)] opacity-40 shadow-[0_0_100px_rgba(25,74,94,0.1)] pointer-events-none" 
+      />
+      
+      <motion.div 
+        style={{ x: useSpring(useMotionValue(mouseX.get() * 15), springConfig), y: useSpring(useMotionValue(mouseY.get() * 15), springConfig) }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] rounded-full border-[1px] border-[var(--color-primary-200)] border-dashed opacity-50 pointer-events-none" 
+      />
+
+      {/* Layer 1: Background Elements (File folders, docs) - 1.7s assembling */}
+      <motion.div 
+        className="absolute top-[15%] left-[25%] w-[120px] rounded-xl bg-white/70 glass border border-white/50 p-4 shadow-sm pointer-events-none"
+        initial={{ opacity: 0, scale: 0.8, x: -50, y: 50, rotate: -10 }}
+        animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
+        transition={{ duration: 1.2, delay: 1.7, ease: [0.22, 1, 0.36, 1] as any }}
+        style={{ x: parallaxX }} // Depth multiplier 1
       >
         <motion.div animate={floatBack(0)}>
           <div className="w-8 h-8 rounded-lg bg-[var(--color-slate)]/10 flex items-center justify-center mb-3">
@@ -60,10 +96,11 @@ export function PremiumHeroVisual() {
       </motion.div>
 
       <motion.div 
-        className="absolute top-[30%] right-[10%] w-[140px] rounded-xl bg-white/70 glass border border-white/50 p-4 shadow-sm"
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] as any }}
+        className="absolute top-[30%] right-[10%] w-[140px] rounded-xl bg-white/70 glass border border-white/50 p-4 shadow-sm pointer-events-none"
+        initial={{ opacity: 0, scale: 0.8, x: 50, y: -50, rotate: 10 }}
+        animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
+        transition={{ duration: 1.2, delay: 1.8, ease: [0.22, 1, 0.36, 1] as any }}
+        style={{ x: parallaxX }}
       >
         <motion.div animate={floatBack(2)}>
           <div className="w-8 h-8 rounded-lg bg-[var(--color-accent-100)] flex items-center justify-center mb-3">
@@ -79,10 +116,11 @@ export function PremiumHeroVisual() {
 
       {/* Layer 2: Main Service Cards (Middle) */}
       <motion.div 
-        className="absolute top-[20%] right-[25%] w-[220px] rounded-[16px] bg-white shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-5"
-        initial={{ opacity: 0, x: 30, y: 20 }}
-        animate={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] as any }}
+        className="absolute top-[20%] right-[25%] w-[220px] rounded-[16px] bg-white shadow-[var(--shadow-lg)] border border-[var(--color-border)] p-5 cursor-default hover:shadow-[var(--shadow-xl)] transition-shadow"
+        initial={{ opacity: 0, scale: 0.9, x: 40, y: 20 }}
+        animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+        transition={{ duration: 1, delay: 2.0, type: "spring", stiffness: 100, damping: 20 }}
+        style={{ x: useSpring(useMotionValue(mouseX.get() * -8), springConfig), y: useSpring(useMotionValue(mouseY.get() * -8), springConfig) }}
       >
         <motion.div animate={floatMiddle(1)}>
           <div className="flex items-center gap-3 mb-4">
@@ -104,7 +142,7 @@ export function PremiumHeroVisual() {
                 className="h-full bg-[var(--color-primary-500)] rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: "75%" }}
-                transition={{ duration: 1.5, delay: 1.2, ease: "easeOut" }}
+                transition={{ duration: 1.5, delay: 2.8, ease: "easeOut" }}
               />
             </div>
           </div>
@@ -112,10 +150,11 @@ export function PremiumHeroVisual() {
       </motion.div>
 
       <motion.div 
-        className="absolute top-[45%] left-[5%] w-[240px] rounded-[16px] bg-white shadow-[var(--shadow-xl)] border border-[var(--color-border)] p-5 z-20"
-        initial={{ opacity: 0, x: -30, y: 20 }}
-        animate={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] as any }}
+        className="absolute top-[45%] left-[5%] w-[240px] rounded-[16px] bg-white shadow-[var(--shadow-xl)] border border-[var(--color-border)] p-5 z-20 cursor-default hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] transition-shadow"
+        initial={{ opacity: 0, scale: 0.9, x: -40, y: 20 }}
+        animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+        transition={{ duration: 1, delay: 2.2, type: "spring", stiffness: 100, damping: 20 }}
+        style={{ x: useSpring(useMotionValue(mouseX.get() * 12), springConfig), y: useSpring(useMotionValue(mouseY.get() * 12), springConfig) }}
       >
         <motion.div animate={floatMiddle(2.5)}>
           <div className="flex items-center justify-between mb-4">
@@ -146,10 +185,11 @@ export function PremiumHeroVisual() {
 
       {/* Layer 3: Foreground Elements (Success tags, calendars) */}
       <motion.div 
-        className="absolute bottom-[20%] right-[15%] w-[180px] rounded-[16px] bg-[var(--color-primary-900)] text-white shadow-[var(--shadow-xl)] p-4 z-30"
-        initial={{ opacity: 0, scale: 0.9, y: 30 }}
+        className="absolute bottom-[20%] right-[15%] w-[180px] rounded-[16px] bg-[var(--color-primary-900)] text-white shadow-[var(--shadow-xl)] p-4 z-30 cursor-default"
+        initial={{ opacity: 0, scale: 0.8, y: 50 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] as any }}
+        transition={{ duration: 0.8, delay: 2.4, type: "spring", stiffness: 120, damping: 20 }}
+        style={{ x: useSpring(useMotionValue(mouseX.get() * -15), springConfig), y: useSpring(useMotionValue(mouseY.get() * -15), springConfig) }}
       >
         <motion.div animate={floatFront(1.5)} className="flex items-start gap-3">
           <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
@@ -167,10 +207,10 @@ export function PremiumHeroVisual() {
 
       {/* Micro-floating badges */}
       <motion.div
-        className="absolute top-[10%] left-[50%] px-3 py-1.5 rounded-full bg-white shadow-md border border-[var(--color-border)] flex items-center gap-2 z-40"
+        className="absolute top-[10%] left-[50%] px-3 py-1.5 rounded-full bg-white shadow-md border border-[var(--color-border)] flex items-center gap-2 z-40 pointer-events-none"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 1, type: "spring" }}
+        transition={{ duration: 0.5, delay: 2.6, type: "spring" }}
       >
         <motion.div animate={floatFront(0.5)}>
           <FileCheck className="w-3.5 h-3.5 text-[var(--color-success)]" />
@@ -179,10 +219,10 @@ export function PremiumHeroVisual() {
       </motion.div>
       
       <motion.div
-        className="absolute bottom-[10%] left-[30%] px-3 py-1.5 rounded-full bg-white shadow-md border border-[var(--color-border)] flex items-center gap-2 z-40"
+        className="absolute bottom-[10%] left-[30%] px-3 py-1.5 rounded-full bg-white shadow-md border border-[var(--color-border)] flex items-center gap-2 z-40 pointer-events-none"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 1.2, type: "spring" }}
+        transition={{ duration: 0.5, delay: 2.7, type: "spring" }}
       >
         <motion.div animate={floatFront(2.5)}>
           <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-accent-600)]" />

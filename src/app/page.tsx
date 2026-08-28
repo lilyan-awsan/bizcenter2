@@ -7,6 +7,7 @@ import {
   Phone, ArrowUpRight
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger"
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll"
 import { PremiumHeroVisual } from "@/components/ui/premium-hero-visual"
@@ -19,67 +20,108 @@ export default function Home() {
     <main className="flex flex-col w-full bg-[#F8F7F4] overflow-hidden">
       
       {/* =========================================
-          HERO SECTION (PREMIUM)
+          HERO SECTION (PREMIUM CINEMATIC V2)
       ========================================= */}
       <div className="relative min-h-[100svh] flex flex-col pt-16">
         
         <AmbientBackground intensity="medium" colorTheme="mixed" />
+        
+        {/* Cinematic Light Sweep (0.2s) */}
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--color-accent-400)] to-transparent opacity-[0.03] mix-blend-overlay pointer-events-none z-30 w-[200%]"
+          initial={{ x: "-100%" }}
+          animate={{ x: "50%" }}
+          transition={{ duration: 2, delay: 0.2, ease: "easeInOut" }}
+        />
 
         <section className="relative flex-1 flex flex-col justify-center py-20 z-10">
           <div className="container mx-auto px-6 max-w-[var(--container-xl)] h-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
             
             {/* LEFT 50%: Content */}
-            <StaggerContainer 
-              className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
-              delayChildren={0.1} 
-              staggerChildren={0.1}
-            >
-              <StaggerItem distance={8} className="mb-8">
+            <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                className="mb-8"
+              >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 border border-white/40 shadow-sm glass">
                   <Sparkles className="w-4 h-4 text-[var(--color-accent-600)]" />
                   <span className="text-sm font-bold tracking-[0.15em] uppercase text-[var(--color-charcoal)]">
                     Professional Administrative Support
                   </span>
                 </div>
-              </StaggerItem>
+              </motion.div>
 
-              <StaggerItem distance={16} className="mb-8 max-w-[700px]">
-                <h1 className="text-[52px] lg:text-[64px] leading-[1.1] tracking-tight">
-                  <span className="text-[var(--color-charcoal)]">Build Your Business.</span><br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-accent-600)]">
-                    We'll Handle The Rest.
+              <div className="mb-8 max-w-[700px] overflow-hidden">
+                <motion.h1 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-[52px] lg:text-[64px] leading-[1.1] tracking-tight"
+                >
+                  <span className="text-[var(--color-charcoal)] block overflow-hidden">
+                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 1, 0.36, 1] }} className="block">Professional Support.</motion.span>
                   </span>
-                </h1>
-              </StaggerItem>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-600)] to-[var(--color-accent-600)] block overflow-hidden pb-2">
+                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }} className="block">Clear Guidance.</motion.span>
+                  </span>
+                  <span className="text-[var(--color-charcoal)] block overflow-hidden">
+                    <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }} className="block">A Better Way Forward.</motion.span>
+                  </span>
+                </motion.h1>
+              </div>
 
-              <StaggerItem distance={12} className="mb-12 max-w-[600px]">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
+                className="mb-12 max-w-[600px]"
+              >
                 <p className="text-xl md:text-[22px] text-[var(--color-slate)] leading-relaxed text-balance">
                   THE CENTER provides premium support for entrepreneurs, small businesses, and individuals navigating startup processes, bookkeeping, and applications.
                 </p>
-              </StaggerItem>
+              </motion.div>
 
-              <StaggerItem distance={12} className="w-full sm:w-auto mb-16">
-                <div className="flex flex-col sm:flex-row items-center gap-5 w-full">
-                  <Button size="lg" className="w-full sm:w-auto px-8 h-14 text-base rounded-[12px] group relative overflow-hidden bg-[var(--color-primary-900)] hover:bg-[var(--color-primary-800)] text-white shadow-[0_4px_20px_rgba(22,50,79,0.3)] hover:shadow-[0_8px_30px_rgba(22,50,79,0.4)] transition-all duration-300" asChild>
+              <div className="w-full sm:w-auto mb-16 flex flex-col sm:flex-row items-center gap-5">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.5, type: "spring", stiffness: 200, damping: 15 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Button size="lg" className="w-full px-8 h-14 text-base rounded-[12px] group relative overflow-hidden bg-[var(--color-primary-900)] hover:bg-[var(--color-primary-800)] text-white shadow-[0_4px_20px_rgba(22,50,79,0.3)] hover:shadow-[0_8px_30px_rgba(22,50,79,0.4)] transition-all duration-300" asChild>
                     <Link href="/contact">
                       <span className="relative z-10 flex items-center">
                         Book a Free Consultation
                         <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1.5" />
                       </span>
-                      {/* Subtle hover glow inside button */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                     </Link>
                   </Button>
-                  
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 h-14 text-base rounded-[12px] border-[var(--color-border-strong)] text-[var(--color-slate)] hover:text-[var(--color-charcoal)] hover:bg-white/50 glass transition-all duration-300" asChild>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.6, type: "spring", stiffness: 200, damping: 15 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Button variant="outline" size="lg" className="w-full px-8 h-14 text-base rounded-[12px] border-[var(--color-border-strong)] text-[var(--color-slate)] hover:text-[var(--color-charcoal)] hover:bg-white/50 glass transition-all duration-300" asChild>
                     <Link href="/services">
                       Explore Our Services
                     </Link>
                   </Button>
-                </div>
-              </StaggerItem>
+                </motion.div>
+              </div>
 
-              <StaggerItem distance={8} className="w-full">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1.8 }}
+                className="w-full"
+              >
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 pt-8 border-t border-[var(--color-border)]/50">
                   {["Trusted Support", "Practical Guidance", "Bilingual Experts"].map((item, index) => (
                     <div key={index} className="flex items-center gap-2">
@@ -90,8 +132,8 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              </StaggerItem>
-            </StaggerContainer>
+              </motion.div>
+            </div>
 
             {/* RIGHT 50%: Layered Visual */}
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
@@ -99,6 +141,23 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 3 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none hidden md:flex"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-slate)]">Scroll</span>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-[var(--color-border-strong)] to-transparent relative overflow-hidden">
+            <motion.div 
+              className="absolute top-0 left-0 w-full h-1/2 bg-[var(--color-primary-600)]"
+              animate={{ y: ["-100%", "200%"] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
+        </motion.div>
 
       </div>
 

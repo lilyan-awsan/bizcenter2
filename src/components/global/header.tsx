@@ -59,7 +59,9 @@ export function Header() {
           aria-label="THE CENTER Home"
         >
           <motion.div 
-            layoutId="global-logo" 
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 200, damping: 20 }}
             className="w-8 h-8 rounded bg-[var(--color-primary-900)] flex items-center justify-center shrink-0 relative overflow-hidden shadow-sm"
           >
             {/* Fallback to SVG if /logo.png is not found */}
@@ -83,26 +85,45 @@ export function Header() {
         </Link>
 
         {/* CENTER: Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-          <Link href="/" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
-            Home
-          </Link>
-          <div className={isActive('/services') ? 'text-[var(--color-primary-900)]' : ''}>
+        <motion.nav 
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.8 } }
+          }}
+          className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2"
+        >
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
+            <Link href="/" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
+              Home
+            </Link>
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }} className={isActive('/services') ? 'text-[var(--color-primary-900)]' : ''}>
             <NavDropdown label="Services" items={SERVICES} />
-          </div>
-          <div className={isActive('/resources') || isActive('/faq') ? 'text-[var(--color-primary-900)]' : ''}>
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }} className={isActive('/resources') || isActive('/faq') ? 'text-[var(--color-primary-900)]' : ''}>
             <NavDropdown label="Resources" items={RESOURCES} />
-          </div>
-          <Link href="/about" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/about') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
-            About
-          </Link>
-          <Link href="/contact" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/contact') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
-            Contact
-          </Link>
-        </nav>
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
+            <Link href="/about" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/about') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
+              About
+            </Link>
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
+            <Link href="/contact" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/contact') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
+              Contact
+            </Link>
+          </motion.div>
+        </motion.nav>
 
         {/* RIGHT: Desktop Actions */}
-        <div className="hidden md:flex items-center gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
+          className="hidden md:flex items-center gap-6"
+        >
           <LanguageSwitcher className="hidden lg:flex" />
           <div className="hidden lg:block">
             <BookConsultationButton size="sm" className="px-6 rounded-md shadow-none hover:shadow-sm" />
@@ -110,7 +131,7 @@ export function Header() {
           <div className="lg:hidden">
             <BookConsultationButton size="sm" className="px-4 text-[13px]" label="Book Consultation" />
           </div>
-        </div>
+        </motion.div>
 
         {/* RIGHT: Mobile Menu Trigger */}
         <MobileMenu services={SERVICES} resources={RESOURCES} />
