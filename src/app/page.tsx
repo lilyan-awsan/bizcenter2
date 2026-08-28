@@ -128,11 +128,11 @@ export default function Home() {
           {/* Premium Glass Service Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Business Startup", description: "From idea to organized next steps. Setup your entity correctly.", icon: Rocket, href: "/services/business-startup" },
-              { title: "Bookkeeping", description: "Keep your business organized and financially clear month over month.", icon: Calculator, href: "/services/bookkeeping" },
-              { title: "Business Support", description: "Help for everyday business needs, licenses, and ongoing compliance.", icon: ClipboardList, href: "/services/business-support" },
-              { title: "Applications", description: "Organize information and efficiently process administrative forms.", icon: FileText, href: "/services/applications-administrative-support" },
-              { title: "New to the U.S.", description: "A clear starting point for essential administrative processes.", icon: Globe, href: "/services/new-to-the-united-states" },
+              { title: "Business Startup", description: "From idea to organized next steps. Setup your entity correctly.", icon: <Rocket />, href: "/services/business-startup" },
+              { title: "Bookkeeping", description: "Keep your business organized and financially clear month over month.", icon: <Calculator />, href: "/services/bookkeeping" },
+              { title: "Business Support", description: "Help for everyday business needs, licenses, and ongoing compliance.", icon: <ClipboardList />, href: "/services/business-support" },
+              { title: "Applications", description: "Organize information and efficiently process administrative forms.", icon: <FileText />, href: "/services/applications-administrative-support" },
+              { title: "New to the U.S.", description: "A clear starting point for essential administrative processes.", icon: <Globe />, href: "/services/new-to-the-united-states" },
             ].map((service, index) => (
               <StaggerItem key={index} distance={20} delay={index * 0.1} className="h-full">
                 <PremiumServiceCard {...service} delay={index * 0.1} />
@@ -172,10 +172,10 @@ export default function Home() {
           {/* Animated SVG Timeline Component */}
           <AnimatedTimeline 
             nodes={[
-              { step: "01", title: "Book a Consultation", desc: "Schedule a time that works for you. We provide a welcoming environment to discuss your situation.", icon: Calendar },
-              { step: "02", title: "Tell Us Your Needs", desc: "We'll actively listen to your specific situation and gather all necessary context.", icon: MessageSquare },
-              { step: "03", title: "Receive Guidance", desc: "Get a clear plan and understanding of the administrative steps required for your success.", icon: ClipboardCheck },
-              { step: "04", title: "Move Forward", desc: "Proceed with confidence. We provide ongoing support as you execute your plan.", icon: CheckCircle2 },
+              { step: "01", title: "Book a Consultation", desc: "Schedule a time that works for you. We provide a welcoming environment to discuss your situation.", icon: <Calendar /> },
+              { step: "02", title: "Tell Us Your Needs", desc: "We'll actively listen to your specific situation and gather all necessary context.", icon: <MessageSquare /> },
+              { step: "03", title: "Receive Guidance", desc: "Get a clear plan and understanding of the administrative steps required for your success.", icon: <ClipboardCheck /> },
+              { step: "04", title: "Move Forward", desc: "Proceed with confidence. We provide ongoing support as you execute your plan.", icon: <CheckCircle2 /> },
             ]}
           />
 

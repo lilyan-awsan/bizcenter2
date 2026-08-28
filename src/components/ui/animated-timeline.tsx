@@ -2,13 +2,12 @@
 
 import * as React from "react"
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from "framer-motion"
-import { type LucideIcon } from "lucide-react"
 
 interface TimelineNode {
   step: string
   title: string
   desc: string
-  icon: LucideIcon
+  icon: React.ReactNode
 }
 
 interface AnimatedTimelineProps {
@@ -76,7 +75,9 @@ export function AnimatedTimeline({ nodes }: AnimatedTimelineProps) {
                     className="absolute inset-0 bg-[var(--color-primary-50)]"
                     style={{ scale: useTransform(nodeProgress, [0.4, 0.6], [0, 1]) }}
                   />
-                  <node.icon className="relative z-10 w-5 h-5 text-[var(--color-primary-900)]" />
+                  <div className="relative z-10 text-[var(--color-primary-900)] [&>svg]:w-5 [&>svg]:h-5">
+                    {node.icon}
+                  </div>
                 </motion.div>
               </div>
 
