@@ -20,7 +20,8 @@ import { useSplash } from "@/components/providers/splash-provider"
 
 export default function Home() {
   const { isFirstVisit } = useSplash()
-  const baseDelay = isFirstVisit ? 3.0 : 0
+  // Reduce base delay to match the faster 1.8s splash screen
+  const baseDelay = isFirstVisit ? 1.8 : 0
   
   return (
     <main className="flex flex-col w-full bg-[#F8F7F4] overflow-hidden">
