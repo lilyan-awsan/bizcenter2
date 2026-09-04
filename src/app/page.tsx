@@ -176,7 +176,7 @@ export default function Home() {
                 description: "From idea to organized next steps. Setup your entity correctly with complete administrative confidence.", 
                 icon: <Rocket />, 
                 href: "/services/business-startup",
-                imageSrc: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80"
+                imageSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
               },
               { 
                 title: "Bookkeeping", 
@@ -190,14 +190,14 @@ export default function Home() {
                 description: "Ongoing support for everyday business needs, filings, licensing, and document organization.", 
                 icon: <ClipboardList />, 
                 href: "/services/business-support",
-                imageSrc: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+                imageSrc: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80"
               },
               { 
                 title: "Applications & Admin", 
                 description: "Organize information and efficiently prepare administrative applications with precision.", 
                 icon: <FileText />, 
                 href: "/services/applications-administrative-support",
-                imageSrc: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80"
+                imageSrc: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
               },
               { 
                 title: "New to the U.S.", 

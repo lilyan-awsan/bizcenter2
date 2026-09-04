@@ -70,7 +70,7 @@ export function Header() {
             <img 
               src="/logo.png" 
               alt="THE CENTER Business Services" 
-              className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-14 sm:h-16 max-h-[58px] w-auto object-contain scale-[1.2] origin-left transition-transform duration-300 group-hover:scale-[1.25]"
               onError={(e) => {
                 const target = e.target as HTMLElement;
                 target.style.display = 'none';

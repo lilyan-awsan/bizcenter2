@@ -108,7 +108,7 @@ export function CinematicSplash() {
             {/* Larger Logo Emblem Container */}
             <motion.div
               layoutId="global-logo"
-              className="w-[260px] sm:w-[310px] h-[140px] sm:h-[160px] rounded-[28px] bg-white/95 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0 relative overflow-hidden shadow-[0_0_60px_rgba(226,6,19,0.4)] p-6"
+              className="w-[280px] sm:w-[340px] h-[150px] sm:h-[180px] rounded-[28px] bg-white/95 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0 relative overflow-hidden shadow-[0_0_60px_rgba(226,6,19,0.4)] p-3 sm:p-4"
               initial={{ opacity: 0, scale: 0.7, filter: "blur(10px)" }}
               animate={{ 
                 opacity: 1, 
@@ -128,7 +128,7 @@ export function CinematicSplash() {
               <img 
                 src="/logo.png" 
                 alt="THE CENTER Business Services" 
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain scale-[1.25]"
                 onError={(e) => {
                   const target = e.target as HTMLElement;
                   target.style.display = 'none';
