@@ -54,9 +54,9 @@ export function CinematicSplash() {
           </motion.div>
 
           {/* CENTER: Target Network Orbit */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] pointer-events-none">
             {networkNodes.map((node, i) => {
-              const radius = 165;
+              const radius = 200;
               const angleRad = (node.angle * Math.PI) / 180;
               const x = Math.cos(angleRad) * radius;
               const y = Math.sin(angleRad) * radius;
@@ -65,8 +65,8 @@ export function CinematicSplash() {
                 <React.Fragment key={i}>
                   <motion.svg className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 overflow-visible">
                     <motion.line 
-                      x1="200" y1="200" 
-                      x2={200 + x} y2={200 + y} 
+                      x1="230" y1="230" 
+                      x2={230 + x} y2={230 + y} 
                       stroke="url(#gradient-line-red)" 
                       strokeWidth="1.5"
                       initial={{ pathLength: 0, opacity: 0 }}
@@ -82,7 +82,7 @@ export function CinematicSplash() {
                   </motion.svg>
 
                   <motion.div 
-                    className="absolute top-1/2 left-1/2 flex items-center justify-center w-11 h-11 -ml-5.5 -mt-5.5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md shadow-[0_0_20px_rgba(226,6,19,0.2)]"
+                    className="absolute top-1/2 left-1/2 flex items-center justify-center w-12 h-12 -ml-6 -mt-6 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md shadow-[0_0_25px_rgba(226,6,19,0.25)]"
                     style={{ x, y }}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -99,16 +99,16 @@ export function CinematicSplash() {
           <div className="relative z-50 flex flex-col items-center justify-center">
             {/* Glowing Red Pulsing Light */}
             <motion.div 
-              className="absolute w-40 h-40 rounded-full bg-[var(--color-accent-500)] mix-blend-screen blur-[40px]"
+              className="absolute w-64 h-64 rounded-full bg-[var(--color-accent-500)] mix-blend-screen blur-[50px]"
               initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: [0, 1.8, 1.2], opacity: [0, 0.9, 0] }}
+              animate={{ scale: [0, 1.8, 1.2], opacity: [0, 0.85, 0] }}
               transition={{ duration: 1.8, ease: "easeInOut" }}
             />
             
-            {/* Logo Emblem Container */}
+            {/* Larger Logo Emblem Container */}
             <motion.div
               layoutId="global-logo"
-              className="w-24 h-24 rounded-2xl bg-[var(--color-primary-900)] border border-white/10 flex items-center justify-center shrink-0 relative overflow-hidden shadow-[0_0_50px_rgba(226,6,19,0.35)]"
+              className="w-[260px] sm:w-[310px] h-[140px] sm:h-[160px] rounded-[28px] bg-white/95 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0 relative overflow-hidden shadow-[0_0_60px_rgba(226,6,19,0.4)] p-6"
               initial={{ opacity: 0, scale: 0.7, filter: "blur(10px)" }}
               animate={{ 
                 opacity: 1, 
@@ -127,22 +127,22 @@ export function CinematicSplash() {
             >
               <img 
                 src="/logo.png" 
-                alt="THE CENTER Logo" 
-                className="w-full h-full object-contain p-3"
+                alt="THE CENTER Business Services" 
+                className="w-full h-full object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLElement;
                   target.style.display = 'none';
                   target.parentElement?.classList.add('splash-fallback-active');
                 }}
               />
-              <svg className="absolute hidden splash-fallback-svg w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute hidden splash-fallback-svg w-16 h-16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <style>{`.splash-fallback-active .splash-fallback-svg { display: block; }`}</style>
                 <circle cx="12" cy="12" r="10" stroke="#E20613" strokeWidth="2" />
                 <circle cx="12" cy="12" r="5" fill="#E20613" />
               </svg>
 
               <motion.div 
-                className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]"
+                className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg]"
                 initial={{ x: "-100%" }}
                 animate={{ x: "100%" }}
                 transition={{ duration: 1, delay: 1.5, ease: "easeInOut" }}
