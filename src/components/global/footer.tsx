@@ -59,16 +59,28 @@ export function Footer() {
             
             {/* Column 1: Brand */}
             <div className="flex flex-col gap-4 lg:col-span-2 mb-6 md:mb-0">
-              <Link href="/" className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[var(--color-accent-500)] flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(226,6,19,0.4)]">
-                  <span className="font-extrabold text-white text-lg">C</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-extrabold text-white text-xl tracking-tight leading-none">THE CENTER</span>
-                  <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary-200)] mt-0.5">Business Services</span>
+              <Link href="/" className="inline-block py-1">
+                <img 
+                  src="/logo.png" 
+                  alt="THE CENTER Business Services" 
+                  className="h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+                  onError={(e) => {
+                    const target = e.target as HTMLElement;
+                    target.style.display = 'none';
+                    if (target.nextElementSibling) target.nextElementSibling.classList.remove('hidden');
+                  }}
+                />
+                <div className="hidden flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-[var(--color-accent-500)] flex items-center justify-center shrink-0">
+                    <span className="font-extrabold text-white text-lg">C</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-extrabold text-white text-xl tracking-tight leading-none">THE CENTER</span>
+                    <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary-200)] mt-0.5">Business Services</span>
+                  </div>
                 </div>
               </Link>
-              <p className="text-[14px] text-[var(--color-primary-200)] leading-relaxed max-w-[320px] font-light">
+              <p className="text-[14px] text-[var(--color-primary-200)] leading-relaxed max-w-[320px] font-light mt-2">
                 Providing practical business and administrative support for individuals, entrepreneurs, and small businesses with clarity and precision.
               </p>
             </div>

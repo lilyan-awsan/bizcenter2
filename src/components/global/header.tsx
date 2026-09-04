@@ -54,41 +54,43 @@ export function Header() {
     >
       <div className="container mx-auto px-6 h-full flex items-center justify-between max-w-[var(--container-2xl)]">
         
-        {/* LEFT: Logo */}
+        {/* LEFT: Logo Image */}
         <Link 
           href="/" 
-          className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-md group"
+          className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-md group py-1"
           aria-label="THE CENTER Home"
         >
           <motion.div 
             layoutId="global-logo"
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 200, damping: 20 }}
-            className="w-10 h-10 rounded-xl bg-[var(--color-primary-900)] flex items-center justify-center shrink-0 relative overflow-hidden shadow-[0_4px_12px_rgba(22,23,92,0.2)] group-hover:shadow-[0_0_20px_rgba(226,6,19,0.3)] transition-shadow duration-300"
+            className="flex items-center"
           >
-            {/* Fallback to SVG if /logo.png is not found */}
             <img 
               src="/logo.png" 
-              alt="THE CENTER Logo" 
-              className="w-full h-full object-contain p-1.5"
+              alt="THE CENTER Business Services" 
+              className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
                 const target = e.target as HTMLElement;
                 target.style.display = 'none';
-                target.parentElement?.classList.add('fallback-active');
+                if (target.nextElementSibling) target.nextElementSibling.classList.remove('hidden');
               }}
             />
-            {/* Fallback SVG with target crimson red dot */}
-            <svg className="absolute hidden fallback-svg w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <style>{`.fallback-active .fallback-svg { display: block; }`}</style>
-              <circle cx="12" cy="12" r="9" stroke="#E20613" strokeWidth="2" />
-              <circle cx="12" cy="12" r="4" fill="#E20613" />
-            </svg>
+            {/* Fallback layout if logo.png is not found */}
+            <div className="hidden flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[var(--color-primary-900)] flex items-center justify-center shrink-0">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="9" stroke="#E20613" strokeWidth="2" />
+                  <circle cx="12" cy="12" r="4" fill="#E20613" />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-extrabold text-[var(--color-primary-900)] text-xl tracking-tight leading-none">THE CENTER</span>
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-slate)] leading-tight mt-0.5">Business Services</span>
+              </div>
+            </div>
           </motion.div>
-          <div className="flex flex-col">
-            <span className="font-extrabold text-[var(--color-primary-900)] text-xl tracking-tight leading-none group-hover:text-[var(--color-accent-500)] transition-colors">THE CENTER</span>
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-slate)] leading-tight mt-0.5">Business Services</span>
-          </div>
         </Link>
 
         {/* CENTER: Desktop Navigation */}
