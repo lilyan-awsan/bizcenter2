@@ -68,8 +68,8 @@ export function PremiumHeroVisual({ baseDelay = 0 }: { baseDelay?: number }) {
         style={{ x: useSpring(useMotionValue(mouseX.get() * 8), springConfig), y: useSpring(useMotionValue(mouseY.get() * 8), springConfig) }}
       >
         <img 
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" 
-          alt="Multicultural Business Team Meeting Driving Success" 
+          src="/images/multicultural-meeting-hero.png" 
+          alt="Multicultural Business Team & Clients Meeting" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary-950)]/80 via-transparent to-transparent" />
