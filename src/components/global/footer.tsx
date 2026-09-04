@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Phone, Mail, MapPin, Clock, Printer, ChevronDown } from "lucide-react"
+import { Phone, Mail, MapPin, ChevronDown, ArrowRight } from "lucide-react"
 import { LanguageSwitcher } from "./language-switcher"
 import { contactConfig } from "@/lib/config"
 import { BookConsultationButton } from "@/components/ui/book-consultation-button"
@@ -22,7 +22,7 @@ export function Footer() {
         className="flex items-center justify-between w-full md:cursor-default md:pointer-events-none"
         aria-expanded={openSection === id}
       >
-        <h4 className="text-[14px] font-semibold tracking-wider text-[var(--color-accent-400)] uppercase">{title}</h4>
+        <h4 className="text-[14px] font-bold tracking-wider text-[var(--color-accent-500)] uppercase">{title}</h4>
         <ChevronDown className={`w-4 h-4 text-white/50 transition-transform md:hidden ${openSection === id ? 'rotate-180' : ''}`} />
       </button>
       <div className={`mt-4 flex-col gap-3 md:flex ${openSection === id ? 'flex' : 'hidden'}`}>
@@ -34,30 +34,42 @@ export function Footer() {
   return (
     <footer className="w-full mt-auto flex flex-col">
       {/* Pre-Footer CTA */}
-      <div className="bg-[var(--color-primary-800)] text-center py-16 px-6 border-b border-white/10">
-        <div className="container mx-auto max-w-[700px]">
-          <h2 className="text-2xl md:text-3xl text-white mb-6">Ready to Take the Next Step?</h2>
+      <div className="bg-gradient-to-r from-[var(--color-primary-900)] via-[var(--color-primary-800)] to-[var(--color-primary-900)] text-center py-16 px-6 border-t border-[var(--future-line)]">
+        <div className="container mx-auto max-w-[750px]">
+          <h2 className="text-3xl md:text-4xl text-white mb-4 font-bold">Ready to Move Forward with Clarity?</h2>
+          <p className="text-[var(--color-primary-100)] text-lg mb-8 font-light max-w-[600px] mx-auto">
+            Schedule a consultation today and let our team assist you with personalized startup, bookkeeping, or administrative support.
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <BookConsultationButton className="w-full sm:w-auto bg-white text-[var(--color-primary-900)] hover:bg-[#F8F7F4]" />
-            <Button variant="outline" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10" asChild>
-              <Link href="/contact">Contact THE CENTER</Link>
+            <BookConsultationButton className="w-full sm:w-auto bg-[var(--color-accent-500)] text-white hover:bg-[var(--color-accent-600)] shadow-[0_0_25px_rgba(226,6,19,0.3)] px-8 h-13" />
+            <Button variant="outline" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 glass-dark h-13" asChild>
+              <Link href="/contact" className="flex items-center gap-2">
+                <span>Contact THE CENTER</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </Button>
           </div>
         </div>
       </div>
 
-      <div className="bg-[var(--color-primary-900)] text-white w-full">
+      <div className="bg-[var(--color-primary-950)] text-white w-full">
         <div className="container mx-auto px-6 max-w-[var(--container-xl)]">
           
-          <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-10">
+          <div className="py-14 md:py-18 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 md:gap-10">
             
             {/* Column 1: Brand */}
             <div className="flex flex-col gap-4 lg:col-span-2 mb-6 md:mb-0">
-              <Link href="/" className="font-bold text-2xl tracking-tight inline-block">
-                THE CENTER
+              <Link href="/" className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-[var(--color-accent-500)] flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(226,6,19,0.4)]">
+                  <span className="font-extrabold text-white text-lg">C</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-extrabold text-white text-xl tracking-tight leading-none">THE CENTER</span>
+                  <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary-200)] mt-0.5">Business Services</span>
+                </div>
               </Link>
-              <p className="text-[14px] md:text-[15px] text-[var(--color-primary-200)] leading-relaxed max-w-[300px]">
-                Providing practical business and administrative support for individuals, entrepreneurs, and small businesses.
+              <p className="text-[14px] text-[var(--color-primary-200)] leading-relaxed max-w-[320px] font-light">
+                Providing practical business and administrative support for individuals, entrepreneurs, and small businesses with clarity and precision.
               </p>
             </div>
 
@@ -72,7 +84,7 @@ export function Footer() {
                   { label: "New to the U.S.", href: "/services/new-to-the-united-states" }
                 ].map(link => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-300)] transition-colors inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
+                    <Link href={link.href} className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
                       {link.label}
                     </Link>
                   </li>
@@ -83,41 +95,41 @@ export function Footer() {
             {/* Column 3: Resources & Company */}
             <FooterAccordion title="Explore" id="explore">
               <ul className="flex flex-col gap-3">
-                <li><Link href="/about" className="text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-300)] transition-colors inline-block">About Us</Link></li>
-                <li><Link href="/resources" className="text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-300)] transition-colors inline-block">Resources Hub</Link></li>
-                <li><Link href="/faq" className="text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-300)] transition-colors inline-block">FAQ</Link></li>
-                <li><Link href="/contact" className="text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-300)] transition-colors inline-block">Contact</Link></li>
+                <li><Link href="/about" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">About Us</Link></li>
+                <li><Link href="/resources" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Resources Hub</Link></li>
+                <li><Link href="/faq" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">FAQ</Link></li>
+                <li><Link href="/contact" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Contact</Link></li>
               </ul>
             </FooterAccordion>
 
             {/* Column 4: Legal */}
             <FooterAccordion title="Legal" id="legal">
               <ul className="flex flex-col gap-3">
-                <li><Link href="/privacy" className="text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-300)] transition-colors inline-block">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-300)] transition-colors inline-block">Terms & Conditions</Link></li>
-                <li><Link href="/accessibility" className="text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-300)] transition-colors inline-block">Accessibility</Link></li>
+                <li><Link href="/privacy" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Terms & Conditions</Link></li>
+                <li><Link href="/accessibility" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Accessibility</Link></li>
               </ul>
             </FooterAccordion>
 
             {/* Column 5: Contact */}
             <div className="flex flex-col gap-4 py-4 md:py-0 border-b border-white/10 md:border-none">
-              <h4 className="text-[14px] font-semibold tracking-wider text-[var(--color-accent-400)] uppercase">Contact</h4>
+              <h4 className="text-[14px] font-bold tracking-wider text-[var(--color-accent-500)] uppercase">Contact</h4>
               <ul className="flex flex-col gap-3">
                 <li>
-                  <a href={`tel:${contactConfig.phoneRaw}`} className="flex items-start gap-3 text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-white group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
-                    <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:text-[var(--color-accent-400)] transition-colors" />
+                  <a href={`tel:${contactConfig.phoneRaw}`} className="flex items-start gap-3 text-[14px] text-[var(--color-primary-100)] hover:text-white group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
+                    <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-[var(--color-accent-500)] group-hover:scale-110 transition-transform" />
                     <span>{contactConfig.phone}</span>
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${contactConfig.email}`} className="flex items-start gap-3 text-[14px] md:text-[15px] text-[var(--color-primary-100)] hover:text-white group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
-                    <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:text-[var(--color-accent-400)] transition-colors" />
+                  <a href={`mailto:${contactConfig.email}`} className="flex items-start gap-3 text-[14px] text-[var(--color-primary-100)] hover:text-white group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
+                    <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 text-[var(--color-accent-500)] group-hover:scale-110 transition-transform" />
                     <span>{contactConfig.email}</span>
                   </a>
                 </li>
                 <li>
-                  <div className="flex items-start gap-3 text-[14px] md:text-[15px] text-[var(--color-primary-100)]">
-                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-white/50" />
+                  <div className="flex items-start gap-3 text-[14px] text-[var(--color-primary-100)]">
+                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[var(--color-accent-500)]" />
                     <span>{contactConfig.address.split(',')[0]}<br />{contactConfig.address.split(',').slice(1).join(',')}</span>
                   </div>
                 </li>
@@ -143,3 +155,4 @@ export function Footer() {
     </footer>
   )
 }
+

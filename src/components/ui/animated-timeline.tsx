@@ -30,26 +30,23 @@ export function AnimatedTimeline({ nodes }: AnimatedTimelineProps) {
     restDelta: 0.001
   })
 
-  // We map the overall progress (0 to 1) to individual node thresholds
-  // e.g. for 4 nodes, thresholds are roughly at 0, 0.33, 0.66, 1
   const numNodes = nodes.length
   
   return (
     <div ref={containerRef} className="relative w-full max-w-[1000px] mx-auto py-10">
       
-      {/* The Central Path Line (Background) */}
-      <div className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[var(--color-border)] -translate-x-1/2" />
+      {/* The Central Path Line (Background - Progress Rail Base #E4E2EC) */}
+      <div className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[3px] bg-[var(--line)] -translate-x-1/2 rounded-full" />
       
-      {/* The Central Path Line (Animated Foreground) */}
+      {/* The Central Path Line (Animated Foreground - Red Target Glow) */}
       <motion.div 
-        className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[var(--color-accent-400)] to-[var(--color-primary-600)] -translate-x-1/2 origin-top"
+        className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[var(--color-accent-500)] via-[var(--color-accent-600)] to-[var(--color-primary-900)] -translate-x-1/2 origin-top rounded-full shadow-[0_0_15px_rgba(226,6,19,0.5)]"
         style={{ scaleY: prefersReducedMotion ? 1 : smoothProgress }}
       />
 
       <div className="space-y-24 md:space-y-32">
         {nodes.map((node, i) => {
           
-          // Calculate when this specific node should animate in based on its index
           const start = Math.max(0, (i - 0.5) / (numNodes - 1))
           const end = Math.min(1, (i + 0.5) / (numNodes - 1))
           const nodeProgress = useTransform(smoothProgress, [start, end], [0, 1])
@@ -63,16 +60,16 @@ export function AnimatedTimeline({ nodes }: AnimatedTimelineProps) {
           return (
             <div key={i} className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
               
-              {/* Central Node Icon (Mobile: Left, Desktop: Center) */}
+              {/* Central Node Icon */}
               <div className="absolute left-[24px] md:left-1/2 -translate-x-1/2 z-10">
                 <motion.div 
-                  className="w-12 h-12 rounded-full bg-white border-2 border-[var(--color-border)] shadow-sm flex items-center justify-center overflow-hidden"
+                  className="w-13 h-13 rounded-full bg-white border-2 border-[var(--future-line)] shadow-md flex items-center justify-center overflow-hidden transition-all"
                   style={{ 
-                    borderColor: useTransform(nodeProgress, [0.4, 0.6], ["#E2E8F0", "#D39F47"]) 
+                    borderColor: useTransform(nodeProgress, [0.4, 0.6], ["#E2E0EE", "#E20613"]) 
                   }}
                 >
                   <motion.div 
-                    className="absolute inset-0 bg-[var(--color-primary-50)]"
+                    className="absolute inset-0 bg-[var(--color-accent-50)]"
                     style={{ scale: useTransform(nodeProgress, [0.4, 0.6], [0, 1]) }}
                   />
                   <div className="relative z-10 text-[var(--color-primary-900)] [&>svg]:w-5 [&>svg]:h-5">
@@ -85,13 +82,13 @@ export function AnimatedTimeline({ nodes }: AnimatedTimelineProps) {
               <div className={`w-full md:w-1/2 pl-[64px] pr-0 ${isEven ? 'md:pr-[64px] md:pl-0 md:text-right' : 'md:pl-[64px] md:pr-0 text-left'}`}>
                 <motion.div 
                   style={{ opacity: prefersReducedMotion ? 1 : opacity, y: prefersReducedMotion ? 0 : y, scale: prefersReducedMotion ? 1 : scale }}
-                  className="bg-white rounded-[16px] p-6 lg:p-8 border border-[var(--color-border)] shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] transition-shadow duration-300"
+                  className="bg-white rounded-[18px] p-7 lg:p-8 border border-[var(--future-line)] shadow-soft-elevation hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="text-sm font-bold tracking-widest text-[var(--color-accent-500)] mb-2">
+                  <div className="text-xs font-extrabold tracking-widest text-[var(--color-accent-500)] mb-2 uppercase">
                     STEP {node.step}
                   </div>
-                  <h3 className="text-xl font-bold text-[var(--color-charcoal)] mb-3">{node.title}</h3>
-                  <p className="text-[15.5px] text-[var(--color-slate)] leading-relaxed">
+                  <h3 className="text-2xl font-extrabold text-[var(--color-primary-900)] mb-3">{node.title}</h3>
+                  <p className="text-[15.5px] text-[var(--color-slate)] leading-relaxed font-normal">
                     {node.desc}
                   </p>
                 </motion.div>
@@ -105,3 +102,4 @@ export function AnimatedTimeline({ nodes }: AnimatedTimelineProps) {
     </div>
   )
 }
+

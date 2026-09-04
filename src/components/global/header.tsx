@@ -46,8 +46,10 @@ export function Header() {
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out border-b border-transparent",
-        isScrolled ? "h-[72px] glass shadow-sm" : "h-[88px] bg-transparent"
+        "fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out border-b",
+        isScrolled 
+          ? "h-[76px] bg-white/90 backdrop-blur-md border-[var(--header-line)] shadow-[0_4px_20px_rgba(34,22,87,0.06)]" 
+          : "h-[88px] bg-transparent border-transparent"
       )}
     >
       <div className="container mx-auto px-6 h-full flex items-center justify-between max-w-[var(--container-2xl)]">
@@ -55,7 +57,7 @@ export function Header() {
         {/* LEFT: Logo */}
         <Link 
           href="/" 
-          className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm"
+          className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-md group"
           aria-label="THE CENTER Home"
         >
           <motion.div 
@@ -63,12 +65,12 @@ export function Header() {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 200, damping: 20 }}
-            className="w-8 h-8 rounded bg-[var(--color-primary-900)] flex items-center justify-center shrink-0 relative overflow-hidden shadow-sm z-50"
+            className="w-10 h-10 rounded-xl bg-[var(--color-primary-900)] flex items-center justify-center shrink-0 relative overflow-hidden shadow-[0_4px_12px_rgba(22,23,92,0.2)] group-hover:shadow-[0_0_20px_rgba(226,6,19,0.3)] transition-shadow duration-300"
           >
             {/* Fallback to SVG if /logo.png is not found */}
             <img 
               src="/logo.png" 
-              alt="" 
+              alt="THE CENTER Logo" 
               className="w-full h-full object-contain p-1.5"
               onError={(e) => {
                 const target = e.target as HTMLElement;
@@ -76,13 +78,17 @@ export function Header() {
                 target.parentElement?.classList.add('fallback-active');
               }}
             />
-            {/* Fallback SVG */}
-            <svg className="absolute hidden fallback-svg w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Fallback SVG with target crimson red dot */}
+            <svg className="absolute hidden fallback-svg w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <style>{`.fallback-active .fallback-svg { display: block; }`}</style>
-              <path d="M7 12L12 7L17 12L12 17L7 12Z" fill="#C89B3C"/>
+              <circle cx="12" cy="12" r="9" stroke="#E20613" strokeWidth="2" />
+              <circle cx="12" cy="12" r="4" fill="#E20613" />
             </svg>
           </motion.div>
-          <span className="font-bold text-[var(--color-primary-900)] text-xl tracking-tight hidden sm:block">THE CENTER</span>
+          <div className="flex flex-col">
+            <span className="font-extrabold text-[var(--color-primary-900)] text-xl tracking-tight leading-none group-hover:text-[var(--color-accent-500)] transition-colors">THE CENTER</span>
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-slate)] leading-tight mt-0.5">Business Services</span>
+          </div>
         </Link>
 
         {/* CENTER: Desktop Navigation */}
@@ -96,24 +102,33 @@ export function Header() {
           className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2"
         >
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
-            <Link href="/" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
+            <Link href="/" className={`text-[15px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-sm py-2 relative ${isActive('/') ? 'text-[var(--color-accent-500)] font-extrabold' : 'text-[var(--color-primary-900)] hover:text-[var(--color-accent-500)]'}`}>
               Home
+              {isActive('/') && (
+                <motion.div layoutId="active-indicator" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-accent-500)] rounded-full" />
+              )}
             </Link>
           </motion.div>
-          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }} className={isActive('/services') ? 'text-[var(--color-primary-900)]' : ''}>
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }} className={isActive('/services') ? 'text-[var(--color-accent-500)]' : ''}>
             <NavDropdown label="Services" items={SERVICES} />
           </motion.div>
-          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }} className={isActive('/resources') || isActive('/faq') ? 'text-[var(--color-primary-900)]' : ''}>
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }} className={isActive('/resources') || isActive('/faq') ? 'text-[var(--color-accent-500)]' : ''}>
             <NavDropdown label="Resources" items={RESOURCES} />
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
-            <Link href="/about" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/about') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
+            <Link href="/about" className={`text-[15px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-sm py-2 relative ${isActive('/about') ? 'text-[var(--color-accent-500)] font-extrabold' : 'text-[var(--color-primary-900)] hover:text-[var(--color-accent-500)]'}`}>
               About
+              {isActive('/about') && (
+                <motion.div layoutId="active-indicator" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-accent-500)] rounded-full" />
+              )}
             </Link>
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
-            <Link href="/contact" className={`text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm py-2 ${isActive('/contact') ? 'text-[var(--color-primary-900)]' : 'text-[var(--color-charcoal)] hover:text-[var(--color-primary-900)]'}`}>
+            <Link href="/contact" className={`text-[15px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-sm py-2 relative ${isActive('/contact') ? 'text-[var(--color-accent-500)] font-extrabold' : 'text-[var(--color-primary-900)] hover:text-[var(--color-accent-500)]'}`}>
               Contact
+              {isActive('/contact') && (
+                <motion.div layoutId="active-indicator" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-accent-500)] rounded-full" />
+              )}
             </Link>
           </motion.div>
         </motion.nav>
@@ -123,14 +138,14 @@ export function Header() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="hidden md:flex items-center gap-6"
+          className="hidden md:flex items-center gap-5"
         >
           <LanguageSwitcher className="hidden lg:flex" />
           <div className="hidden lg:block">
-            <BookConsultationButton size="sm" className="px-6 rounded-md shadow-none hover:shadow-sm" />
+            <BookConsultationButton size="sm" className="px-6 rounded-lg bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white shadow-[0_4px_15px_rgba(226,6,19,0.25)] hover:shadow-[0_0_25px_rgba(226,6,19,0.4)]" />
           </div>
           <div className="lg:hidden">
-            <BookConsultationButton size="sm" className="px-4 text-[13px]" label="Book Consultation" />
+            <BookConsultationButton size="sm" className="px-4 text-[13px] rounded-lg bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white shadow-[0_4px_15px_rgba(226,6,19,0.25)]" label="Book Consultation" />
           </div>
         </motion.div>
 
