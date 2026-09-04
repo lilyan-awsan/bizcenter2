@@ -59,6 +59,49 @@ export interface ResourceItem {
 
 export const RESOURCES: ResourceItem[] = [
   {
+    id: "r0-checklist",
+    slug: "document-checklist",
+    title: "Document Checklist",
+    description: "One checklist for a more organized appointment. Review required identification, business, bookkeeping, and application documents.",
+    category: "Forms & Documents",
+    type: "CHECKLIST",
+    tags: ["checklist", "appointment", "documents", "preparation"],
+    featured: true,
+    downloadable: true,
+    dateUpdated: "2026-08-11",
+    readingTime: "5 min read",
+    seoTitle: "Document Checklist | Prepare for Your Visit | THE CENTER",
+    seoDescription: "Review required documents for personal identification, business startup, bookkeeping, applications, and newcomer support."
+  },
+  {
+    id: "r0-forms",
+    slug: "forms-official-resources",
+    title: "Forms & Official Resources",
+    description: "Verified state, federal, and local resource links with updated 2026 IRS 1099-NEC and FinCEN BOI compliance rules.",
+    category: "Official Resources",
+    type: "OFFICIAL RESOURCE",
+    tags: ["forms", "official", "irs", "fincen", "state"],
+    featured: true,
+    dateUpdated: "2026-08-11",
+    readingTime: "Official Directory",
+    seoTitle: "Business Forms & Official Resources | THE CENTER",
+    seoDescription: "Official IRS, FinCEN, Tennessee Secretary of State, and USCIS resource links and 2026 regulatory updates."
+  },
+  {
+    id: "r0-faq",
+    slug: "faq",
+    title: "Frequently Asked Questions",
+    description: "Answers to common questions regarding business startup, bookkeeping, administrative support, and consultation appointments.",
+    category: "FAQs",
+    type: "FAQ",
+    tags: ["faq", "questions", "support", "answers"],
+    featured: true,
+    dateUpdated: "2026-08-11",
+    readingTime: "Read FAQ",
+    seoTitle: "Frequently Asked Questions (FAQ) | THE CENTER",
+    seoDescription: "Clear answers to common questions about Business Startup, Bookkeeping, Administrative Support, and New to the U.S."
+  },
+  {
     id: "r1",
     slug: "business-startup-checklist",
     title: "Business Startup Checklist",

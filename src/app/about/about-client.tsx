@@ -130,14 +130,16 @@ export default function AboutClientPage() {
             {aboutData.values.map((value, idx) => {
               const Icon = value.icon
               return (
-                <StaggerContainer key={idx} delayChildren={idx * 0.1}>
-                  <StaggerItem distance={16}>
-                    <div className="bg-[#F8F7F4] p-8 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-accent-400)] transition-colors duration-300 h-full group">
-                      <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-6 h-6 text-[var(--color-accent-600)]" />
+                <StaggerContainer key={idx} delayChildren={idx * 0.1} className="h-full">
+                  <StaggerItem distance={16} className="h-full">
+                    <div className="bg-[#F8F7F4] p-8 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-accent-400)] transition-colors duration-300 h-full flex flex-col justify-between group">
+                      <div>
+                        <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="w-6 h-6 text-[var(--color-accent-600)]" />
+                        </div>
+                        <h3 className="text-[20px] font-semibold text-[var(--color-charcoal)] mb-3">{value.title}</h3>
+                        <p className="text-[15px] text-[var(--color-slate)] leading-relaxed">{value.description}</p>
                       </div>
-                      <h3 className="text-[20px] font-semibold text-[var(--color-charcoal)] mb-3">{value.title}</h3>
-                      <p className="text-[15px] text-[var(--color-slate)] leading-relaxed">{value.description}</p>
                     </div>
                   </StaggerItem>
                 </StaggerContainer>

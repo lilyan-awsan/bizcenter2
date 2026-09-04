@@ -48,8 +48,8 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out border-b",
         isScrolled 
-          ? "h-[96px] bg-white/95 backdrop-blur-md border-[var(--header-line)] shadow-[0_4px_25px_rgba(34,22,87,0.08)]" 
-          : "h-[115px] bg-transparent border-transparent"
+          ? "h-[76px] bg-white/95 backdrop-blur-md border-[var(--header-line)] shadow-[0_4px_20px_rgba(34,22,87,0.06)]" 
+          : "h-[84px] bg-transparent border-transparent"
       )}
     >
       <div className="container mx-auto px-6 h-full flex items-center justify-between max-w-[var(--container-2xl)]">
@@ -70,7 +70,7 @@ export function Header() {
             <img 
               src="/logo.png" 
               alt="THE CENTER Business Services" 
-              className="h-20 sm:h-24 md:h-28 max-h-[85px] sm:max-h-[96px] w-auto object-contain scale-[1.4] sm:scale-[1.6] origin-left transition-transform duration-300 group-hover:scale-[1.65]"
+              className="h-10 sm:h-12 max-h-[48px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
                 const target = e.target as HTMLElement;
                 target.style.display = 'none';

@@ -28,7 +28,7 @@ export default function Home() {
       {/* =========================================
           HERO SECTION (LOGO THEME + HIGH-RES PHOTO)
       ========================================= */}
-      <div className="relative min-h-[100svh] flex flex-col pt-28 md:pt-32 border-b border-[var(--future-line)]">
+      <div className="relative min-h-[100svh] flex flex-col pt-16 md:pt-20 border-b border-[var(--future-line)]">
         
         <AmbientBackground intensity="medium" colorTheme="mixed" />
         
