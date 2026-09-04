@@ -240,7 +240,15 @@ export default function ContactClientPage() {
                 </motion.div>
               ) : (
                 <div className="bg-white rounded-3xl p-8 md:p-10 border border-[var(--color-border)] shadow-[var(--shadow-lg)]">
-                  <h2 className="text-3xl mb-8">Send Us a Message</h2>
+                  <h2 className="text-3xl mb-4">Send Us a Message</h2>
+                  
+                  {/* Word Spec Requirement: Privacy warning banner on inquiry forms */}
+                  <div className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3 text-amber-900 text-xs leading-relaxed">
+                    <ShieldCheck className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Privacy Notice:</strong> Please do not submit Social Security Numbers (SSNs), ITINs, banking passwords, tax identification numbers, or sensitive immigration identifiers through this web form.
+                    </div>
+                  </div>
                   
                   {submitState === "error" && (
                     <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-100 flex items-start gap-3">

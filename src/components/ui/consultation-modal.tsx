@@ -207,6 +207,12 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                     {step === 1 && (
                       <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-right-4 duration-300">
                         <h3 className="text-2xl font-extrabold text-[var(--color-primary-900)]">Let's Get Started</h3>
+                        
+                        {/* Word Spec Requirement: Privacy warning banner on forms */}
+                        <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
+                          <strong>Privacy Notice:</strong> Do not submit SSNs, ITINs, banking details, passwords, or immigration document numbers.
+                        </div>
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div className="flex flex-col gap-1.5">
                             <label className="text-[14px] font-bold text-[var(--color-primary-900)]">First Name *</label>

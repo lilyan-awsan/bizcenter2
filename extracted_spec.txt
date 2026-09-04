@@ -1,0 +1,829 @@
+THE CENTER
+Website Professional Upgrade
+Squarespace Implementation Specification
+Purpose
+Provide the tech team with one complete, implementation-ready brief for rebuilding THE CENTER website to a professional production standard.
+Includes: site architecture, final content direction, fonts, exact sizes, colors, spacing, mobile rules, Squarespace guidance, SEO, accessibility, compliance updates, multilingual requirements, and launch acceptance criteria.
+Prepared for:
+ THE CENTER technical/design team
+Prepared date:
+ August 11, 2026
+Current public reference site:
+THE CENTER current site
+Planned platform:
+ Squarespace
+Important build principle
+This is a full professional rebuild, not a cosmetic reskin. Preserve THE CENTER values and contact information, but upgrade hierarchy, content clarity, conversion, trust, regulatory accuracy, accessibility, and consistency across English and Spanish.
+1 | EXECUTIVE BRIEF
+What the finished website should achieve
+THE CENTER should present as a credible, organized, approachable business and administrative support company. Visitors should understand within seconds who the company helps, what services are offered, what THE CENTER can and cannot do, and the next action to take.
+Primary conversion: Book a Free Consultation.
+Secondary conversion: Call 901-207-1660 or send a contact form inquiry.
+Existing-client action: Make a Payment, separated from prospect-facing calls to action.
+Resource goal: Provide helpful, current, plain-language information without implying legal, tax, immigration, or financial advice.
+Brand promise: Start Here. Move Forward.
+Immediate launch priorities
+1. 
+Correct the 2026 Form 1099-NEC threshold information in the Forms & Official Resources library.
+2. 
+Correct Beneficial Ownership Information (BOI) content to reflect current FinCEN rules for U.S.-created entities.
+3. 
+Remove "Voice agent: Coming soon" until that service is actually available.
+4. 
+Move one-time payment out of the primary consultation CTA area and into an Existing Client / Make a Payment path.
+5. 
+Add a privacy warning to all inquiry and document-related forms: do not submit SSNs, ITINs, banking details, passwords, immigration document numbers, or other sensitive identifiers through a general contact form.
+6. 
+Use consistent English and Spanish page structures, disclaimers, metadata, and regulatory content.
+Regulatory verification - August 11, 2026
+IRS guidance states that for payments made in 2026, the reporting threshold for certain Form 1099-NEC payments is $2,000, not $600. FinCEN currently states that entities created in the United States and their beneficial owners are exempt from BOI reporting; the current reporting-company definition applies to certain foreign entities registered to do business in the United States. Tech should display a "Last reviewed" date and link to official sources for regulatory cards.
+2 | INFORMATION ARCHITECTURE
+Recommended sitemap and navigation
+Navigation item
+Pages / behavior
+Home
+Brand promise, service overview, process, trust, final consultation CTA
+Services
+Services landing page plus five dedicated service pages
+Business Startup
+Startup process, scope, what to bring, FAQ, CTA
+Bookkeeping
+Monthly, cleanup/catch-up, year-end organization, reporting, CTA
+Business Support
+Administrative help, records, research, coordination, CTA
+Applications & Forms
+Administrative assistance and clear professional boundaries
+New to the U.S.
+Everyday administrative/business support with immigration-scope boundary
+Resources
+Document Checklist, Forms & Official Resources, FAQ
+About
+Mission, values, team, community, professional standards
+Contact
+Direct contact, consultation form, map, hours, service area
+Book Consultation
+Primary conversion destination
+Existing Client
+Make a Payment
+Legal
+Privacy Policy and Terms of Use
+Header behavior
+Desktop header height: 80-88 px.
+Left: THE CENTER logo/wordmark. Center/right: main navigation. Far right: primary CTA button "Book a Free Consultation."
+Mobile: compact logo + hamburger menu. Consultation button should remain easy to reach inside the menu; do not crowd the top bar.
+Language switcher: EN / ES, visible but secondary to the consultation CTA.
+Use a sticky header only if it stays compact and does not obscure content on mobile.
+Footer behavior
+Background: Deep Navy #16324F. Main text white; secondary text #D7DEE5; link hover #E5BF68.
+Columns: Services, Resources, Contact, Existing Client / Payment, Language.
+Display phone, fax, email, address, hours, legal links, copyright, and scope disclaimer.
+Do not display unfinished features such as "Coming soon."
+3 | VISUAL DESIGN SYSTEM
+Brand colors
+Token
+Hex
+Primary use
+Notes
+Primary Navy
+#16324F
+Headers, primary buttons, footer
+Core trust / authority color
+Warm Gold
+#C89B3C
+Eyebrows, accents, secondary highlight
+Use sparingly; not body text on white
+Charcoal
+#1F2933
+Primary body text
+High readability
+Slate Gray
+#4B5563
+Secondary body text
+Descriptions and supporting copy
+Warm Off-White
+#F8F7F4
+Hero / alternating sections
+Soft, approachable background
+Light Neutral
+#F3F5F6
+Alternate sections / cards
+Subtle separation
+White
+#FFFFFF
+Cards and clean sections
+Primary surface
+Border Gray
+#E3E7EB
+Card/form borders
+Keep subtle
+Success Green
+#2F6B4F
+Success states
+Avoid decorative overuse
+Warning Amber
+#A86514
+Warnings / updates
+Use with light amber background
+Error Red
+#A33A3A
+Errors / validation
+Use for actionable errors only
+Typography
+Preferred website font: Inter. If Inter is unavailable in the selected Squarespace font set, use DM Sans or Source Sans 3. Keep one primary sans-serif family across headings and body for a clean, consistent system. Confirm full Spanish character support before launch.
+Element
+Desktop
+Mobile
+Weight
+Hero H1
+56 px
+38 px
+700
+Page H1
+48 px
+36 px
+700
+H2
+38 px
+30 px
+700
+H3
+28 px
+24 px
+600
+H4
+22 px
+20 px
+600
+Body Large
+20 px
+18 px
+400
+Body
+17 px
+16 px
+400
+Small / Legal
+14-15 px
+14-15 px
+400
+Navigation
+16 px
+16 px
+600
+Buttons
+16 px
+16 px
+600
+Eyebrow Label
+14 px
+13-14 px
+700
+Typography rules
+H1 line height: 1.10. H2: 1.20. H3: 1.25. Body: approximately 1.60-1.65.
+Eyebrow labels: uppercase, Warm Gold #C89B3C, approximately 0.10-0.12em letter spacing.
+Maximum paragraph width: approximately 650-750 px for long-form readability.
+Do not use text below 14 px for client-facing content.
+Avoid all-caps paragraphs and excessive bold. Use bold for decisions, actions, or key phrases only.
+Spacing and layout
+Item
+Specification
+Maximum content width
+Approx. 1200 px
+Major section padding - desktop
+80-100 px top and bottom
+Major section padding - mobile
+56-72 px top and bottom
+Heading to paragraph
+16-20 px
+Paragraph to button
+24-32 px
+Card gap
+24 px
+Card padding
+26-32 px
+Card radius
+12 px
+Button radius
+8 px
+Minimum touch target
+48 px high; generous horizontal padding
+Mobile page side padding
+20-24 px
+Buttons
+Button
+Style
+Primary - Book a Free Consultation
+Background #16324F; text #FFFFFF; hover #244B70; 16 px / 600; 15 px vertical x 26 px horizontal; 8 px radius
+Secondary / Highlight
+Background #C89B3C; text #17212B; hover #B58932; same sizing
+Text link
+Navy or charcoal; underline on hover/focus; visible keyboard focus ring
+Mobile CTA
+Use full width when placed in stacked sections; keep minimum 48 px height
+Cards and information boxes
+Service cards: white background, 1 px #E3E7EB border, 12 px radius, 28 px padding, subtle shadow. Hover lift should be very small.
+General information callout: #F5F1E8 background, 4 px #C89B3C left border, 20-24 px padding.
+Scope/legal callout: #F7F7F7 background, #D8DDE2 border, 15-16 px text. Keep calm and clear, not alarming.
+Do not rely on color alone for meaning. Icons, text labels, and validation messages must also communicate state.
+Recommended section rhythm
+Use alternating backgrounds to prevent the site from feeling like one long white page: Hero #F8F7F4 -> Services #FFFFFF -> Process #F3F5F6 -> Trust band #16324F -> Resources #FFFFFF -> Final CTA #F8F7F4.
+4 | GLOBAL CONTENT AND CONVERSION SYSTEM
+Core positioning
+Primary brand line
+Start Here. Move Forward.
+Recommended descriptor: Business and Administrative Support Made Easier.
+Audience: individuals, entrepreneurs, independent professionals, small businesses, growing companies, and newcomers who need practical support navigating administrative or business processes.
+Primary CTA copy
+Book a Free Consultation
+Call 901-207-1660
+For contact forms: "Tell us what you are trying to accomplish."
+Global scope disclaimer
+Recommended website-wide disclaimer
+Certain matters may require assistance from licensed attorneys, CPAs, tax professionals, immigration professionals, financial professionals, or government agencies. THE CENTER provides business and administrative support and does not guarantee approvals, outcomes, processing times, or decisions made by third parties.
+Existing-client payment treatment
+Do not place "One-Time Payment" beside the primary prospect CTA on every page. Instead, create an "Existing Client? Make a Payment" link in the header utility area or footer, and a dedicated Client Payment page with a secure external payment button and a short note confirming the external processor.
+5 | PAGE SPECIFICATION - HOME
+Home page objective
+Immediately explain who THE CENTER is, what it does, who it helps, and what the visitor should do next. The home page should feel local, trustworthy, organized, and human.
+Section 1 - Hero
+Eyebrow: BUSINESS & ADMINISTRATIVE SUPPORT
+H1: Start Here. Move Forward.
+Supporting headline: Business and Administrative Support Made Easier.
+Body: Starting a business, keeping your records organized, completing an application, or navigating an unfamiliar process should not leave you wondering where to begin. THE CENTER provides practical business and administrative support for individuals, entrepreneurs, and small businesses in Memphis and surrounding communities.
+Closing line: Tell us what you are trying to accomplish. We will help you understand the next step.
+Primary button: Book a Free Consultation
+Secondary button: Explore Our Services
+Section 2 - How We Can Help
+Starting a Business - Organize the administrative steps involved in turning an idea into a properly structured business.
+Bookkeeping - Keep financial records organized, reconciled, and useful throughout the year.
+Business Support - Get practical help with documents, records, research, administrative processes, and everyday business needs.
+Applications & Forms - Understand general instructions, organize requested information, and prepare supporting documentation.
+New to the United States - A welcoming starting point for people learning unfamiliar U.S. administrative and business systems.
+Section 3 - You Do Not Need to Know Where to Start
+You do not need to choose the perfect service before contacting us. Tell us what you are working on. We will help identify what information you need, what administrative steps may come next, and when another qualified professional or government agency should be involved.
+Section 4 - How It Works
+1. 
+Tell Us What You Need - Start with a conversation about what you are trying to accomplish.
+2. 
+Get Organized - We help identify relevant information, documents, and administrative steps.
+3. 
+Move Forward - Complete the next steps with a clearer understanding of the process.
+Section 5 - Trust band
+Clear Information - Understand what the next step involves.
+Practical Support - Get help organizing the administrative side.
+Honest Scope - We will tell you when another professional is required.
+Local & Accessible - Memphis-based support with in-person and remote options where appropriate.
+Section 6 - Professional boundaries
+THE CENTER is built around a simple idea: people should be able to get practical administrative help without feeling overwhelmed, rushed, or judged. When a matter requires legal, tax, accounting, immigration, financial, or other licensed professional advice, THE CENTER should clearly explain the limits of its role and identify the appropriate type of professional or agency.
+Section 7 - Final CTA
+H2: Ready to Begin?
+Body: You do not have to figure everything out alone.
+Button: Book a Free Consultation
+Phone: 901-207-1660
+Address: 5520 Summer Ave #102, Memphis, TN 38122
+6 | PAGE SPECIFICATION - SERVICES
+Services landing page
+H1: Practical Support for Business and Everyday Administrative Needs
+Intro: THE CENTER helps clients organize information, understand processes, maintain business records, and take practical next steps. Start with the service that best fits your goal. If you are not sure, book a consultation and we will help you identify where to begin.
+Five service cards: Business Startup, Bookkeeping, Business Support, Applications & Administrative Support, New to the United States.
+Each card: 1-2 sentence explanation + "Learn More" link.
+After cards: "Not sure which service fits?" consultation CTA.
+Service page template - use for all five pages
+1. 
+Hero: eyebrow + service-specific H1 + one-sentence value proposition.
+2. 
+Problem/context: explain why the service matters without fear-based language.
+3. 
+Who this is for: concise audience statement.
+4. 
+What we can help with: scannable list.
+5. 
+What you receive / outcome: make the service tangible.
+6. 
+How it works: 3-4 steps.
+7. 
+What to bring: link to Document Checklist with service-specific items.
+8. 
+Scope boundaries: explicit "we can / we do not" language where regulated topics may appear.
+9. 
+Service-specific FAQ: 3-5 questions.
+10. 
+Final consultation CTA.
+Business Startup - final content direction
+H1: From Business Idea to Organized Next Steps
+Intro: Starting a business involves more than choosing a name. Registrations, entity information, banking, bookkeeping, licenses, records, and tax questions can all become part of the process. THE CENTER helps organize the administrative side so you can see what comes next.
+Who this is for: First-time founders and owners formalizing an existing venture.
+We can help you organize or understand:
+Business startup steps
+Business name and ownership information
+General business structure information
+Registration requirements
+Employer Identification Number (EIN) process information
+Business document organization
+Bookkeeping and recordkeeping setup
+Business banking preparation
+Licenses and permits to research
+When a licensed professional or agency should be involved
+Suggested process:
+1. 
+Understand the business concept and ownership.
+2. 
+Organize names, addresses, owners, and business details.
+3. 
+Review general entity and registration information.
+4. 
+Identify administrative registrations and licenses to investigate.
+5. 
+Organize EIN, banking, bookkeeping, and recordkeeping next steps.
+6. 
+Refer legal, tax, accounting, or regulated questions when appropriate.
+Scope note
+Do not state or imply that THE CENTER chooses the client's legal entity or provides individualized legal or tax advice unless the appropriate licensed professional is actually providing that service.
+Bookkeeping - final content direction
+H1: Keep Your Business Organized
+Intro: Consistent bookkeeping gives business owners a clearer view of activity, cash, expenses, and obligations. THE CENTER provides bookkeeping support for small businesses, independent professionals, and growing companies.
+Monthly bookkeeping may include:
+Transaction categorization
+Bank reconciliations
+Credit card reconciliations
+General ledger maintenance
+Income and expense tracking
+Financial statement preparation
+Month-end review and record organization
+Cleanup and catch-up may include:
+Historical transaction review
+Missing-period reconciliation
+Account cleanup
+Opening balance review
+Record organization
+Year-end organization may include: reconciled bookkeeping records, financial statements, organized records for the client's tax professional, and CPA/accountant coordination.
+Financial statement explainer: retain Income Statement and Balance Sheet education, but present them as simple cards with real, legible example graphics or carefully designed illustrations. Include the existing "From receipt to report" four-step flow.
+Scope note
+Financial reports are based on the business records provided and do not replace individualized tax, investment, legal, audit, attest, or financial advice. Make the boundary visible but not dominant.
+Business Support - final content direction
+H1: Practical Help for Everyday Business Needs
+Intro: Running a business involves administrative responsibilities that do not always fit neatly into one category. THE CENTER can provide practical support when a business owner needs help organizing records, locating information, understanding a process, or coordinating administrative next steps.
+Business document organization
+General administrative assistance
+Business information research
+Recordkeeping support
+Financial document organization
+Application support
+Business process guidance
+Coordination with accountants or other professionals
+General resource navigation
+Outcome statement: Clients should leave with better-organized information, clearer next actions, and a better understanding of when another specialist is needed.
+Applications & Administrative Support - final content direction
+H1: Understand the Process. Organize the Information. Prepare the Next Step.
+Intro: Applications and forms can become frustrating when instructions are unclear or requested information is difficult to organize. THE CENTER provides general administrative assistance with the process.
+We can help with:
+Reviewing general application instructions
+Organizing information provided by the client
+Identifying requested supporting documents
+Locating publicly available requirements
+Preparing administrative paperwork based on client-provided information
+Checking for missing fields or attachments
+Organizing submission packages
+Identifying the appropriate agency or organization
+We do not:
+Provide legal representation
+Make eligibility determinations
+Make decisions for government agencies or other third parties
+Guarantee approval or processing time
+Provide legal, immigration, tax, or financial advice unless appropriately licensed to do so
+New to the United States - final content direction
+H1: A Clear Starting Point for Everyday U.S. Administrative and Business Processes
+Intro: Moving to a new country often means learning unfamiliar systems, terminology, forms, agencies, and business practices. THE CENTER provides practical administrative and business support for newcomers who need a place to begin.
+Everyday administrative help may include:
+Finding general information
+Understanding general requirements
+Organizing documents
+Identifying an agency or resource
+Understanding what questions to ask
+Organizing possible next steps
+Navigating unfamiliar business processes
+Immigration boundary
+Visually separate everyday administrative support from immigration legal matters. Do not imply that THE CENTER provides immigration legal advice, immigration strategy, petition representation, or eligibility determinations unless the service is provided by an appropriately authorized professional.
+7 | PAGE SPECIFICATION - DOCUMENT CHECKLIST
+Professional checklist experience
+The existing checklist is useful but should become a client-preparation tool rather than a static 19-item list. Requirements vary by service, so the page should let visitors choose why they are visiting and then show the relevant checklist.
+Top-of-page copy
+H1: Get Your Documents Ready
+Subhead: One Checklist. A More Organized Appointment.
+Body: Preparing your documents ahead of time can make your visit faster, easier, and more productive. Use this checklist to organize the documents that may apply to your situation. You may not need every item listed. Requirements vary depending on the service, application, agency, and individual circumstances.
+Service selector
+Starting a Business
+Bookkeeping
+Application / Form
+Business Administration
+New to the U.S.
+After selection, display only relevant checklist groups. Allow multiple selections if the client has more than one need.
+Progress behavior
+Overall indicator: "12 of 35 items prepared - 34% complete."
+Per-section count: e.g., "Personal Identification - 3 of 5."
+Progress must be communicated with text as well as color.
+Provide Print Checklist and Save as PDF actions at top and bottom if the platform implementation supports reliable printing.
+Before Your Visit
+Bring original documents when available.
+Keep copies of important documents for your records.
+Make sure names, addresses, and identification information are current.
+Bring letters, notices, applications, or instructions related to the matter.
+If you are unsure whether a document is necessary, bring it and ask whether it is relevant.
+Privacy notice
+Documents containing Social Security numbers, tax identification numbers, financial information, or immigration information are sensitive. Do not send sensitive documents through a general contact form or regular email unless THE CENTER specifically provides an appropriate secure method.
+Checklist group - Personal Identification
+Government-issued photo identification (examples: driver's license, state ID, passport, or other accepted identification)
+Social Security Number or ITIN, only if relevant to the requested service
+Proof of current address (utility bill, lease agreement, bank statement, or other official correspondence)
+Immigration or employment authorization documents, only when relevant to the matter being addressed
+Official notices, letters, reference numbers, or case/account numbers relevant to the request
+Checklist group - Starting a Business
+Proposed business name
+Two or three alternative business names
+General description of products or services
+Preferred business structure, if already selected
+Full legal names and contact information for owners, members, or partners
+Proposed business address and mailing address
+EIN, if already issued
+Formation or registration documents, if the business already exists
+Business licenses, permits, or correspondence already received
+Written list of questions or steps the client wants help understanding
+Checklist group - Bookkeeping & Business Records
+Business bank statements
+Business credit card statements
+Sales and income records
+Receipts for business expenses
+Vendor bills and invoices
+Customer invoices
+Payroll records, if applicable
+Loan or financing statements
+Prior bookkeeping reports, if available
+Prior-year business tax returns, when relevant
+Records of owner contributions or withdrawals
+Spreadsheets, accounting software reports, or other recordkeeping systems currently in use
+Checklist group - Applications, Forms & Administrative Filings
+The application, form, or notice
+Instructions provided with the application
+Supporting-document requirements
+Identification documents required by the application
+Reference, account, confirmation, receipt, or case number, if applicable
+Relevant letters, emails, or notices from the agency or organization
+Payment method for required filing or application fees
+Submission deadline, appointment date, or response deadline
+Copies of previously submitted documents
+Written questions to discuss before submission
+Checklist group - New to the United States
+Government-issued identification
+Letters or notices that need explanation
+Forms or applications the client is working on
+Documents showing current address
+Employment or business-related documents
+Tax or identification documents relevant to the service
+Contact information for the agency, employer, business, or organization involved
+Written list of questions
+Checklist end state
+H2: Need Help Figuring Out What to Bring?
+Body: You do not have to figure everything out before contacting us. Tell THE CENTER what you are trying to accomplish, and we will help identify the practical next steps.
+Button: Book a Free Consultation
+Phone: 901-207-1660
+8 | PAGE SPECIFICATION - FORMS & OFFICIAL RESOURCES
+Rename and reposition the current Tax Forms page
+Recommended navigation label: Forms & Official Resources. The page may still contain business and tax forms, but it should emphasize education, source verification, and official agency links rather than looking like tax-preparation advice.
+Resource-card structure
+Form name and official form number.
+What it is - 1-2 plain-language sentences.
+Who typically uses/files it - use cautious wording such as "may" or "generally" where rules vary.
+Timing - avoid oversimplified deadlines when facts depend on tax year, entity type, weekends/holidays, extensions, or other rules.
+Official source button - IRS, USCIS, FinCEN, Tennessee Secretary of State, etc.
+Last reviewed date - display prominently.
+Short disclaimer: requirements change; verify with the issuing agency or qualified professional before filing.
+2026 correction - Form 1099-NEC
+Replace outdated $600 statement
+For payments made in 2026, IRS guidance states that the reporting threshold for certain nonemployee compensation payments is $2,000. For payments before 2026, the prior threshold was $600; the threshold is subject to inflation adjustment after 2026. Avoid a universal statement because exceptions, including backup withholding, can apply.
+2026 correction - Beneficial Ownership Information (BOI)
+Replace current domestic-company wording
+FinCEN states that entities created in the United States and their beneficial owners are exempt from BOI reporting under the current rule. Certain entities formed under foreign law and registered to do business in a U.S. state or tribal jurisdiction may still meet the reporting-company definition, subject to exemptions. Link directly to current FinCEN guidance and display a last-reviewed date.
+Suggested resource categories
+Identity & Onboarding
+Income & Individual
+Business Tax Returns
+Payroll & Employment
+Formation & Registration
+Compliance & Reporting
+Tennessee / Local Business Resources
+Regulatory content governance
+1. 
+Assign an owner for reviewing the resource library.
+2. 
+Display "Last reviewed: Month Day, Year" on every regulatory card or section.
+3. 
+Link to the official agency source, not only third-party explainers.
+4. 
+Schedule review at least quarterly and whenever a major law/rule changes.
+5. 
+Do not automatically state filing deadlines or thresholds without a source and applicable tax/reporting year.
+9 | PAGE SPECIFICATIONS - FAQ, ABOUT, CONTACT
+FAQ
+Organize accordions by topic instead of one short list. The accordion control must be keyboard accessible and expose expanded/collapsed state to assistive technology.
+General questions:
+What does THE CENTER do?
+Do I need an appointment?
+Do I need to know which service I need before contacting you?
+Do you offer remote services?
+What should I bring?
+What languages do you support?
+How much do services cost?
+Business Startup questions:
+Can you help me start a business?
+Can you help obtain an EIN?
+Can you choose my business structure?
+Can you help me understand licenses or registrations?
+Bookkeeping questions:
+Do you offer monthly bookkeeping?
+Can you clean up old books?
+Can you work with my CPA or accountant?
+What records should I provide?
+Applications / New to the U.S. questions:
+Can you help me understand a form?
+Can you guarantee approval?
+Do you provide immigration legal services?
+When do I need an attorney or other licensed professional?
+About
+Keep the existing people-first mission and "trusted place to start" concept, then add stronger credibility and human proof.
+Our Story
+Our Mission
+Who We Serve
+How We Work
+Our Team
+Languages We Serve In
+Professional Experience
+Community
+Our Scope & Professional Standards
+Use real photographs of the office and team where possible. Publish licenses, certifications, years of experience, partnerships, memberships, or professional affiliations only if they are accurate and verifiable.
+Contact
+H1: Let's Talk
+Intro: Tell us where you are and what you are trying to do. No pressure - just a practical first conversation about the next step.
+Direct contact information to retain:
+Phone: 901-207-1660
+Fax: 901-209-5511
+Email: info@biz.center
+Address: 5520 Summer Ave #102, Memphis, TN 38122
+Hours: Monday-Friday, 9:00 AM-5:00 PM
+Service area: local community and surrounding areas, in person and remotely where appropriate
+Contact form service options: Starting a business; Bookkeeping; Business administration; Application or form; New to the United States; Existing client; Something else.
+Message prompt: Briefly tell us what you are trying to accomplish.
+Mandatory contact-form privacy notice
+Please do not enter Social Security numbers, tax identification numbers, banking information, immigration document numbers, passwords, or other sensitive information in this form.
+10 | PAGE SPECIFICATIONS - PRIVACY AND TERMS
+Privacy Policy
+The current privacy policy is very short. The production policy should be reviewed by qualified counsel and should accurately match the technologies and processes actually used on the Squarespace site. Do not copy generic language that is not operationally true.
+Counsel/tech should address, as applicable:
+Information collected
+Contact and consultation forms
+Client records and documents
+Cookies and analytics
+Payment processors
+Scheduling systems
+Email/marketing tools
+Third-party service providers
+Information sharing
+Retention
+Data security
+User choices and access/correction/deletion requests
+Children's privacy
+External links
+Policy changes
+Contact information
+Terms of Use
+Retain the current service-scope concepts but have the final version reviewed by qualified counsel. The website terms and any actual client engagement agreement are separate documents and should not be conflated.
+Counsel/tech should address, as applicable:
+Nature and scope of website information
+Nature of administrative/bookkeeping services
+No attorney-client relationship
+No CPA/client or attest relationship where applicable
+No guarantee of government or third-party acceptance
+Accuracy of client-provided information
+Third-party websites and payment links
+Intellectual property
+Payments and refund terms if relevant
+Service engagement terms
+Limitation of liability
+Governing law
+Changes to terms
+Contact information
+Legal review
+This implementation document identifies issues and recommended website structure. It is not a substitute for legal review of the final Privacy Policy, Terms of Use, service descriptions, immigration-related wording, or professional-scope statements.
+11 | ENGLISH AND SPANISH REQUIREMENTS
+Multilingual standard
+Spanish should not be treated as an afterthought or literal machine translation. English and Spanish must carry the same service scope, safety language, regulatory updates, calls to action, and page hierarchy.
+Use human-reviewed Spanish terminology for business, bookkeeping, administrative, tax-reference, and immigration-scope wording.
+Keep the language switcher consistently visible.
+Review accents, punctuation, form labels, validation messages, and button lengths at mobile widths.
+Ensure the selected font supports Spanish characters correctly.
+For Squarespace 7.1, evaluate the built-in Weglot integration versus a manually maintained bilingual structure based on translation quality, SEO, budget, and workflow. Do not auto-publish machine translations without human review.
+If a multilingual tool generates language versions, verify metadata, canonical behavior, language switcher behavior, and search-engine indexing before launch.
+12 | SEO AND LOCAL SEARCH IMPLEMENTATION
+Technical SEO requirements
+Use a permanent branded production domain. Treat any vercel.app URL as staging unless intentionally kept for technical testing.
+Set one unique title tag and meta description per page.
+Create and submit XML sitemap.
+Confirm robots settings do not block production pages.
+Use canonical URLs.
+Implement correct English/Spanish language targeting and hreflang where the chosen multilingual architecture supports it.
+Add Organization / LocalBusiness structured data where accurate.
+Add Service structured data where appropriate.
+Add FAQ structured data only when the visible page content and current search-engine guidelines support it.
+Connect Google Search Console and analytics after privacy/cookie review.
+Redirect or retire obsolete public versions of the site where possible to reduce duplicate/outdated search results.
+Monitor 404s, index coverage, page titles, duplicate content, and old service references after migration.
+Suggested title-tag pattern
+Page
+Title direction
+Home
+THE CENTER | Business & Administrative Support in Memphis
+Business Startup
+Business Startup Support in Memphis | THE CENTER
+Bookkeeping
+Small Business Bookkeeping in Memphis | THE CENTER
+Business Support
+Business Administrative Support | THE CENTER Memphis
+Applications
+Applications & Administrative Support | THE CENTER
+New to the U.S.
+Administrative Support for Newcomers | THE CENTER Memphis
+Document Checklist
+Document Checklist | Prepare for Your Visit | THE CENTER
+Resources
+Business Forms & Official Resources | THE CENTER
+About
+About THE CENTER | Memphis Business & Administrative Support
+Contact
+Contact THE CENTER | Memphis, TN
+SEO content rules
+One descriptive H1 per page. Use H2/H3 in logical order; do not choose headings solely for visual size.
+Write naturally for humans first. Avoid keyword stuffing and duplicated paragraphs across service pages.
+Use descriptive internal-link text: "View the Document Checklist" rather than "Click here."
+Optimize image file size; write useful alt text for informative images and leave decorative images appropriately unannounced.
+13 | ACCESSIBILITY REQUIREMENTS
+Target: WCAG 2.2 AA
+Full keyboard access for navigation, accordions, forms, buttons, checklist controls, and language switcher.
+Visible focus indicators with sufficient contrast.
+Logical heading hierarchy and semantic landmarks.
+Form labels programmatically associated with inputs; placeholders must not replace labels.
+Clear validation messages that identify the field and the correction needed.
+Color contrast checked for text, buttons, links, focus states, and error states.
+Minimum practical touch target approximately 48 px for primary interactive controls.
+Meaningful alt text for informative images; decorative images should not create noise for screen-reader users.
+Link purpose understandable from the link text and context.
+Checklist progress expressed as text plus visual progress.
+Respect reduced-motion settings; animations should be subtle and nonessential.
+Test at 200% zoom and mobile reflow.
+Set the correct document language and verify language behavior for Spanish content.
+14 | SQUARESPACE BUILD INSTRUCTIONS
+Platform recommendation
+If the site is on Squarespace version 7.1, use Fluid Engine as the primary layout system. Squarespace states that desktop and mobile Fluid Engine layouts are edited separately, so both views must be intentionally designed and reviewed. If the account is on 7.0, evaluate migration to 7.1 in preview before changing production.
+Use native settings first
+Use Site Styles for typography, colors, buttons, and general theme settings.
+Use Fluid Engine for section layout, block placement, spacing, and responsive composition.
+Use Custom CSS sparingly for fonts, colors, backgrounds, and minor brand refinements when Site Styles cannot achieve the desired result.
+Do not depend on fragile custom CSS for core spacing, block sizing, or positioning. Squarespace warns that code-based customizations may not remain fully compatible with responsive behavior or platform changes.
+Use Code Injection only for appropriate scripts/HTML such as analytics, domain verification, or supported third-party integrations, subject to the account plan and privacy review. Do not use Code Injection as the primary content/layout system.
+Squarespace implementation sequence
+1. 
+Confirm site version, plan, domain, current integrations, analytics, scheduling, forms, payment links, and bilingual approach.
+2. 
+Create a staging/duplicate site or work in unpublished pages where practical. Do not rebuild critical production pages live without a rollback plan.
+3. 
+Set global fonts, color palette, button styles, forms, and section themes first.
+4. 
+Build global header and footer.
+5. 
+Build the Home page as the reference page for spacing and components.
+6. 
+Build the Services landing page and one service page template; validate desktop/mobile; then replicate intentionally with unique content.
+7. 
+Build Resources, Document Checklist, FAQ, About, Contact, Legal, and Existing Client / Payment pages.
+8. 
+Implement bilingual architecture and human-review all Spanish content.
+9. 
+Configure SEO metadata, redirects, social sharing images, sitemap/search settings, analytics, and domain.
+10. 
+Complete accessibility, mobile, form, link, performance, and cross-browser QA before launch.
+Document Checklist technical note
+A simple static checklist can be built with native content, but saved progress, dynamic filtering, percentage completion, and print-to-PDF behavior may require custom code or an embedded third-party component. If custom JavaScript is used, confirm the Squarespace plan permits the required code and test thoroughly on mobile. Do not store sensitive personal data in browser storage or third-party widgets without a documented privacy/security decision.
+Multilingual technical note
+Squarespace currently recommends its Weglot integration for version 7.1 multilingual sites. A manual bilingual structure remains possible but requires duplicated pages and human-maintained translations. Select one architecture before production build so navigation, URLs, metadata, and content workflow remain consistent.
+15 | FORMS, PRIVACY, AND DATA HANDLING
+Contact form requirements
+Fields: Full name, email address, phone optional, What can we help with?, short message.
+Do not ask for SSN, ITIN, banking, passwords, immigration document numbers, tax account credentials, or unnecessary sensitive information.
+Display the privacy warning immediately before the Submit button.
+Provide a success message that explains when/how THE CENTER will respond without promising a response time the business cannot consistently meet.
+Spam protection should not create an inaccessible barrier.
+If files are ever accepted, use a documented secure process and define accepted file types, size limits, retention, authorized access, and deletion workflow.
+Analytics / cookies / integrations
+Before enabling analytics, advertising pixels, chat, scheduling, or third-party widgets, record what data the integration collects and ensure the Privacy Policy and consent configuration accurately reflect it. Minimize integrations that add tracking, slow page speed, or create inconsistent styling without delivering clear value.
+16 | PHOTOGRAPHY AND VISUAL ASSETS
+Image direction
+Prioritize real THE CENTER team and office photography over generic stock images.
+Show authentic client-service environments without exposing client documents or private information.
+Include Memphis/community context where it feels natural.
+Avoid cliché handshake, calculator, generic skyscraper, or staged tax-preparation imagery.
+Use one consistent photography treatment: natural lighting, clean backgrounds, warm professional tone.
+Compress images and use appropriate responsive dimensions to protect page speed.
+17 | LAUNCH ACCEPTANCE CHECKLIST
+Design and UX
+All pages use the approved color palette and typography scale.
+Desktop and mobile layouts are intentionally composed, not merely auto-stacked.
+No text overlaps, clipped buttons, orphan headings, or awkward large gaps.
+Primary consultation CTA is consistent and obvious.
+Existing-client payment is visually secondary and separated from prospect CTAs.
+No "Coming soon" placeholders remain unless the feature is truly available at launch.
+Content and scope
+Service descriptions are distinct and avoid repetitive template copy.
+Applications and newcomer pages clearly separate administrative support from regulated professional advice.
+Privacy and scope notices are visible where relevant.
+Phone, fax, email, address, and hours are consistent site-wide.
+English and Spanish versions contain equivalent service scope and disclaimers.
+Regulatory cards show a last-reviewed date and official source.
+Functionality
+All navigation links work.
+All CTA buttons point to the correct destination.
+Contact form submits successfully and the business receives the message.
+Validation and success/error messages are understandable.
+Payment link opens the correct secure payment destination.
+Document Checklist behaves correctly across supported devices.
+Print/PDF behavior is tested if offered.
+Language switcher retains sensible navigation behavior.
+Accessibility
+Keyboard-only navigation pass.
+Visible focus states.
+Heading structure pass.
+Form labels and error messages pass.
+Color contrast pass.
+200% zoom/reflow pass.
+Alt text review.
+Reduced-motion behavior checked.
+SEO and production
+Production domain and SSL confirmed.
+Page titles and meta descriptions complete.
+Canonical and language settings reviewed.
+Sitemap available and submitted.
+Robots/index settings correct.
+Redirects from old/changed URLs tested.
+Analytics/Search Console configured after privacy review.
+404 page configured and useful.
+Social share image and site icon/favicon configured.
+18 | IMPLEMENTATION PRIORITY PLAN
+Phase 1 - Correct and protect
+Correct 1099-NEC and BOI resource content.
+Add sensitive-information warnings.
+Remove unfinished voice-agent references.
+Separate payment from consultation CTA.
+Confirm legal/scope wording for Applications and New to the U.S. pages.
+Phase 2 - Establish the system
+Configure brand fonts, colors, button styles, spacing, header, and footer.
+Build the Home page and Services landing page.
+Build one polished service page component system and roll it across unique service content.
+Phase 3 - Resources and conversion
+Upgrade Document Checklist.
+Rebuild Forms & Official Resources.
+Expand FAQ.
+Upgrade About and Contact.
+Create Existing Client / Make a Payment page.
+Phase 4 - Multilingual, SEO, accessibility, launch
+Complete English/Spanish content parity and language navigation.
+Implement metadata and redirects.
+Complete accessibility and responsive QA.
+Verify forms, payment link, analytics, sitemap, index settings, and legal pages.
+Launch only after final checklist passes.
+19 | VERIFIED REFERENCES AND SOURCE NOTES
+Current THE CENTER information verified from the public site
+The implementation brief uses the following current public business details:
+The Center Business Services d/b/a THE CENTER
+Phone: 901-207-1660
+Fax: 901-209-5511
+Email: info@biz.center
+Address: 5520 Summer Ave #102, Memphis, TN 38122
+Hours: Monday-Friday, 9:00 AM-5:00 PM
+Current service categories: Business Support, Bookkeeping, Applications & Administrative Support, New to the U.S., and Business Startup
+Official regulatory sources - verify again before publication
+IRS - Form 1099 information return threshold guidance: 
+IRS: Am I required to file a Form 1099 or other information return?
+IRS - 2026 instructions for Forms 1099-MISC and 1099-NEC: 
+IRS Instructions
+FinCEN - Beneficial Ownership Information reporting: 
+FinCEN BOI
+Squarespace platform references
+Fluid Engine: 
+Squarespace Help - Edit your site with Fluid Engine
+Custom CSS: 
+Squarespace Help - Using the CSS Editor
+Code Injection: 
+Squarespace Help - Using code injection
+Multilingual site guidance: 
+Squarespace Help - Creating a multilingual site with Weglot
+Maintenance rule
+Any regulatory, tax, filing, licensing, or government-process information published on THE CENTER website should carry an applicable year or last-reviewed date and a direct official-source link. Tech should make the date/source pattern easy for staff to maintain.
+Final build objective
+The finished website should feel like one coherent professional system: clear hierarchy, restrained branding, strong local trust, consistent scope language, useful resources, clean bilingual navigation, and an obvious path from "I am not sure where to start" to "Book a Free Consultation."
