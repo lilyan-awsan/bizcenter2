@@ -7,9 +7,13 @@ import { LanguageSwitcher } from "./language-switcher"
 import { contactConfig } from "@/lib/config"
 import { BookConsultationButton } from "@/components/ui/book-consultation-button"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 export function Footer() {
   const [openSection, setOpenSection] = React.useState<string | null>(null)
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section)
@@ -36,15 +40,15 @@ export function Footer() {
       {/* Pre-Footer CTA */}
       <div className="bg-gradient-to-r from-[var(--color-primary-900)] via-[var(--color-primary-800)] to-[var(--color-primary-900)] text-center py-16 px-6 border-t border-[var(--future-line)]">
         <div className="container mx-auto max-w-[750px]">
-          <h2 className="text-3xl md:text-4xl text-white mb-4 font-bold">Ready to Move Forward with Clarity?</h2>
+          <h2 className="text-3xl md:text-4xl text-white mb-4 font-bold">{tDict.hero.titlePart3}</h2>
           <p className="text-[var(--color-primary-100)] text-lg mb-8 font-light max-w-[600px] mx-auto">
-            Schedule a consultation today and let our team assist you with personalized startup, bookkeeping, or administrative support.
+            {tDict.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <BookConsultationButton className="w-full sm:w-auto bg-[var(--color-accent-500)] text-white hover:bg-[var(--color-accent-600)] shadow-[0_0_25px_rgba(226,6,19,0.3)] px-8 h-13" />
             <Button variant="outline" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 glass-dark h-13" asChild>
               <Link href="/contact" className="flex items-center gap-2">
-                <span>Contact THE CENTER</span>
+                <span>{tDict.nav.contact}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
@@ -81,19 +85,19 @@ export function Footer() {
                 </div>
               </Link>
               <p className="text-[14px] text-[var(--color-primary-200)] leading-relaxed max-w-[320px] font-light mt-2">
-                Providing practical business and administrative support for individuals, entrepreneurs, and small businesses with clarity and precision.
+                {tDict.footer.tagline}
               </p>
             </div>
 
             {/* Column 2: Services */}
-            <FooterAccordion title="Services" id="services">
+            <FooterAccordion title={tDict.nav.services} id="services">
               <ul className="flex flex-col gap-3">
                 {[
-                  { label: "Business Startup", href: "/services/business-startup" },
-                  { label: "Bookkeeping", href: "/services/bookkeeping" },
-                  { label: "Business Support", href: "/services/business-support" },
-                  { label: "Applications & Admin", href: "/services/applications-administrative-support" },
-                  { label: "New to the U.S.", href: "/services/new-to-the-united-states" }
+                  { label: tDict.services.businessStartup.title, href: "/services/business-startup" },
+                  { label: tDict.services.bookkeeping.title, href: "/services/bookkeeping" },
+                  { label: tDict.services.businessSupport.title, href: "/services/business-support" },
+                  { label: tDict.services.applicationsAdmin.title, href: "/services/applications-administrative-support" },
+                  { label: tDict.services.newToUS.title, href: "/services/new-to-the-united-states" }
                 ].map(link => (
                   <li key={link.href}>
                     <Link href={link.href} className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
@@ -105,12 +109,13 @@ export function Footer() {
             </FooterAccordion>
 
             {/* Column 3: Resources & Company */}
-            <FooterAccordion title="Explore" id="explore">
+            <FooterAccordion title={tDict.nav.resources} id="explore">
               <ul className="flex flex-col gap-3">
-                <li><Link href="/about" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">About Us</Link></li>
-                <li><Link href="/resources" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Resources Hub</Link></li>
-                <li><Link href="/faq" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">FAQ</Link></li>
-                <li><Link href="/contact" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Contact</Link></li>
+                <li><Link href="/about" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">{tDict.nav.about}</Link></li>
+                <li><Link href="/resources/document-checklist" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">{tDict.resources.documentChecklist.title}</Link></li>
+                <li><Link href="/resources/forms-official-resources" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">{tDict.resources.formsOfficial.title}</Link></li>
+                <li><Link href="/resources/faq" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">{tDict.resources.faq.title}</Link></li>
+                <li><Link href="/contact" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">{tDict.nav.contact}</Link></li>
               </ul>
             </FooterAccordion>
 
@@ -125,7 +130,7 @@ export function Footer() {
 
             {/* Column 5: Contact */}
             <div className="flex flex-col gap-4 py-4 md:py-0 border-b border-white/10 md:border-none">
-              <h4 className="text-[14px] font-bold tracking-wider text-[var(--color-accent-500)] uppercase">Contact</h4>
+              <h4 className="text-[14px] font-bold tracking-wider text-[var(--color-accent-500)] uppercase">{tDict.nav.contact}</h4>
               <ul className="flex flex-col gap-3">
                 <li>
                   <a href={`tel:${contactConfig.phoneRaw}`} className="flex items-start gap-3 text-[14px] text-[var(--color-primary-100)] hover:text-white group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm">
@@ -153,9 +158,9 @@ export function Footer() {
           {/* Bottom Footer */}
           <div className="py-6 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-4">
             <p className="text-[13px] text-[var(--color-primary-300)] text-center lg:text-left leading-relaxed">
-              © {new Date().getFullYear()} THE CENTER. All rights reserved. <br className="lg:hidden" />
+              © {new Date().getFullYear()} {tDict.footer.rights} <br className="lg:hidden" />
               <span className="hidden lg:inline"> | </span> 
-              THE CENTER provides administrative support and is not a law firm or CPA firm.
+              {tDict.footer.disclaimer}
             </p>
             <div className="flex items-center gap-4">
               <LanguageSwitcher />

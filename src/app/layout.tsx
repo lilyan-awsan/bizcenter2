@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Cairo } from "next/font/google";
 import { ConsultationProvider } from "@/components/providers/consultation-provider"
 import { SplashProvider } from "@/components/providers/splash-provider"
+import { LanguageProvider } from "@/context/language-context"
 import { CookieNotice } from "@/components/ui/cookie-notice"
 import { seoConfig } from "@/lib/seoConfig"
 import "./globals.css";
@@ -9,6 +10,7 @@ import { PageShell } from "@/components/layout/page-shell";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const cairo = Cairo({ subsets: ["arabic", "latin"], variable: "--font-cairo" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(seoConfig.siteUrl),
@@ -51,19 +53,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${cairo.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-[var(--color-primary-900)] focus:font-semibold">
           Skip to main content
         </a>
-        <SplashProvider>
-          <ConsultationProvider>
-            <PageShell>
-              {children}
-            </PageShell>
-          </ConsultationProvider>
-        </SplashProvider>
-        <CookieNotice />
+        <LanguageProvider>
+          <SplashProvider>
+            <ConsultationProvider>
+              <PageShell>
+                {children}
+              </PageShell>
+            </ConsultationProvider>
+          </SplashProvider>
+          <CookieNotice />
+        </LanguageProvider>
       </body>
     </html>
   );

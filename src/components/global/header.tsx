@@ -9,26 +9,30 @@ import { BookConsultationButton } from "@/components/ui/book-consultation-button
 import { NavDropdown } from "./nav-dropdown"
 import { LanguageSwitcher } from "./language-switcher"
 import { MobileMenu } from "./mobile-menu"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 import { cn } from "@/lib/utils"
-
-const SERVICES = [
-  { label: "Business Startup", href: "/services/business-startup", description: "From Idea to Organized Next Steps" },
-  { label: "Bookkeeping", href: "/services/bookkeeping", description: "Keep Your Business Organized" },
-  { label: "Business Support", href: "/services/business-support", description: "Help for Everyday Business Needs" },
-  { label: "Applications & Administrative Support", href: "/services/applications-administrative-support", description: "Organize the Information & Process" },
-  { label: "New to the United States", href: "/services/new-to-the-united-states", description: "A Clear Starting Point for Processes" },
-]
-
-const RESOURCES = [
-  { label: "Document Checklist", href: "/resources/document-checklist", description: "Prepare the information for your visit." },
-  { label: "Forms & Official Resources", href: "/resources/forms-official-resources", description: "Information with links to official sources." },
-  { label: "FAQ", href: "/resources/faq", description: "Answers to common questions." },
-]
 
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const { scrollY } = useScroll()
   const pathname = usePathname()
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
+
+  const SERVICES = [
+    { label: tDict.services.businessStartup.title, href: "/services/business-startup", description: tDict.services.businessStartup.desc },
+    { label: tDict.services.bookkeeping.title, href: "/services/bookkeeping", description: tDict.services.bookkeeping.desc },
+    { label: tDict.services.businessSupport.title, href: "/services/business-support", description: tDict.services.businessSupport.desc },
+    { label: tDict.services.applicationsAdmin.title, href: "/services/applications-administrative-support", description: tDict.services.applicationsAdmin.desc },
+    { label: tDict.services.newToUS.title, href: "/services/new-to-the-united-states", description: tDict.services.newToUS.desc },
+  ]
+
+  const RESOURCES = [
+    { label: tDict.resources.documentChecklist.title, href: "/resources/document-checklist", description: tDict.resources.documentChecklist.desc },
+    { label: tDict.resources.formsOfficial.title, href: "/resources/forms-official-resources", description: tDict.resources.formsOfficial.desc },
+    { label: tDict.resources.faq.title, href: "/resources/faq", description: tDict.resources.faq.desc },
+  ]
 
   const isActive = (path: string) => {
     if (path === '/' && pathname === '/') return true
@@ -105,21 +109,21 @@ export function Header() {
         >
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
             <Link href="/" className={`text-[15px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-sm py-2 relative ${isActive('/') ? 'text-[var(--color-accent-500)] font-extrabold' : 'text-[var(--color-primary-900)] hover:text-[var(--color-accent-500)]'}`}>
-              Home
+              {tDict.nav.home}
               {isActive('/') && (
                 <motion.div layoutId="active-indicator" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-accent-500)] rounded-full" />
               )}
             </Link>
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }} className={isActive('/services') ? 'text-[var(--color-accent-500)]' : ''}>
-            <NavDropdown label="Services" items={SERVICES} />
+            <NavDropdown label={tDict.nav.services} items={SERVICES} />
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }} className={isActive('/resources') || isActive('/faq') ? 'text-[var(--color-accent-500)]' : ''}>
-            <NavDropdown label="Resources" items={RESOURCES} />
+            <NavDropdown label={tDict.nav.resources} items={RESOURCES} />
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
             <Link href="/about" className={`text-[15px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-sm py-2 relative ${isActive('/about') ? 'text-[var(--color-accent-500)] font-extrabold' : 'text-[var(--color-primary-900)] hover:text-[var(--color-accent-500)]'}`}>
-              About
+              {tDict.nav.about}
               {isActive('/about') && (
                 <motion.div layoutId="active-indicator" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-accent-500)] rounded-full" />
               )}
@@ -127,7 +131,7 @@ export function Header() {
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}>
             <Link href="/contact" className={`text-[15px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)] rounded-sm py-2 relative ${isActive('/contact') ? 'text-[var(--color-accent-500)] font-extrabold' : 'text-[var(--color-primary-900)] hover:text-[var(--color-accent-500)]'}`}>
-              Contact
+              {tDict.nav.contact}
               {isActive('/contact') && (
                 <motion.div layoutId="active-indicator" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-accent-500)] rounded-full" />
               )}

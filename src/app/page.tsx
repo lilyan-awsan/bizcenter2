@@ -17,10 +17,14 @@ import { PremiumServiceCard } from "@/components/ui/premium-service-card"
 import { AnimatedTimeline } from "@/components/ui/animated-timeline"
 import { AmbientBackground } from "@/components/ui/ambient-background"
 import { useSplash } from "@/components/providers/splash-provider"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 export default function Home() {
   const { isFirstVisit } = useSplash()
   const baseDelay = isFirstVisit ? 3.0 : 0
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
   
   return (
     <main className="flex flex-col w-full bg-[var(--color-offwhite)] overflow-hidden">
@@ -55,7 +59,7 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-[var(--future-line)] shadow-soft-elevation">
                   <Target className="w-4 h-4 text-[var(--color-accent-500)]" />
                   <span className="text-xs font-extrabold tracking-[0.15em] uppercase text-[var(--color-primary-900)]">
-                    Professional Administrative & Business Support
+                    {tDict.hero.eyebrow}
                   </span>
                 </div>
               </motion.div>
@@ -67,11 +71,11 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: baseDelay + 1.0, ease: [0.22, 1, 0.36, 1] }}
                   className="text-[48px] sm:text-[56px] lg:text-[64px] font-extrabold text-[var(--color-primary-900)] leading-[1.08] tracking-tight"
                 >
-                  Clear Guidance. <br />
+                  {tDict.hero.titlePart1} <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-500)] via-[var(--color-accent-600)] to-[var(--color-primary-900)]">
-                    Practical Results.
+                    {tDict.hero.titlePart2}
                   </span> <br />
-                  A Better Way Forward.
+                  {tDict.hero.titlePart3}
                 </motion.h1>
               </div>
 
@@ -82,7 +86,7 @@ export default function Home() {
                 className="mb-10 max-w-[600px]"
               >
                 <p className="text-xl md:text-[22px] text-[var(--color-slate)] leading-relaxed font-normal text-balance">
-                  THE CENTER provides trusted support for entrepreneurs, business owners, and individuals navigating startup processes, bookkeeping, and application filings.
+                  {tDict.hero.subtitle}
                 </p>
               </motion.div>
 
@@ -96,7 +100,7 @@ export default function Home() {
                   <Button size="lg" className="w-full px-8 h-14 text-base rounded-xl bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white shadow-red-glow hover:shadow-[0_0_35px_rgba(226,6,19,0.35)] transition-all duration-300 group" asChild>
                     <Link href="/contact">
                       <span className="flex items-center">
-                        Book a Consultation
+                        {tDict.nav.bookConsultation}
                         <ArrowRight className="w-5 h-5 ml-2.5 transition-transform duration-300 group-hover:translate-x-1.5" />
                       </span>
                     </Link>

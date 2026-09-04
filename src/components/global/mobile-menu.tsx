@@ -3,9 +3,11 @@
 import * as React from "react"
 import Link from "next/link"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
-import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronRight } from "lucide-react"
 import { BookConsultationButton } from "@/components/ui/book-consultation-button"
 import { LanguageSwitcher } from "./language-switcher"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 interface MobileMenuProps {
   services: { label: string; href: string }[]
@@ -16,6 +18,8 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [servicesOpen, setServicesOpen] = React.useState(false)
   const [resourcesOpen, setResourcesOpen] = React.useState(false)
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
 
   // Prevent scroll and listen to escape when open
   React.useEffect(() => {
@@ -93,7 +97,7 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
             <div className="flex-1 px-6 py-8 flex flex-col gap-6">
               <motion.div variants={staggerVariants}>
                 <Link href="/" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-[var(--color-charcoal)]">
-                  Home
+                  {tDict.nav.home}
                 </Link>
               </motion.div>
 
@@ -104,7 +108,7 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
                   className="flex items-center justify-between w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm"
                   aria-expanded={servicesOpen}
                 >
-                  <span className="text-2xl font-bold text-[var(--color-charcoal)]">Services</span>
+                  <span className="text-2xl font-bold text-[var(--color-charcoal)]">{tDict.nav.services}</span>
                   <motion.div animate={{ rotate: servicesOpen ? 90 : 0 }}>
                     <ChevronRight className="h-6 w-6 text-[var(--color-border-strong)]" />
                   </motion.div>
@@ -118,7 +122,7 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
                       className="overflow-hidden flex flex-col gap-3 pl-4 border-l-2 border-[var(--color-border)]"
                     >
                       <Link href="/services" onClick={() => setIsOpen(false)} className="text-lg font-semibold text-[var(--color-text-secondary)] py-1 mt-2">
-                        All Services
+                        {tDict.nav.services}
                       </Link>
                       {services.map((s) => (
                         <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)} className="text-[17px] text-[var(--color-text-secondary)] py-1">
@@ -137,7 +141,7 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
                   className="flex items-center justify-between w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm"
                   aria-expanded={resourcesOpen}
                 >
-                  <span className="text-2xl font-bold text-[var(--color-charcoal)]">Resources</span>
+                  <span className="text-2xl font-bold text-[var(--color-charcoal)]">{tDict.nav.resources}</span>
                   <motion.div animate={{ rotate: resourcesOpen ? 90 : 0 }}>
                     <ChevronRight className="h-6 w-6 text-[var(--color-border-strong)]" />
                   </motion.div>
@@ -162,13 +166,13 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
 
               <motion.div variants={staggerVariants}>
                 <Link href="/about" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-[var(--color-charcoal)]">
-                  About
+                  {tDict.nav.about}
                 </Link>
               </motion.div>
 
               <motion.div variants={staggerVariants}>
                 <Link href="/contact" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-[var(--color-charcoal)]">
-                  Contact
+                  {tDict.nav.contact}
                 </Link>
               </motion.div>
             </div>
@@ -177,9 +181,6 @@ export function MobileMenu({ services, resources }: MobileMenuProps) {
             <motion.div variants={staggerVariants} className="p-6 bg-[var(--color-bg-secondary)] flex flex-col gap-4">
               <div className="flex items-center justify-between mb-2">
                 <LanguageSwitcher />
-                <Link href="/payment" onClick={() => setIsOpen(false)} className="text-sm font-semibold text-[var(--color-text-secondary)] underline">
-                  Existing Client? Make a Payment
-                </Link>
               </div>
               <div onClick={() => setIsOpen(false)} className="w-full">
                 <BookConsultationButton className="w-full h-14 text-lg" />
