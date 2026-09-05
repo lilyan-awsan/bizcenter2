@@ -8,6 +8,8 @@ import { seoConfig } from "@/lib/seoConfig"
 import "./globals.css";
 import { PageShell } from "@/components/layout/page-shell";
 
+import { VoiceAgentWidget } from "@/components/ui/voice-agent-widget"
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 const cairo = Cairo({ subsets: ["arabic", "latin"], variable: "--font-cairo" });
@@ -78,6 +80,7 @@ export default function RootLayout({
             </ConsultationProvider>
           </SplashProvider>
           <CookieNotice />
+          <VoiceAgentWidget />
         </LanguageProvider>
       </body>
     </html>
