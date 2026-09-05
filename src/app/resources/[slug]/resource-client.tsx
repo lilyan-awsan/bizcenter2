@@ -12,6 +12,8 @@ import {
 import { Button } from "@/components/ui/button"
 import { StaggerContainer, StaggerItem } from "@/components/motion/stagger"
 import { ResourceItem, ContentBlock } from "@/lib/resources"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 import { ResourceContentRenderer } from "./content-renderer"
 
 // Basic visual mapped to resource type
@@ -77,6 +79,9 @@ interface PageProps {
 }
 
 export default function ResourceClientPage({ resource, related }: PageProps) {
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
+  const isAR = language === "AR"
   const [toastMessage, setToastMessage] = React.useState<string | null>(null)
   const [checklistProgress, setChecklistProgress] = React.useState<number | null>(
     resource.type === "CHECKLIST" ? 0 : null
@@ -144,17 +149,17 @@ export default function ResourceClientPage({ resource, related }: PageProps) {
         <div className="container mx-auto px-6 max-w-[var(--container-xl)] relative z-10">
           
           {/* Breadcrumbs */}
-          <nav className="flex items-center text-[13px] font-medium text-[var(--color-slate)] mb-10">
-            <Link href="/" className="hover:text-[var(--color-primary-900)] transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 mx-2" />
-            <Link href="/resources" className="hover:text-[var(--color-primary-900)] transition-colors">Resources</Link>
-            <ChevronRight className="w-3.5 h-3.5 mx-2" />
+          <nav className="flex items-center text-[13px] font-medium text-[var(--color-slate)] mb-10 rtl:text-right">
+            <Link href="/" className="hover:text-[var(--color-primary-900)] transition-colors">{tDict.nav.home}</Link>
+            <ChevronRight className="w-3.5 h-3.5 mx-2 rtl:rotate-180" />
+            <Link href="/resources" className="hover:text-[var(--color-primary-900)] transition-colors">{tDict.nav.resources}</Link>
+            <ChevronRight className="w-3.5 h-3.5 mx-2 rtl:rotate-180" />
             <span className="text-[var(--color-charcoal)] truncate max-w-[200px] sm:max-w-none">{resource.title}</span>
           </nav>
 
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
             {/* Left Content */}
-            <div className="w-full lg:w-3/5 flex flex-col">
+            <div className="w-full lg:w-3/5 flex flex-col rtl:items-start rtl:text-right">
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span className="px-3 py-1.5 bg-white border border-[var(--color-border)] text-[12px] font-bold text-[var(--color-slate)] uppercase tracking-wider rounded-md shadow-sm">
                   {resource.category}
@@ -182,28 +187,28 @@ export default function ResourceClientPage({ resource, related }: PageProps) {
                   resource.downloadUrl && resource.downloadUrl !== "#pdf-coming-soon" ? (
                     <Button size="lg" className="bg-[var(--color-primary-900)] text-white group" asChild>
                       <a href={resource.downloadUrl} download>
-                        <Download className="w-4 h-4 mr-2" /> Download PDF
+                        <Download className="w-4 h-4 mr-2" /> {isAR ? "تحميل PDF" : (language === "ES" ? "Descargar PDF" : "Download PDF")}
                       </a>
                     </Button>
                   ) : (
                     <Button size="lg" className="bg-[var(--color-slate)] text-white hover:bg-[var(--color-slate)] opacity-80 cursor-default">
-                      Download Coming Soon
+                      {isAR ? "التحميل قريباً" : (language === "ES" ? "Descarga Próximamente" : "Download Coming Soon")}
                     </Button>
                   )
                 ) : resource.external && resource.url ? (
                   <Button size="lg" className="bg-[var(--color-primary-900)] text-white group" asChild>
                     <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                      Visit Official Resource <ExternalLink className="w-4 h-4 ml-2" />
+                      {isAR ? "زيارة المصدر الرسمي" : (language === "ES" ? "Visitar Recurso Oficial" : "Visit Official Resource")} <ExternalLink className="w-4 h-4 ml-2" />
                     </a>
                   </Button>
                 ) : null}
 
                 <Button variant="outline" size="lg" onClick={handlePrint} className="bg-white hover:bg-[#F8F7F4]">
-                  <Printer className="w-4 h-4 mr-2" /> Print Resource
+                  <Printer className="w-4 h-4 mr-2" /> {isAR ? "طباعة المورد" : (language === "ES" ? "Imprimir" : "Print Resource")}
                 </Button>
 
                 <Button variant="outline" size="lg" onClick={handleShare} className="bg-white hover:bg-[#F8F7F4]">
-                  <Share2 className="w-4 h-4 mr-2" /> Share
+                  <Share2 className="w-4 h-4 mr-2" /> {isAR ? "مشاركة" : (language === "ES" ? "Compartir" : "Share")}
                 </Button>
               </div>
             </div>

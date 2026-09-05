@@ -2,6 +2,8 @@
 
 import * as React from "react"
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from "framer-motion"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 interface TimelineNode {
   step: string
@@ -17,6 +19,9 @@ interface AnimatedTimelineProps {
 export function AnimatedTimeline({ nodes }: AnimatedTimelineProps) {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const prefersReducedMotion = useReducedMotion()
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
+  const stepWord = tDict.common.stepWord
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -85,7 +90,7 @@ export function AnimatedTimeline({ nodes }: AnimatedTimelineProps) {
                   className="bg-white rounded-[18px] p-7 lg:p-8 border border-[var(--future-line)] shadow-soft-elevation hover:shadow-lg transition-all duration-300"
                 >
                   <div className="text-xs font-extrabold tracking-widest text-[var(--color-accent-500)] mb-2 uppercase">
-                    STEP {node.step}
+                    {stepWord} {node.step}
                   </div>
                   <h3 className="text-2xl font-extrabold text-[var(--color-primary-900)] mb-3">{node.title}</h3>
                   <p className="text-[15.5px] text-[var(--color-slate)] leading-relaxed font-normal">
@@ -98,8 +103,6 @@ export function AnimatedTimeline({ nodes }: AnimatedTimelineProps) {
           )
         })}
       </div>
-
     </div>
   )
 }
-

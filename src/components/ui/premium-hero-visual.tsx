@@ -3,9 +3,13 @@
 import * as React from "react"
 import { motion, useReducedMotion, useMotionValue, useSpring } from "framer-motion"
 import { Rocket, CheckCircle2, Target, Calendar, Clock, Award } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 export function PremiumHeroVisual({ baseDelay = 0 }: { baseDelay?: number }) {
   const prefersReducedMotion = useReducedMotion()
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
   
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -75,8 +79,8 @@ export function PremiumHeroVisual({ baseDelay = 0 }: { baseDelay?: number }) {
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary-950)]/80 via-transparent to-transparent" />
         <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between">
           <div>
-            <div className="text-white font-extrabold text-lg">Personalized Guidance</div>
-            <div className="text-[var(--color-primary-100)] text-xs font-medium">Bilingual & Tailored Support</div>
+            <div className="text-white font-extrabold text-lg">{tDict.hero.guidanceTitle}</div>
+            <div className="text-[var(--color-primary-100)] text-xs font-medium">{tDict.hero.guidanceSubtitle}</div>
           </div>
           <div className="w-10 h-10 rounded-full bg-[var(--color-accent-500)] flex items-center justify-center shadow-red-glow">
             <Target className="w-5 h-5 text-white" />
@@ -98,14 +102,14 @@ export function PremiumHeroVisual({ baseDelay = 0 }: { baseDelay?: number }) {
               <Rocket className="w-5 h-5 text-[var(--color-accent-500)]" />
             </div>
             <div>
-              <div className="text-[14px] font-extrabold text-[var(--color-primary-900)]">Business Setup</div>
-              <div className="text-[11px] text-[var(--color-slate)]">Clear Step-by-Step</div>
+              <div className="text-[14px] font-extrabold text-[var(--color-primary-900)]">{tDict.hero.businessSetup}</div>
+              <div className="text-[11px] text-[var(--color-slate)]">{tDict.hero.stepByStep}</div>
             </div>
           </div>
           <div className="w-full bg-[var(--color-offwhite)] rounded-xl p-3 border border-[var(--future-line)]">
             <div className="flex items-center justify-between text-[11px] font-bold text-[var(--color-primary-900)] mb-1.5">
-              <span>Setup Progress</span>
-              <span className="text-[var(--color-accent-500)]">100% Verified</span>
+              <span>{tDict.hero.setupProgress}</span>
+              <span className="text-[var(--color-accent-500)]">{tDict.hero.verified}</span>
             </div>
             <div className="w-full h-2 bg-[var(--line)] rounded-full overflow-hidden">
               <motion.div 
@@ -132,10 +136,10 @@ export function PremiumHeroVisual({ baseDelay = 0 }: { baseDelay?: number }) {
             <Calendar className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[14px] font-bold text-white mb-0.5">Consultation Hub</div>
-            <div className="text-[12px] text-[var(--color-primary-100)] mb-2">Book Your Strategy Call</div>
+            <div className="text-[14px] font-bold text-white mb-0.5">{tDict.hero.consultationHub}</div>
+            <div className="text-[12px] text-[var(--color-primary-100)] mb-2">{tDict.hero.bookStrategyCall}</div>
             <div className="inline-flex items-center text-[10px] font-bold bg-white/10 border border-white/20 text-white px-2.5 py-1 rounded-md">
-              <Clock className="w-3 h-3 mr-1 text-[var(--color-accent-400)]" /> Direct & Private
+              <Clock className="w-3 h-3 mr-1 text-[var(--color-accent-400)]" /> {tDict.hero.directPrivate}
             </div>
           </div>
         </motion.div>
@@ -150,7 +154,7 @@ export function PremiumHeroVisual({ baseDelay = 0 }: { baseDelay?: number }) {
       >
         <motion.div animate={floatFront(0.3)} className="flex items-center gap-2">
           <Award className="w-4 h-4 text-[var(--color-accent-500)]" />
-          <span className="text-xs font-extrabold text-[var(--color-primary-900)]">Trusted Local Support</span>
+          <span className="text-xs font-extrabold text-[var(--color-primary-900)]">{tDict.hero.trustedBadge}</span>
         </motion.div>
       </motion.div>
 

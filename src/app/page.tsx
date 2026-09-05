@@ -48,7 +48,7 @@ export default function Home() {
           <div className="container mx-auto px-6 max-w-[var(--container-xl)] h-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
             
             {/* LEFT 50%: Content */}
-            <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left rtl:items-start rtl:text-right rtl:lg:items-start rtl:lg:text-right">
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -115,7 +115,7 @@ export default function Home() {
                 >
                   <Button variant="outline" size="lg" className="w-full px-8 h-14 text-base rounded-xl border-[var(--future-line)] text-[var(--color-primary-900)] hover:bg-white transition-all duration-300 shadow-soft-elevation" asChild>
                     <Link href="/services">
-                      Explore Our Services
+                      {tDict.common.exploreOurServices}
                     </Link>
                   </Button>
                 </motion.div>
@@ -128,7 +128,7 @@ export default function Home() {
                 className="w-full"
               >
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 pt-8 border-t border-[var(--future-line)]">
-                  {["Trusted Support", "Practical Guidance", "Bilingual Experts"].map((item, index) => (
+                  {[tDict.common.trustedSupport, tDict.common.practicalGuidance, tDict.common.bilingualExperts].map((item, index) => (
                     <div key={index} className="flex items-center gap-2.5">
                       <div className="w-5 h-5 rounded-full bg-[var(--color-accent-50)] border border-[var(--color-accent-200)] flex items-center justify-center">
                         <Check className="w-3.5 h-3.5 text-[var(--color-accent-500)]" />
@@ -159,15 +159,15 @@ export default function Home() {
           <div className="flex flex-col items-center text-center mb-20">
             <StaggerItem distance={8}>
               <span className="inline-block py-1.5 px-4 rounded-full bg-[var(--color-accent-50)] border border-[var(--color-accent-200)] text-xs font-extrabold tracking-[0.15em] uppercase text-[var(--color-accent-500)] mb-6 shadow-sm">
-                Our Core Services
+                {tDict.common.ourCoreServices}
               </span>
             </StaggerItem>
             <StaggerItem distance={12}>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary-900)] mb-6">Designed for Your Success</h2>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary-900)] mb-6">{tDict.common.designedForSuccess}</h2>
             </StaggerItem>
             <StaggerItem distance={12}>
               <p className="text-[20px] text-[var(--color-slate)] max-w-[720px] text-balance font-normal">
-                Every business and personal process requires unique attention. We offer practical administrative support tailored to every stage.
+                {tDict.common.designedForSuccessDesc}
               </p>
             </StaggerItem>
           </div>
@@ -176,36 +176,36 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
-                title: "Business Startup", 
-                description: "From idea to organized next steps. Setup your entity correctly with complete administrative confidence.", 
+                title: tDict.services.businessStartup.title, 
+                description: tDict.services.businessStartup.desc, 
                 icon: <Rocket />, 
                 href: "/services/business-startup",
                 imageSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
               },
               { 
-                title: "Bookkeeping", 
-                description: "Keep your financial records organized, clear, and ready month over month.", 
+                title: tDict.services.bookkeeping.title, 
+                description: tDict.services.bookkeeping.desc, 
                 icon: <Calculator />, 
                 href: "/services/bookkeeping",
                 imageSrc: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
               },
               { 
-                title: "Business Support", 
-                description: "Ongoing support for everyday business needs, filings, licensing, and document organization.", 
+                title: tDict.services.businessSupport.title, 
+                description: tDict.services.businessSupport.desc, 
                 icon: <ClipboardList />, 
                 href: "/services/business-support",
                 imageSrc: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80"
               },
               { 
-                title: "Applications & Admin", 
-                description: "Organize information and efficiently prepare administrative applications with precision.", 
+                title: tDict.services.applicationsAdmin.title, 
+                description: tDict.services.applicationsAdmin.desc, 
                 icon: <FileText />, 
                 href: "/services/applications-administrative-support",
                 imageSrc: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
               },
               { 
-                title: "New to the U.S.", 
-                description: "A clear starting point for administrative steps, document orientation, and local setup.", 
+                title: tDict.services.newToUS.title, 
+                description: tDict.services.newToUS.desc, 
                 icon: <Globe />, 
                 href: "/services/new-to-the-united-states",
                 imageSrc: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
@@ -230,15 +230,15 @@ export default function Home() {
           <StaggerContainer className="flex flex-col items-center text-center mb-16">
             <StaggerItem distance={8}>
               <span className="inline-block py-1.5 px-4 rounded-full bg-white text-xs font-extrabold tracking-[0.15em] uppercase text-[var(--color-primary-900)] mb-6 border border-[var(--future-line)] shadow-soft-elevation">
-                Working Together
+                {tDict.common.workingTogether}
               </span>
             </StaggerItem>
             <StaggerItem distance={12}>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary-900)] mb-6">A Clear Path Forward</h2>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary-900)] mb-6">{tDict.common.clearPathForward}</h2>
             </StaggerItem>
             <StaggerItem distance={12}>
               <p className="text-[20px] text-[var(--color-slate)] max-w-[650px] text-balance mx-auto font-normal">
-                Working with THE CENTER is straightforward and transparent. We focus on clear steps and practical results.
+                {tDict.common.clearPathForwardDesc}
               </p>
             </StaggerItem>
           </StaggerContainer>
@@ -246,10 +246,10 @@ export default function Home() {
           {/* Animated Timeline */}
           <AnimatedTimeline 
             nodes={[
-              { step: "01", title: "Book a Consultation", desc: "Schedule a convenient consultation. We provide a welcoming environment to discuss your exact situation.", icon: <Calendar /> },
-              { step: "02", title: "Share Your Goals", desc: "We listen attentively to your specific needs and gather all necessary documentation.", icon: <MessageSquare /> },
-              { step: "03", title: "Receive Customized Plan", desc: "Get a clear step-by-step roadmap tailored to your administrative or business objectives.", icon: <ClipboardCheck /> },
-              { step: "04", title: "Execute with Confidence", desc: "Proceed forward smoothly with continuous assistance and expert organization.", icon: <CheckCircle2 /> },
+              { step: "01", title: tDict.common.timelineSteps[0].title, desc: tDict.common.timelineSteps[0].desc, icon: <Calendar /> },
+              { step: "02", title: tDict.common.timelineSteps[1].title, desc: tDict.common.timelineSteps[1].desc, icon: <MessageSquare /> },
+              { step: "03", title: tDict.common.timelineSteps[2].title, desc: tDict.common.timelineSteps[2].desc, icon: <ClipboardCheck /> },
+              { step: "04", title: tDict.common.timelineSteps[3].title, desc: tDict.common.timelineSteps[3].desc, icon: <CheckCircle2 /> },
             ]}
           />
 
@@ -269,23 +269,23 @@ export default function Home() {
             <Target className="w-10 h-10 text-white" />
           </div>
 
-          <h2 className="mb-6 text-white text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">Ready to Take the Next Step?</h2>
+          <h2 className="mb-6 text-white text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">{tDict.common.readyForNextStep}</h2>
           
           <p className="text-xl text-[var(--color-primary-100)] mb-12 max-w-[620px] mx-auto text-balance font-light leading-relaxed">
-            Schedule a consultation today to discuss your business or administrative needs. We are here to help you move forward with clarity and speed.
+            {tDict.common.readyForNextStepDesc}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full">
             <Button size="lg" className="w-full sm:w-auto px-10 h-16 text-[17px] rounded-xl bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white shadow-red-glow hover:shadow-[0_0_40px_rgba(226,6,19,0.45)] transition-all duration-300 group" asChild>
               <Link href="/contact">
-                Book a Consultation
+                {tDict.nav.bookConsultation}
                 <ArrowRight className="w-5 h-5 ml-2.5 transition-transform duration-300 group-hover:translate-x-2" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" className="w-full sm:w-auto px-10 h-16 text-[17px] rounded-xl border-white/20 text-white hover:bg-white/10 glass-dark transition-all duration-300" asChild>
               <a href="tel:9012071660">
                 <Phone className="w-5 h-5 mr-3 text-[var(--color-accent-500)]" />
-                Call (901) 207-1660
+                {tDict.hero.callUs}
               </a>
             </Button>
           </div>

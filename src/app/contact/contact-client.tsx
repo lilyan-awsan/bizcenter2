@@ -12,22 +12,24 @@ import { contactConfig } from "@/lib/config"
 import { submitContactMessage } from "@/lib/actions"
 import { useConsultation } from "@/components/providers/consultation-provider"
 import { trackEvent } from "@/lib/analytics"
-
-const SERVICES = [
-  "Business Startup",
-  "Bookkeeping",
-  "Business Support",
-  "Applications & Administrative Support",
-  "New to the United States",
-  "General Question",
-  "Other"
-]
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 export default function ContactClientPage() {
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
   const { openModal } = useConsultation()
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [submitState, setSubmitState] = React.useState<"idle" | "success" | "error">("idle")
   const [errorMessage, setErrorMessage] = React.useState("")
+
+  const SERVICES = [
+    tDict.services.businessStartup.title,
+    tDict.services.bookkeeping.title,
+    tDict.services.businessSupport.title,
+    tDict.services.applicationsAdmin.title,
+    tDict.services.newToUS.title
+  ]
   
   const [formData, setFormData] = React.useState({
     firstName: "",
@@ -44,8 +46,8 @@ export default function ContactClientPage() {
 
   const validate = () => {
     const newErrors: Record<string, string> = {}
-    if (!formData.firstName.trim()) newErrors.firstName = "Please enter your first name."
-    if (!formData.lastName.trim()) newErrors.lastName = "Please enter your last name."
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required."
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required."
     if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address."
     }
@@ -98,29 +100,29 @@ export default function ContactClientPage() {
             <StaggerContainer className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left z-10" delayChildren={0.1}>
               <StaggerItem distance={8}>
                 <span className="text-sm font-bold tracking-[0.15em] uppercase text-[var(--color-accent-500)] mb-4 block">
-                  CONTACT THE CENTER
+                  {tDict.nav.contact}
                 </span>
               </StaggerItem>
 
               <StaggerItem distance={16} className="mb-6 max-w-[650px]">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-                  Let's Take the<br/>Next Step Together.
+                  {tDict.common.clearPathForward}
                 </h1>
               </StaggerItem>
 
               <StaggerItem distance={12} className="mb-10 max-w-[600px]">
                 <p className="text-lg md:text-[20px] text-[var(--color-slate)] leading-relaxed text-balance">
-                  Have a question, need administrative support, or want to discuss your business needs? Contact THE CENTER and let us help you understand the right next step.
+                  {tDict.hero.subtitle}
                 </p>
               </StaggerItem>
 
               <StaggerItem distance={12} className="w-full sm:w-auto flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="w-full sm:w-auto px-8" onClick={openModal}>
-                  Book a Free Consultation
+                  {tDict.nav.bookConsultation}
                 </Button>
                 <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 bg-white border-[var(--color-border-strong)]" asChild>
                   <a href={`tel:${contactConfig.phoneRaw}`}>
-                    Call {contactConfig.phone}
+                    {tDict.hero.callUs}
                   </a>
                 </Button>
               </StaggerItem>
@@ -150,7 +152,7 @@ export default function ContactClientPage() {
                     <div className="w-12 h-12 rounded-full bg-[var(--color-accent-50)] flex items-center justify-center mb-6 group-hover:bg-[var(--color-accent-100)] transition-colors">
                       <Phone className="w-5 h-5 text-[var(--color-accent-600)]" />
                     </div>
-                    <h3 className="text-[17px] font-semibold text-[var(--color-charcoal)] mb-2">Phone</h3>
+                    <h3 className="text-[17px] font-semibold text-[var(--color-charcoal)] mb-2">{tDict.footer.phone}</h3>
                     <p className="text-[15px] font-medium text-[var(--color-primary-900)] group-hover:text-[var(--color-accent-600)] transition-colors">{contactConfig.phone}</p>
                   </a>
                 </StaggerItem>
@@ -161,7 +163,7 @@ export default function ContactClientPage() {
                     <div className="w-12 h-12 rounded-full bg-[var(--color-accent-50)] flex items-center justify-center mb-6 group-hover:bg-[var(--color-accent-100)] transition-colors">
                       <Mail className="w-5 h-5 text-[var(--color-accent-600)]" />
                     </div>
-                    <h3 className="text-[17px] font-semibold text-[var(--color-charcoal)] mb-2">Email</h3>
+                    <h3 className="text-[17px] font-semibold text-[var(--color-charcoal)] mb-2">{tDict.footer.email}</h3>
                     <p className="text-[15px] font-medium text-[var(--color-primary-900)] group-hover:text-[var(--color-accent-600)] transition-colors">{contactConfig.email}</p>
                   </a>
                 </StaggerItem>
@@ -172,9 +174,9 @@ export default function ContactClientPage() {
                     <div className="w-12 h-12 rounded-full bg-[#F8F7F4] flex items-center justify-center mb-6">
                       <Clock className="w-5 h-5 text-[var(--color-slate)]" />
                     </div>
-                    <h3 className="text-[17px] font-semibold text-[var(--color-charcoal)] mb-2">Business Hours</h3>
+                    <h3 className="text-[17px] font-semibold text-[var(--color-charcoal)] mb-2">{tDict.footer.hours}</h3>
                     <p className="text-[15px] text-[var(--color-slate)] leading-relaxed">
-                      Monday–Friday<br/>9:00 AM – 5:00 PM
+                      {tDict.common.businessHoursVal}
                     </p>
                   </div>
                 </StaggerItem>
@@ -185,13 +187,13 @@ export default function ContactClientPage() {
                     <div className="w-12 h-12 rounded-full bg-[#F8F7F4] flex items-center justify-center mb-6">
                       <MapPin className="w-5 h-5 text-[var(--color-slate)]" />
                     </div>
-                    <h3 className="text-[17px] font-semibold text-[var(--color-charcoal)] mb-2">Location</h3>
+                    <h3 className="text-[17px] font-semibold text-[var(--color-charcoal)] mb-2">{tDict.common.locationTitle}</h3>
                     <p className="text-[15px] text-[var(--color-slate)] leading-relaxed mb-4">
                       {contactConfig.address.split(',')[0]}<br/>
                       {contactConfig.address.split(',').slice(1).join(',')}
                     </p>
                     <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-[var(--color-primary-900)] hover:text-[var(--color-accent-600)] transition-colors inline-flex items-center">
-                      Get Directions <ArrowRight className="w-3 h-3 ml-1" />
+                      {tDict.common.getDirections} <ArrowRight className="w-3 h-3 ml-1" />
                     </a>
                   </div>
                 </StaggerItem>
@@ -204,9 +206,9 @@ export default function ContactClientPage() {
                   <div className="mt-4 bg-[#F8F7F4] rounded-2xl p-6 border border-[var(--color-border)] flex items-start gap-4">
                     <ShieldCheck className="w-6 h-6 text-[var(--color-primary-900)] shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-[var(--color-charcoal)] text-[15px] mb-1">Your Information Matters</h4>
+                      <h4 className="font-semibold text-[var(--color-charcoal)] text-[15px] mb-1">{tDict.common.regulatoryNoticeTitle}</h4>
                       <p className="text-[14px] text-[var(--color-slate)] leading-relaxed">
-                        We respect your privacy. The information you provide will only be used to respond to your inquiry and provide requested services. <Link href="/privacy" className="underline hover:text-[var(--color-primary-900)]">Privacy Policy</Link>
+                        {tDict.common.regulatoryNoticeText} <Link href="/privacy" className="underline hover:text-[var(--color-primary-900)]">Privacy Policy</Link>
                       </p>
                     </div>
                   </div>
@@ -225,28 +227,28 @@ export default function ContactClientPage() {
                   <div className="w-20 h-20 rounded-full bg-[var(--color-accent-50)] flex items-center justify-center mb-6">
                     <CheckCircle2 className="w-10 h-10 text-[var(--color-accent-600)]" />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3">Message Sent Successfully</h3>
+                  <h3 className="text-2xl font-semibold mb-3">{tDict.common.messageSentSuccess}</h3>
                   <p className="text-[16px] text-[var(--color-slate)] max-w-[400px] mb-8 leading-relaxed">
-                    Thank you for contacting THE CENTER. Our team will review your message and get back to you during business hours.
+                    {tDict.common.messageSentSuccessDesc}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
                     <Button variant="outline" onClick={() => { setSubmitState("idle"); setFormData(f => ({ ...f, message: "" })) }}>
-                      Send Another Message
+                      {tDict.common.sendAnotherMessage}
                     </Button>
                     <Button onClick={openModal}>
-                      Book a Consultation
+                      {tDict.nav.bookConsultation}
                     </Button>
                   </div>
                 </motion.div>
               ) : (
                 <div className="bg-white rounded-3xl p-8 md:p-10 border border-[var(--color-border)] shadow-[var(--shadow-lg)]">
-                  <h2 className="text-3xl mb-4">Send Us a Message</h2>
+                  <h2 className="text-3xl mb-4">{tDict.common.sendUsMessage}</h2>
                   
                   {/* Word Spec Requirement: Privacy warning banner on inquiry forms */}
                   <div className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3 text-amber-900 text-xs leading-relaxed">
                     <ShieldCheck className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                     <div>
-                      <strong>Privacy Notice:</strong> Please do not submit Social Security Numbers (SSNs), ITINs, banking passwords, tax identification numbers, or sensitive immigration identifiers through this web form.
+                      <strong>{tDict.common.privacyNoticeTitle}</strong> {tDict.common.privacyNoticeText}
                     </div>
                   </div>
                   
@@ -268,7 +270,7 @@ export default function ContactClientPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="flex flex-col gap-2">
-                        <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="firstName">First Name *</label>
+                        <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="firstName">{tDict.common.firstName} *</label>
                         <input 
                           id="firstName"
                           type="text"
@@ -280,7 +282,7 @@ export default function ContactClientPage() {
                         {errors.firstName && <span className="text-[13px] text-red-500 font-medium" role="alert">{errors.firstName}</span>}
                       </div>
                       <div className="flex flex-col gap-2">
-                        <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="lastName">Last Name *</label>
+                        <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="lastName">{tDict.common.lastName} *</label>
                         <input 
                           id="lastName"
                           type="text"
@@ -295,7 +297,7 @@ export default function ContactClientPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="flex flex-col gap-2">
-                        <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="email">Email Address *</label>
+                        <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="email">{tDict.footer.email} *</label>
                         <input 
                           id="email"
                           type="email"
@@ -307,7 +309,7 @@ export default function ContactClientPage() {
                         {errors.email && <span className="text-[13px] text-red-500 font-medium" role="alert">{errors.email}</span>}
                       </div>
                       <div className="flex flex-col gap-2">
-                        <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="phone">Phone Number</label>
+                        <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="phone">{tDict.footer.phone}</label>
                         <input 
                           id="phone"
                           type="tel"
@@ -320,7 +322,7 @@ export default function ContactClientPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="service">Service Needed (Optional)</label>
+                      <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="service">{tDict.common.serviceNeeded}</label>
                       <div className="relative">
                         <select
                           id="service"
@@ -328,7 +330,7 @@ export default function ContactClientPage() {
                           onChange={e => setFormData(f => ({ ...f, service: e.target.value }))}
                           className="w-full rounded-xl border border-[var(--color-border-strong)] px-4 py-3.5 bg-[#F8F7F4] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-500)] appearance-none cursor-pointer"
                         >
-                          <option value="">Select a service...</option>
+                          <option value="">{tDict.common.selectService}</option>
                           {SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
                         </select>
                         <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
@@ -338,7 +340,7 @@ export default function ContactClientPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="message">Message *</label>
+                      <label className="text-[14px] font-medium text-[var(--color-charcoal)]" htmlFor="message">{tDict.common.message} *</label>
                       <textarea 
                         id="message"
                         value={formData.message}
@@ -349,29 +351,33 @@ export default function ContactClientPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <span className="text-[14px] font-medium text-[var(--color-charcoal)]">Preferred Contact Method</span>
+                      <span className="text-[14px] font-medium text-[var(--color-charcoal)]">{tDict.common.preferredContactMethod}</span>
                       <div className="flex gap-4">
-                        {["Phone", "Email", "Either"].map(method => (
-                          <label key={method} className="flex items-center gap-2 cursor-pointer">
+                        {[
+                          { key: "Phone", label: tDict.footer.phone },
+                          { key: "Email", label: tDict.footer.email },
+                          { key: "Either", label: tDict.common.eitherMethod }
+                        ].map(method => (
+                          <label key={method.key} className="flex items-center gap-2 cursor-pointer">
                             <input 
                               type="radio" 
                               name="preferredContact" 
-                              value={method} 
-                              checked={formData.preferredContact === method}
+                              value={method.key} 
+                              checked={formData.preferredContact === method.key}
                               onChange={e => setFormData(f => ({ ...f, preferredContact: e.target.value }))}
                               className="w-4 h-4 text-[var(--color-accent-600)] focus:ring-[var(--color-accent-500)] border-[var(--color-border-strong)]"
                             />
-                            <span className="text-[14px] text-[var(--color-charcoal)]">{method}</span>
+                            <span className="text-[14px] text-[var(--color-charcoal)]">{method.label}</span>
                           </label>
                         ))}
                       </div>
                     </div>
 
                     <Button type="submit" size="lg" disabled={isSubmitting} className="w-full mt-4 bg-[var(--color-primary-900)] hover:bg-[var(--color-primary-800)] group text-[15px]">
-                      {isSubmitting ? "Sending..." : "Send Message"}
+                      {isSubmitting ? tDict.common.sending : tDict.common.sendMessage}
                     </Button>
                     <p className="text-[12px] text-[var(--color-slate)] text-center mt-4 px-4 leading-relaxed">
-                      By submitting this form, you acknowledge that the information provided will be handled according to our <Link href="/privacy" className="underline hover:text-[var(--color-primary-900)]">Privacy Policy</Link>. Information provided is for general administrative purposes.
+                      {tDict.common.privacyNoticeText} <Link href="/privacy" className="underline hover:text-[var(--color-primary-900)]">Privacy Policy</Link>.
                     </p>
                   </form>
                 </div>
@@ -387,22 +393,18 @@ export default function ContactClientPage() {
       <section className="bg-white py-[100px] border-y border-[var(--color-border)]">
         <StaggerContainer className="container mx-auto px-6 max-w-[var(--container-xl)]">
           <StaggerItem distance={12} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl">What Happens Next?</h2>
+            <h2 className="text-3xl md:text-4xl">{tDict.common.whatHappensNext}</h2>
           </StaggerItem>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { step: "1", title: "We Learn About Your Needs", desc: "Our team reviews your message and prepares to discuss your specific administrative or business goals." },
-              { step: "2", title: "We Identify the Right Step", desc: "We'll contact you via your preferred method to suggest a practical plan or arrange a free consultation." },
-              { step: "3", title: "We Help You Move Forward", desc: "You receive organized, professional support to streamline your paperwork and business processes." }
-            ].map((item, i) => (
+            {tDict.common.whatHappensNextSteps.map((item, i) => (
               <StaggerItem key={i} distance={16} delay={i * 0.1}>
                 <div className="bg-[#F8F7F4] rounded-2xl p-8 border border-[var(--color-border)] h-full relative overflow-hidden group hover:border-[var(--color-accent-400)] transition-colors duration-[300ms]">
                   <div className="text-[100px] font-bold text-[var(--color-primary-900)]/5 absolute -top-6 -right-2 pointer-events-none select-none group-hover:text-[var(--color-accent-500)]/10 transition-colors duration-[500ms]">
-                    {item.step}
+                    {i + 1}
                   </div>
                   <div className="w-10 h-10 rounded-full bg-[var(--color-primary-900)] text-white flex items-center justify-center font-bold mb-6 relative z-10 shadow-sm">
-                    {item.step}
+                    {i + 1}
                   </div>
                   <h3 className="text-[20px] font-semibold text-[var(--color-charcoal)] mb-3 relative z-10">{item.title}</h3>
                   <p className="text-[15px] text-[var(--color-slate)] leading-relaxed relative z-10">{item.desc}</p>

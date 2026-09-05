@@ -37,6 +37,13 @@ export interface TranslationDictionary {
     guidanceTitle: string
     guidanceSubtitle: string
     trustedBadge: string
+    businessSetup: string
+    stepByStep: string
+    setupProgress: string
+    verified: string
+    consultationHub: string
+    bookStrategyCall: string
+    directPrivate: string
   }
   // Trust & Scope
   trust: {
@@ -56,6 +63,57 @@ export interface TranslationDictionary {
     email: string
     disclaimer: string
     rights: string
+  }
+  // Common UI Elements across pages
+  common: {
+    exploreService: string
+    exploreOurServices: string
+    stepWord: string
+    ourCoreServices: string
+    designedForSuccess: string
+    designedForSuccessDesc: string
+    workingTogether: string
+    clearPathForward: string
+    clearPathForwardDesc: string
+    readyForNextStep: string
+    readyForNextStepDesc: string
+    whoWeHelpTitle: string
+    whoWeHelpList: string[]
+    whyChooseTitle: string
+    whyChooseDesc: string
+    whyChooseFeatures: { title: string; desc: string }[]
+    privacyNoticeTitle: string
+    privacyNoticeText: string
+    regulatoryNoticeTitle: string
+    regulatoryNoticeText: string
+    callToday: string
+    sendUsMessage: string
+    businessHoursVal: string
+    locationTitle: string
+    getDirections: string
+    messageSentSuccess: string
+    messageSentSuccessDesc: string
+    sendAnotherMessage: string
+    whatHappensNextTitle: string
+    whatHappensNext: string
+    whatHappensNextSteps: { title: string; desc: string }[]
+    faqTitle: string
+    faqSubtitle: string
+    notSureWhereToStart: string
+    notSureWhereToStartDesc: string
+    trustedSupport: string
+    practicalGuidance: string
+    bilingualExperts: string
+    timelineSteps: { title: string; desc: string }[]
+    firstName: string
+    lastName: string
+    serviceNeeded: string
+    selectService: string
+    message: string
+    preferredContactMethod: string
+    eitherMethod: string
+    sendMessage: string
+    sending: string
   }
 }
 
@@ -116,7 +174,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       callUs: "Call (901) 207-1660",
       guidanceTitle: "Personalized Guidance",
       guidanceSubtitle: "Bilingual & Tailored Support",
-      trustedBadge: "Trusted Local Support"
+      trustedBadge: "Trusted Local Support",
+      businessSetup: "Business Setup",
+      stepByStep: "Clear Step-by-Step",
+      setupProgress: "Setup Progress",
+      verified: "100% Verified",
+      consultationHub: "Consultation Hub",
+      bookStrategyCall: "Book Your Strategy Call",
+      directPrivate: "Direct & Private"
     },
     trust: {
       scopeTitle: "Knowing Our Scope & Professional Standards",
@@ -134,6 +199,76 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       email: "Email: info@biz.center",
       disclaimer: "THE CENTER provides document preparation, administrative assistance, and business organization services. We are not an attorney, CPA firm, or government agency, and we do not provide legal or tax advice.",
       rights: "THE CENTER Business Services. All rights reserved."
+    },
+    common: {
+      exploreService: "Explore Service",
+      exploreOurServices: "Explore Our Services",
+      stepWord: "STEP",
+      ourCoreServices: "Our Core Services",
+      designedForSuccess: "Designed for Your Success",
+      designedForSuccessDesc: "Every business and personal process requires unique attention. We offer practical administrative support tailored to every stage.",
+      workingTogether: "Working Together",
+      clearPathForward: "A Clear Path Forward",
+      clearPathForwardDesc: "Working with THE CENTER is straightforward and transparent. We focus on clear steps and practical results.",
+      readyForNextStep: "Ready to Take the Next Step?",
+      readyForNextStepDesc: "Schedule a consultation today to discuss your business or administrative needs. We are here to help you move forward with clarity and speed.",
+      whoWeHelpTitle: "Who We Help",
+      whoWeHelpList: [
+        "New entrepreneurs launching their first venture",
+        "Existing small businesses needing organizational support",
+        "Self-employed professionals managing their own operations",
+        "Individuals needing administrative guidance with forms",
+        "People new to the United States seeking practical direction"
+      ],
+      whyChooseTitle: "Why Choose The Center",
+      whyChooseDesc: "We are dedicated to providing ethical, organized support.",
+      whyChooseFeatures: [
+        { title: "Professional Guidance", desc: "Expertise applied practically to your specific business scenario without unnecessary complications." },
+        { title: "Clear Communication", desc: "We translate complex administrative jargon into plain language so you always know what's happening." },
+        { title: "Organized Process", desc: "Step-by-step workflows that turn overwhelming tasks into manageable actions." },
+        { title: "English & Spanish & Arabic Support", desc: "Fully multilingual assistance to ensure nothing is lost in translation during critical setups." }
+      ],
+      privacyNoticeTitle: "Privacy Notice:",
+      privacyNoticeText: "Please do not submit Social Security Numbers (SSNs), ITINs, banking passwords, tax identification numbers, or sensitive immigration identifiers through this web form.",
+      regulatoryNoticeTitle: "Important Regulatory Notice:",
+      regulatoryNoticeText: "THE CENTER provides administrative assistance, recordkeeping support, and document organization. We are not a legal firm, CPA accounting firm, or government agency.",
+      callToday: "Call Today",
+      sendUsMessage: "Send Us a Message",
+      businessHoursVal: "Monday–Friday 9:00 AM – 5:00 PM",
+      locationTitle: "Location",
+      getDirections: "Get Directions",
+      messageSentSuccess: "Message Sent Successfully",
+      messageSentSuccessDesc: "Thank you for contacting THE CENTER. Our team will review your message and get back to you during business hours.",
+      sendAnotherMessage: "Send Another Message",
+      whatHappensNextTitle: "What Happens Next?",
+      whatHappensNext: "What Happens Next?",
+      whatHappensNextSteps: [
+        { title: "We Learn About Your Needs", desc: "Our team reviews your message and prepares to discuss your specific administrative or business goals." },
+        { title: "We Identify the Right Step", desc: "We'll contact you via your preferred method to suggest a practical plan or arrange a free consultation." },
+        { title: "We Help You Move Forward", desc: "You receive organized, professional support to streamline your paperwork and business processes." }
+      ],
+      faqTitle: "Frequently Asked Questions",
+      faqSubtitle: "Find quick answers to common questions about our services.",
+      notSureWhereToStart: "Not Sure Where To Start?",
+      notSureWhereToStartDesc: "You don't need to have everything figured out before contacting us. Book a free consultation and we'll help you organize the path forward.",
+      trustedSupport: "Trusted Support",
+      practicalGuidance: "Practical Guidance",
+      bilingualExperts: "Multilingual Experts",
+      timelineSteps: [
+        { title: "Book a Consultation", desc: "Schedule a convenient consultation. We provide a welcoming environment to discuss your exact situation." },
+        { title: "Share Your Goals", desc: "We listen attentively to your specific needs and gather all necessary documentation." },
+        { title: "Receive Customized Plan", desc: "Get a clear step-by-step roadmap tailored to your administrative or business objectives." },
+        { title: "Execute with Confidence", desc: "Proceed forward smoothly with continuous assistance and expert organization." }
+      ],
+      firstName: "First Name",
+      lastName: "Last Name",
+      serviceNeeded: "Service Needed (Optional)",
+      selectService: "Select a service...",
+      message: "Message",
+      preferredContactMethod: "Preferred Contact Method",
+      eitherMethod: "Either",
+      sendMessage: "Send Message",
+      sending: "Sending..."
     }
   },
 
@@ -193,7 +328,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       callUs: "Llamar al (901) 207-1660",
       guidanceTitle: "Orientación Personalizada",
       guidanceSubtitle: "Atención Multilingüe y a la Medida",
-      trustedBadge: "Soporte Local de Confianza"
+      trustedBadge: "Soporte Local de Confianza",
+      businessSetup: "Configuración Empresarial",
+      stepByStep: "Paso a Paso Claro",
+      setupProgress: "Progreso de Configuración",
+      verified: "100% Verificado",
+      consultationHub: "Centro de Consultas",
+      bookStrategyCall: "Reserve su Llamada de Estrategia",
+      directPrivate: "Directo y Privado"
     },
     trust: {
       scopeTitle: "Conociendo Nuestro Alcance y Estándares Profesionales",
@@ -211,6 +353,76 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       email: "Correo: info@biz.center",
       disclaimer: "THE CENTER ofrece servicios de preparación de documentos, asistencia administrativa y organización empresarial. No somos una firma de abogados, firma de CPA ni agencia gubernamental, y no ofrecemos asesoramiento legal ni fiscal.",
       rights: "THE CENTER Business Services. Todos los derechos reservados."
+    },
+    common: {
+      exploreService: "Explorar Servicio",
+      exploreOurServices: "Explorar Nuestros Servicios",
+      stepWord: "PASO",
+      ourCoreServices: "Nuestros Servicios Principales",
+      designedForSuccess: "Diseñado para su Éxito",
+      designedForSuccessDesc: "Cada proceso empresarial y personal requiere una atención única. Ofrecemos apoyo administrativo práctico adaptado a cada etapa.",
+      workingTogether: "Trabajando Juntos",
+      clearPathForward: "Un Camino Claro Hacia Adelante",
+      clearPathForwardDesc: "Trabajar con THE CENTER es sencillo y transparente. Nos enfocamos en pasos claros y resultados prácticos.",
+      readyForNextStep: "¿Listo para Dar el Siguiente Paso?",
+      readyForNextStepDesc: "Programe una consulta hoy para discutir sus necesidades comerciales o administrativas. Estamos aquí para ayudarle a avanzar con claridad y rapidez.",
+      whoWeHelpTitle: "A Quién Ayudamos",
+      whoWeHelpList: [
+        "Nuevos emprendedores lanzando su primera empresa",
+        "Pequeñas empresas existentes que necesitan apoyo organizacional",
+        "Profesionales independientes que gestionan sus propias operaciones",
+        "Personas que necesitan orientación administrativa con formularios",
+        "Personas nuevas en los Estados Unidos que buscan dirección práctica"
+      ],
+      whyChooseTitle: "Por Qué Elegir The Center",
+      whyChooseDesc: "Estamos dedicados a brindar un apoyo ético y organizado.",
+      whyChooseFeatures: [
+        { title: "Orientación Profesional", desc: "Experiencia aplicada prácticamente a su escenario empresarial sin complicaciones innecesarias." },
+        { title: "Comunicación Clara", desc: "Traducimos la jerga administrativa compleja a un lenguaje sencillo para que siempre sepa qué sucede." },
+        { title: "Proceso Organizado", desc: "Flujos de trabajo paso a paso que convierten tareas abrumadoras en acciones manejables." },
+        { title: "Soporte Multilingüe (Inglés, Español y Árabe)", desc: "Asistencia multilingüe completa para garantizar que nada se pierda en la traducción." }
+      ],
+      privacyNoticeTitle: "Aviso de Privacidad:",
+      privacyNoticeText: "Por favor no envíe números de Seguro Social (SSN), ITIN, contraseñas bancarias ni números de documentos de inmigración sensibles a través de este formulario.",
+      regulatoryNoticeTitle: "Aviso Regulatorio Importante:",
+      regulatoryNoticeText: "THE CENTER brinda asistencia administrativa, mantenimiento de registros y organización de documentos. No somos una firma legal ni de CPA.",
+      callToday: "Llamar Hoy",
+      sendUsMessage: "Envíenos un Mensaje",
+      businessHoursVal: "Lunes a Viernes 9:00 AM – 5:00 PM",
+      locationTitle: "Ubicación",
+      getDirections: "Obtener Direcciones",
+      messageSentSuccess: "Mensaje Enviado con Éxito",
+      messageSentSuccessDesc: "Gracias por contactar a THE CENTER. Nuestro equipo revisará su mensaje y se pondrá en contacto pronto.",
+      sendAnotherMessage: "Enviar Otro Mensaje",
+      whatHappensNextTitle: "¿Qué Sucede Después?",
+      whatHappensNext: "¿Qué Sucede Después?",
+      whatHappensNextSteps: [
+        { title: "Aprendemos Sobre sus Necesidades", desc: "Nuestro equipo revisa su mensaje y se prepara para discutir sus objetivos específicos." },
+        { title: "Identificamos el Paso Correcto", desc: "Nos pondremos en contacto según su método preferido para sugerir un plan práctico o consulta." },
+        { title: "Le Ayudamos a Avanzar", desc: "Recibirá apoyo profesional organizado para agilizar sus trámites y procesos." }
+      ],
+      faqTitle: "Preguntas Frecuentes",
+      faqSubtitle: "Encuentre respuestas rápidas a las preguntas más comunes sobre nuestros servicios.",
+      notSureWhereToStart: "¿No está Seguro de Dónde Empezar?",
+      notSureWhereToStartDesc: "No necesita tener todo resuelto antes de contactarnos. Reserve una consulta gratuita y le ayudaremos a organizar el camino a seguir.",
+      trustedSupport: "Soporte de Confianza",
+      practicalGuidance: "Orientación Práctica",
+      bilingualExperts: "Expertos Multilingües",
+      timelineSteps: [
+        { title: "Reservar una Consulta", desc: "Programe una consulta conveniente. Brindamos un ambiente acogedor para discutir su situación." },
+        { title: "Compartir sus Objetivos", desc: "Escuchamos atentamente sus necesidades específicas y reunimos la documentación necesaria." },
+        { title: "Recibir Plan Personalizado", desc: "Obtenga una hoja de ruta clara adaptada a sus objetivos administrativos o comerciales." },
+        { title: "Ejecutar con Confianza", desc: "Avance sin problemas con asistencia continua y organización experta." }
+      ],
+      firstName: "Nombre",
+      lastName: "Apellido",
+      serviceNeeded: "Servicio Requerido (Opcional)",
+      selectService: "Seleccione un servicio...",
+      message: "Mensaje",
+      preferredContactMethod: "Método de Contacto Preferido",
+      eitherMethod: "Cualquiera",
+      sendMessage: "Enviar Mensaje",
+      sending: "Enviando..."
     }
   },
 
@@ -270,7 +482,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       callUs: "اتصل بنا: (901) 207-1660",
       guidanceTitle: "توجيه شخصي مخصص",
       guidanceSubtitle: "دعم متعدد اللغات ومصمم لاحتياجاتك",
-      trustedBadge: "دعم محلي موثوق"
+      trustedBadge: "دعم محلي موثوق",
+      businessSetup: "تأسيس الأعمال",
+      stepByStep: "خطوة بخطوة بوضوح",
+      setupProgress: "تقدم التأسيس",
+      verified: "100% موثق ومكتمل",
+      consultationHub: "مركز الاستشارات",
+      bookStrategyCall: "احجز جلستك الاستشارية",
+      directPrivate: "مباشر وخاص"
     },
     trust: {
       scopeTitle: "نطاق خدماتنا والمعايير المهنية",
@@ -288,6 +507,76 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       email: "البريد الإلكتروني: info@biz.center",
       disclaimer: "يقدم 'ذا سنتر' خدمات إعداد المستندات والمساعدة الإدارية وتنظيم الأعمال. نحن لسنا مكتب محاماة أو شركة محاسبة قانونية أو جهة حكومية، ولا نقدم استشارات قانونية أو ضريبية.",
       rights: "THE CENTER Business Services. جميع الحقوق محفوظة."
+    },
+    common: {
+      exploreService: "استكشف الخدمة",
+      exploreOurServices: "استكشف خدماتنا",
+      stepWord: "الخطوة",
+      ourCoreServices: "خدماتنا الأساسية",
+      designedForSuccess: "مصممة لنجاحك",
+      designedForSuccessDesc: "كل معاملة تجارية أو شخصية تتطلب اهتماماً خاصاً. نكفل لك دعماً إدارياً عملياً مخصصاً لكل مرحلة.",
+      workingTogether: "العمل معاً",
+      clearPathForward: "مسار واضح نحو النجاح",
+      clearPathForwardDesc: "العمل مع 'ذا سنتر' يتسم بالبساطة والشفافية. نركز على خطوات واضحة ونتائج عملية.",
+      readyForNextStep: "هل أنت مستعد للخطوة التالية؟",
+      readyForNextStepDesc: "احجز استشارتك اليوم لمناقشة احتياجاتك التجارية أو الإدارية. نحن هنا لمساعدتك على التقدم بثقة وسرعة.",
+      whoWeHelpTitle: "من نساعد",
+      whoWeHelpList: [
+        "رواد الأعمال الجدد الذين يطلقون مشاريعهم الأولى",
+        "الشركات الصغيرة القائمة التي تحتاج إلى دعم تنظيمي",
+        "المستقلون وأصحاب المهن الحرة الذين يديرون أعمالهم بأنفسهم",
+        "الأفراد الذين يحتاجون إلى توجيه إداري في تعبئة النماذج",
+        "القادمون الجدد إلى الولايات المتحدة الذين يطلبون توجيهاً عملياً"
+      ],
+      whyChooseTitle: "لماذا تختار 'ذا سنتر'",
+      whyChooseDesc: "نحن مكرسون لتقديم دعم أخلاقي ومنظم عالي الجودة.",
+      whyChooseFeatures: [
+        { title: "توجيه احترافي", desc: "خبرة تطبيقية عملية تناسب نشاطك التجاري المحدد دون تعقيدات غير ضرورية." },
+        { title: "تواصل واضح", desc: "نشرح المصطلحات الإدارية المعقدة بلغة بسيطة ومفهومة لتكون دائماً على دراية بكل التطورات." },
+        { title: "إجراءات منظمة", desc: "خطوات عمل متسلسلة تحول المهام الشاقة إلى خطوات مقدورة وميسرة." },
+        { title: "دعم متعدد اللغات (الإنجليزية، الإسبانية، والعربية)", desc: "مساعدة كاملة باللغات الثلاث لضمان عدم ضياع أي تفاصيل أثناء التأسيس والمعاملات." }
+      ],
+      privacyNoticeTitle: "إشعار الخصوصية والأمان:",
+      privacyNoticeText: "يرجى عدم إرسال أرقام الضمان الاجتماعي (SSN)، أرقام ITIN، كلمات مرور الحسابات البنكية، أو أرقام وثائق الهجرة الحساسة عبر هذا النموذج.",
+      regulatoryNoticeTitle: "إشعار تنظيمي مهم:",
+      regulatoryNoticeText: "يقدم 'ذا سنتر' خدمات الدعم الإداري، حفظ السجلات، وتنظيم الوثائق. نحن لسنا مكتب محاماة أو شركة محاسبة معتمدة (CPA).",
+      callToday: "اتصل بنا اليوم",
+      sendUsMessage: "أرسل لنا رسالة",
+      businessHoursVal: "الاثنين - الجمعة 9:00 صباحاً – 5:00 مساءً",
+      locationTitle: "الموقع",
+      getDirections: "الحصول على الاتجاهات",
+      messageSentSuccess: "تم إرسال الرسالة بنجاح",
+      messageSentSuccessDesc: "شكراً لتواصلك مع 'ذا سنتر'. سيقوم فريقنا بمراجعة رسالتك والرد عليك خلال أوقات العمل الرسمية.",
+      sendAnotherMessage: "إرسال رسالة أخرى",
+      whatHappensNextTitle: "ماذا يحدث بعد ذلك؟",
+      whatHappensNext: "ماذا يحدث بعد ذلك؟",
+      whatHappensNextSteps: [
+        { title: "نتعرف على احتياجاتك", desc: "يقوم فريقنا بمراجعة رسالتك والاستعداد لمناقشة أهدافك الإدارية أو التجارية." },
+        { title: "نحدد الخطوة المناسبة", desc: "سنتواصل معك عبر وسيلتك المفضلة لاقتراح خطة عمل عملية أو ترتيب استشارة مجانية." },
+        { title: "نساعدك على التقدم بنجاح", desc: "تحصل على دعم احترافي ومنظم لتسهيل معاملتك وإنجاز أعمالك بثقة." }
+      ],
+      faqTitle: "الأسئلة الشائعة",
+      faqSubtitle: "اعثر على إجابات سريعة لأكثر الاستفسارات شيوعاً حول خدماتنا.",
+      notSureWhereToStart: "لست متأكداً من أين تبدأ؟",
+      notSureWhereToStartDesc: "لا تحتاج إلى معرفة كل شيء قبل التواصل معنا. احجز استشارة مجانية وسنساعدك في تنظيم المسار الصحيح.",
+      trustedSupport: "دعم موثوق",
+      practicalGuidance: "توجيه عملي",
+      bilingualExperts: "خبراء متعددون اللغات",
+      timelineSteps: [
+        { title: "احجز استشارة", desc: "حدد موعداً يناسبك. نوفر بيئة ترحيبية لمناقشة وضعك بالتفصيل." },
+        { title: "شاركنا أهدافك", desc: "نستمع باهتمام لاحتياجاتك الخاصة ونجمع كافة المستندات المطلوبة." },
+        { title: "احصل على خطة مخصصة", desc: "احصل على خارطة طريق واضحة ومحددة تناسب أهدافك الإدارية والتجارية." },
+        { title: "نفّذ بثقة كاملة", desc: "انطلق بثقة مع المساعدة المستمرة والتنظيم الاحترافي." }
+      ],
+      firstName: "الاسم الأول",
+      lastName: "اسم العائلة",
+      serviceNeeded: "الخدمة المطلوبة (اختياري)",
+      selectService: "اختر خدمة...",
+      message: "الرسالة",
+      preferredContactMethod: "وسيلة التواصل المفضلة",
+      eitherMethod: "أيهما",
+      sendMessage: "إرسال الرسالة",
+      sending: "جاري الإرسال..."
     }
   }
 }

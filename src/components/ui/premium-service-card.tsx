@@ -3,6 +3,8 @@
 import * as React from "react"
 import Link from "next/link"
 import { ArrowRight, Target } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 interface PremiumServiceCardProps {
   title: string
@@ -14,6 +16,10 @@ interface PremiumServiceCardProps {
 }
 
 export function PremiumServiceCard({ title, description, icon, href, imageSrc }: PremiumServiceCardProps) {
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
+  const exploreText = tDict.common.exploreService
+
   return (
     <Link href={href} className="group relative block h-full outline-none">
       
@@ -55,8 +61,8 @@ export function PremiumServiceCard({ title, description, icon, href, imageSrc }:
         
         <div className="flex items-center text-[var(--color-primary-900)] font-bold text-[15px] mt-auto pt-4 border-t border-[var(--future-line)]">
           <span className="relative overflow-hidden">
-            <span className="inline-block transition-transform duration-300 group-hover:-translate-y-[120%]">Explore Service</span>
-            <span className="absolute left-0 top-0 inline-block translate-y-[120%] transition-transform duration-300 group-hover:translate-y-0 text-[var(--color-accent-500)]">Explore Service</span>
+            <span className="inline-block transition-transform duration-300 group-hover:-translate-y-[120%]">{exploreText}</span>
+            <span className="absolute left-0 top-0 inline-block translate-y-[120%] transition-transform duration-300 group-hover:translate-y-0 text-[var(--color-accent-500)]">{exploreText}</span>
           </span>
           <div className="relative w-5 h-5 ml-2 flex items-center justify-center">
             <ArrowRight className="w-4 h-4 text-[var(--color-accent-500)] transition-transform duration-300 group-hover:translate-x-1.5" />

@@ -7,25 +7,29 @@ import { X, ArrowLeft, ArrowRight, CheckCircle2, AlertCircle, Calendar } from "l
 import { Button } from "@/components/ui/button"
 import { submitConsultationRequest } from "@/lib/actions"
 import { trackEvent } from "@/lib/analytics"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 interface ConsultationModalProps {
   isOpen: boolean
   onClose: () => void
 }
 
-const SERVICES = [
-  "Business Startup",
-  "Bookkeeping",
-  "Business Support",
-  "Applications & Administrative Support",
-  "New to the United States",
-  "Not Sure"
-]
-
 export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
   const [step, setStep] = React.useState(1)
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [submitState, setSubmitState] = React.useState<"idle" | "success" | "error">("idle")
+
+  const SERVICES = [
+    tDict.services.businessStartup.title,
+    tDict.services.bookkeeping.title,
+    tDict.services.businessSupport.title,
+    tDict.services.applicationsAdmin.title,
+    tDict.services.newToUS.title,
+    "Not Sure"
+  ]
   
   // Form State
   const [formData, setFormData] = React.useState({
@@ -145,7 +149,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                     <Calendar className="w-5 h-5 text-[var(--color-accent-500)]" />
                   </div>
                   <h2 id="modal-title" className="text-[17px] font-extrabold text-[var(--color-primary-900)]">
-                    Book a Consultation
+                    {tDict.nav.bookConsultation}
                   </h2>
                 </div>
                 <button
@@ -174,9 +178,9 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                     <div className="w-20 h-20 rounded-full bg-[var(--color-accent-50)] border border-[var(--color-accent-200)] flex items-center justify-center mb-6">
                       <CheckCircle2 className="w-10 h-10 text-[var(--color-accent-500)]" />
                     </div>
-                    <h3 className="text-2xl font-extrabold text-[var(--color-primary-900)] mb-3">Consultation Request Received</h3>
+                    <h3 className="text-2xl font-extrabold text-[var(--color-primary-900)] mb-3">{tDict.common.messageSentSuccess}</h3>
                     <p className="text-[16px] text-[var(--color-slate)] max-w-[400px] mb-8 leading-relaxed">
-                      Thank you. We have received your request. Our team will contact you shortly to confirm a convenient time for our meeting.
+                      {tDict.common.messageSentSuccessDesc}
                     </p>
                     <Button size="lg" onClick={onClose} className="w-full sm:w-auto px-10 bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white shadow-red-glow">
                       Done
@@ -206,16 +210,16 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                     {/* STEP 1: Personal Info */}
                     {step === 1 && (
                       <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-right-4 duration-300">
-                        <h3 className="text-2xl font-extrabold text-[var(--color-primary-900)]">Let's Get Started</h3>
+                        <h3 className="text-2xl font-extrabold text-[var(--color-primary-900)]">{tDict.common.clearPathForward}</h3>
                         
                         {/* Word Spec Requirement: Privacy warning banner on forms */}
                         <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
-                          <strong>Privacy Notice:</strong> Do not submit SSNs, ITINs, banking details, passwords, or immigration document numbers.
+                          <strong>{tDict.common.privacyNoticeTitle}</strong> {tDict.common.privacyNoticeText}
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[14px] font-bold text-[var(--color-primary-900)]">First Name *</label>
+                            <label className="text-[14px] font-bold text-[var(--color-primary-900)]">{tDict.common.firstName} *</label>
                             <input 
                               type="text"
                               value={formData.firstName}
@@ -226,7 +230,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                             {errors.firstName && <span className="text-[13px] text-red-500">{errors.firstName}</span>}
                           </div>
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-[14px] font-bold text-[var(--color-primary-900)]">Last Name *</label>
+                            <label className="text-[14px] font-bold text-[var(--color-primary-900)]">{tDict.common.lastName} *</label>
                             <input 
                               type="text"
                               value={formData.lastName}
@@ -238,7 +242,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           </div>
                         </div>
                         <div className="flex flex-col gap-1.5">
-                          <label className="text-[14px] font-bold text-[var(--color-primary-900)]">Email Address *</label>
+                          <label className="text-[14px] font-bold text-[var(--color-primary-900)]">{tDict.footer.email} *</label>
                           <input 
                             type="email"
                             value={formData.email}
