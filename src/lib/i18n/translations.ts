@@ -64,6 +64,13 @@ export interface TranslationDictionary {
     disclaimer: string
     rights: string
   }
+  // Legal Section
+  legal: {
+    title: string
+    privacy: string
+    terms: string
+    accessibility: string
+  }
   // Common UI Elements across pages
   common: {
     exploreService: string
@@ -199,6 +206,12 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       email: "Email: info@biz.center",
       disclaimer: "THE CENTER provides document preparation, administrative assistance, and business organization services. We are not an attorney, CPA firm, or government agency, and we do not provide legal or tax advice.",
       rights: "THE CENTER Business Services. All rights reserved."
+    },
+    legal: {
+      title: "Legal",
+      privacy: "Privacy Policy",
+      terms: "Terms & Conditions",
+      accessibility: "Accessibility"
     },
     common: {
       exploreService: "Explore Service",
@@ -354,6 +367,12 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       disclaimer: "THE CENTER ofrece servicios de preparación de documentos, asistencia administrativa y organización empresarial. No somos una firma de abogados, firma de CPA ni agencia gubernamental, y no ofrecemos asesoramiento legal ni fiscal.",
       rights: "THE CENTER Business Services. Todos los derechos reservados."
     },
+    legal: {
+      title: "Legal",
+      privacy: "Política de Privacidad",
+      terms: "Términos y Condiciones",
+      accessibility: "Accesibilidad"
+    },
     common: {
       exploreService: "Explorar Servicio",
       exploreOurServices: "Explorar Nuestros Servicios",
@@ -507,6 +526,12 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       email: "البريد الإلكتروني: info@biz.center",
       disclaimer: "يقدم 'ذا سنتر' خدمات إعداد المستندات والمساعدة الإدارية وتنظيم الأعمال. نحن لسنا مكتب محاماة أو شركة محاسبة قانونية أو جهة حكومية، ولا نقدم استشارات قانونية أو ضريبية.",
       rights: "THE CENTER Business Services. جميع الحقوق محفوظة."
+    },
+    legal: {
+      title: "الشروط والأحكام والسياسات",
+      privacy: "سياسة الخصوصية",
+      terms: "الشروط والأحكام",
+      accessibility: "سهولة الاستخدام والوصول"
     },
     common: {
       exploreService: "استكشف الخدمة",

@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { LegalPageLayout } from "@/components/layout/legal-page-layout"
-import { legalData } from "@/lib/legalData"
 
 export const metadata: Metadata = {
   title: "Accessibility | THE CENTER",
@@ -10,8 +9,7 @@ export const metadata: Metadata = {
 export default function AccessibilityPage() {
   return (
     <LegalPageLayout 
-      title={legalData.accessibility.title}
-      sections={legalData.accessibility.sections}
+      docKey="accessibility"
       currentRoute="/accessibility"
     />
   )

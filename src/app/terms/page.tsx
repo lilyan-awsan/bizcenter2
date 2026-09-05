@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { LegalPageLayout } from "@/components/layout/legal-page-layout"
-import { legalData } from "@/lib/legalData"
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | THE CENTER",
@@ -10,8 +9,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <LegalPageLayout 
-      title={legalData.terms.title}
-      sections={legalData.terms.sections}
+      docKey="terms"
       currentRoute="/terms"
     />
   )

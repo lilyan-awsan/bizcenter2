@@ -120,11 +120,11 @@ export function Footer() {
             </FooterAccordion>
 
             {/* Column 4: Legal */}
-            <FooterAccordion title="Legal" id="legal">
+            <FooterAccordion title={tDict.legal.title} id="legal">
               <ul className="flex flex-col gap-3">
-                <li><Link href="/privacy" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Terms & Conditions</Link></li>
-                <li><Link href="/accessibility" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">Accessibility</Link></li>
+                <li><Link href="/privacy" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">{tDict.legal.privacy}</Link></li>
+                <li><Link href="/terms" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">{tDict.legal.terms}</Link></li>
+                <li><Link href="/accessibility" className="text-[14px] text-[var(--color-primary-100)] hover:text-[var(--color-accent-400)] transition-colors inline-block">{tDict.legal.accessibility}</Link></li>
               </ul>
             </FooterAccordion>
 

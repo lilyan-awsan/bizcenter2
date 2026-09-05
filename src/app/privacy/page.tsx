@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { LegalPageLayout } from "@/components/layout/legal-page-layout"
-import { legalData } from "@/lib/legalData"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | THE CENTER",
@@ -10,8 +9,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <LegalPageLayout 
-      title={legalData.privacyPolicy.title}
-      sections={legalData.privacyPolicy.sections}
+      docKey="privacyPolicy"
       currentRoute="/privacy"
     />
   )
