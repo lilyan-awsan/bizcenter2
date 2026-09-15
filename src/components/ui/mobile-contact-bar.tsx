@@ -4,9 +4,13 @@ import * as React from "react"
 import { Phone, Calendar } from "lucide-react"
 import { useConsultation } from "@/components/providers/consultation-provider"
 import { contactConfig } from "@/lib/config"
+import { useLanguage } from "@/context/language-context"
+import { getTranslation } from "@/lib/i18n/translations"
 
 export function MobileContactBar() {
   const { isOpen, openModal } = useConsultation()
+  const { language } = useLanguage()
+  const tDict = getTranslation(language)
 
   // Hide the sticky bar when modal is open to prevent overlapping
   if (isOpen) return null
@@ -26,7 +30,7 @@ export function MobileContactBar() {
           className="flex-[2] bg-[var(--color-primary-900)] text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-medium shadow-sm active:scale-[0.98] transition-transform"
         >
           <Calendar className="w-4 h-4 text-[var(--color-primary-200)]" />
-          Book Consultation
+          {tDict.nav.bookConsultation}
         </button>
       </div>
     </div>

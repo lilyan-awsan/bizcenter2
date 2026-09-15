@@ -1,6 +1,73 @@
-import { HeartHandshake, ShieldCheck, ClipboardCheck, Compass, Users, TrendingUp, Search, MessageSquare, ArrowRight, Zap, Target } from "lucide-react"
+import { HeartHandshake, ShieldCheck, ClipboardCheck, Users, TrendingUp, Search, Building2, FolderSync } from "lucide-react"
 
 export const aboutData = {
+  hero: {
+    eyebrow: "About us",
+    title: "The Center Business Services",
+    description: "THE CENTER makes business bookkeeping simple. We help you track income, expenses, and financial activity in one place—with clear records and better organization."
+  },
+  focus: {
+    eyebrow: "Our focus",
+    title: "Simple tools for clearer financial records.",
+    description: "We built THE CENTER so businesses can manage bookkeeping tasks without unnecessary complexity, stay connected to their bookkeeping team, and keep documents ready for year-end review and tax professionals.",
+    features: [
+      {
+        title: "One place for activity",
+        description: "Income, expenses, and financial activity stay organized in a single workflow.",
+        icon: FolderSync
+      },
+      {
+        title: "Team-ready collaboration",
+        description: "Share context with your bookkeeping team so reviews and follow-ups stay clear.",
+        icon: Users
+      },
+      {
+        title: "Documents that stay findable",
+        description: "Upload and keep important records organized for audits, tax prep, and day-to-day needs.",
+        icon: ClipboardCheck
+      },
+      {
+        title: "Built for real businesses",
+        description: "From Memphis, TN, we support practical bookkeeping operations with tools that stay out of the way.",
+        icon: Building2
+      }
+    ]
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "How to reach us.",
+    description: "Prefer email or phone—our team is ready to help.",
+    blocks: [
+      {
+        title: "Email & web",
+        items: [
+          { label: "info@biz.center", href: "mailto:info@biz.center" },
+          { label: "www.biz.center", href: "https://www.biz.center", external: true }
+        ]
+      },
+      {
+        title: "Office",
+        items: [
+          { label: "5520 Summer Ave #102", href: "https://maps.google.com/?q=5520+Summer+Ave+%23102,+Memphis,+TN+38134", external: true },
+          { label: "Memphis, TN 38134", href: "https://maps.google.com/?q=5520+Summer+Ave+%23102,+Memphis,+TN+38134", external: true }
+        ]
+      },
+      {
+        title: "Main phone",
+        items: [
+          { label: "Main: 901-207-1660", href: "tel:+19012071660" },
+          { label: "Office: 901-209-5511", href: "tel:+19012095511" }
+        ]
+      },
+      {
+        title: "Departments",
+        items: [
+          { label: "Sales Tax: 901-306-8000", href: "tel:+19013068000" },
+          { label: "Payroll: 901-306-9000", href: "tel:+19013069000" }
+        ]
+      }
+    ]
+  },
   story: {
     heading: "Why THE CENTER Exists",
     content: [
@@ -9,8 +76,8 @@ export const aboutData = {
       "By creating a place dedicated entirely to professional support, clear communication, and practical organization, we help people transform confusion into confidence. We don't just fill out forms; we build structured processes that allow you to focus on what you do best."
     ]
   },
-  mission: "To provide practical, organized business and administrative support that empowers our clients to navigate important processes with clarity and confidence.",
-  vision: "A future where every entrepreneur and individual has access to the clear administrative guidance and organizational structure they need to succeed.",
+  mission: "THE CENTER makes business bookkeeping simple. We help you track income, expenses, and financial activity in one place—with clear records and better organization.",
+  vision: "A future where every entrepreneur and business owner has access to simple tools, clearer financial records, and the practical bookkeeping structure they need to succeed.",
   
   values: [
     {

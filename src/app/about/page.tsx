@@ -3,11 +3,11 @@ import { contactConfig } from "@/lib/config"
 import AboutClientPage from "./about-client"
 
 export const metadata: Metadata = {
-  title: "About THE CENTER | Professional Business & Administrative Support",
-  description: "Learn about THE CENTER's mission to provide practical, organized administrative support and clear guidance for entrepreneurs, small businesses, and individuals.",
+  title: "About Us | THE CENTER Business Services",
+  description: "About The Center Business Services — bookkeeping made simple in Memphis, TN. We help you track income, expenses, and financial activity in one place—with clear records and better organization.",
   openGraph: {
-    title: "About THE CENTER | Professional Business & Administrative Support",
-    description: "Learn about THE CENTER's mission to provide practical, organized administrative support and clear guidance for entrepreneurs, small businesses, and individuals.",
+    title: "About Us | THE CENTER Business Services",
+    description: "About The Center Business Services — bookkeeping made simple in Memphis, TN. We help you track income, expenses, and financial activity in one place—with clear records and better organization.",
     type: "website",
   }
 }
@@ -17,9 +17,9 @@ export default function AboutRoute() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "THE CENTER",
-    description: "Business and Administrative Support Services",
-    url: "https://thecenter.com",
+    name: "The Center Business Services",
+    description: "THE CENTER makes business bookkeeping simple. We help you track income, expenses, and financial activity in one place—with clear records and better organization.",
+    url: "https://biz.center",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: contactConfig.phone,
@@ -30,7 +30,7 @@ export default function AboutRoute() {
       streetAddress: "5520 Summer Ave #102",
       addressLocality: "Memphis",
       addressRegion: "TN",
-      postalCode: "38122",
+      postalCode: "38134",
       addressCountry: "US"
     }
   }

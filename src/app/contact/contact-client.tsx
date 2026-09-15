@@ -441,13 +441,13 @@ export default function ContactClientPage() {
           </StaggerItem>
           <StaggerItem distance={12}>
             <p className="text-[16px] md:text-lg text-[var(--color-primary-100)] mb-8 text-balance">
-              You don't need to have everything figured out before contacting us. Book a free consultation and we'll help you organize the path forward.
+              {tDict.common.notSureWhereToStartDesc}
             </p>
           </StaggerItem>
           <StaggerItem distance={8} className="w-full sm:w-auto">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
               <Button size="lg" onClick={openModal} className="w-full sm:w-auto px-10 bg-white text-[var(--color-primary-900)] hover:bg-[var(--color-offwhite)]">
-                Book a Free Consultation
+                {tDict.nav.bookConsultation}
               </Button>
               <Button variant="outline" size="lg" className="w-full sm:w-auto px-10 border-white/30 text-white hover:bg-white/10 shadow-none" asChild>
                 <a href={`tel:${contactConfig.phoneRaw}`}>Call {contactConfig.phone}</a>

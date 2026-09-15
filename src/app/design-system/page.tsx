@@ -93,7 +93,7 @@ export default function DesignSystemShowcase() {
           <h2 className="text-2xl font-bold">Buttons</h2>
         </div>
         <div className="flex flex-wrap gap-4 items-center">
-          <Button>Book a Free Consultation</Button>
+          <Button>Book a Free meeting</Button>
           <Button variant="secondary">Explore Our Services</Button>
           <Button variant="outline">Learn More</Button>
           <Button variant="ghost">Cancel</Button>

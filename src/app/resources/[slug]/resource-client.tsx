@@ -281,7 +281,7 @@ export default function ResourceClientPage({ resource, related }: PageProps) {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="w-full sm:w-auto" asChild>
-                  <Link href="/contact">Book a Free Consultation</Link>
+                  <Link href="/contact">Book a Free meeting</Link>
                 </Button>
                 <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white" asChild>
                   <Link href="/services">Explore Services</Link>
@@ -424,7 +424,7 @@ export default function ResourceClientPage({ resource, related }: PageProps) {
           <StaggerItem distance={8} className="w-full sm:w-auto">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
               <Button size="lg" className="w-full sm:w-auto px-10 bg-white text-[var(--color-primary-900)] hover:bg-[var(--color-offwhite)]" asChild>
-                <Link href="/contact">Book a Free Consultation</Link>
+                <Link href="/contact">Book a Free meeting</Link>
               </Button>
               <Button variant="outline" size="lg" className="w-full sm:w-auto px-10 border-white/30 text-white hover:bg-white/10 shadow-none" asChild>
                 <Link href="/contact">Contact THE CENTER</Link>

@@ -240,7 +240,7 @@ export default function StartupClientPage() {
             <div className="bg-[var(--color-primary-900)] text-white rounded-2xl p-8 shadow-md flex flex-col gap-6">
               <h3 className="text-2xl font-bold text-white">{isAr ? "جاهز للبدء؟" : isEs ? "¿Listo para Comenzar?" : "Ready to Get Started?"}</h3>
               <p className="text-[15px] text-[var(--color-primary-100)] leading-relaxed">
-                {isAr ? "احجز استشارتك المجانية لمناقشة خطوات تأسيس مشروعك التجاري بثقة." : isEs ? "Reserve su consulta gratuita para discutir los pasos de constitución de su empresa." : "Book a free consultation to review your business setup requirements and get started."}
+                {isAr ? "احجز اجتماعك المجاني لمناقشة خطوات تأسيس مشروعك التجاري بثقة." : isEs ? "Reserve su reunión gratuita para discutir los pasos de constitución de su empresa." : "Book a free meeting to review your business setup requirements and get started."}
               </p>
               <Button size="lg" className="w-full bg-white text-[var(--color-primary-900)] hover:bg-[var(--color-offwhite)] font-semibold" asChild>
                 <Link href="/contact">{tDict.nav.bookConsultation}</Link>

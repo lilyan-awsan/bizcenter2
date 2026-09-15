@@ -151,7 +151,7 @@ export function Header() {
             <BookConsultationButton size="sm" className="px-6 rounded-lg bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white shadow-[0_4px_15px_rgba(226,6,19,0.25)] hover:shadow-[0_0_25px_rgba(226,6,19,0.4)]" />
           </div>
           <div className="lg:hidden">
-            <BookConsultationButton size="sm" className="px-4 text-[13px] rounded-lg bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white shadow-[0_4px_15px_rgba(226,6,19,0.25)]" label="Book Consultation" />
+            <BookConsultationButton size="sm" className="px-4 text-[13px] rounded-lg bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-600)] text-white shadow-[0_4px_15px_rgba(226,6,19,0.25)]" label={tDict.nav.bookConsultation} />
           </div>
         </motion.div>
 

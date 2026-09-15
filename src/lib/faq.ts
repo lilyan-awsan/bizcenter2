@@ -262,7 +262,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: "con1",
     question: "How do I book a consultation?",
-    answer: "You can easily book a consultation by clicking any of the 'Book a Free Consultation' buttons on our website, or by visiting our Contact page.",
+    answer: "You can easily book a consultation by clicking any of the 'Book a Free meeting' buttons on our website, or by visiting our Contact page.",
     category: "Consultations",
     tags: ["booking", "schedule"],
     order: 60
