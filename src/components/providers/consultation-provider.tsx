@@ -16,7 +16,15 @@ const ConsultationContext = React.createContext<ConsultationContextType | undefi
 export function useConsultation() {
   const context = React.useContext(ConsultationContext)
   if (!context) {
-    throw new Error("useConsultation must be used within a ConsultationProvider")
+    return {
+      isOpen: false,
+      openModal: () => {
+        if (typeof window !== "undefined") {
+          window.location.href = "/contact"
+        }
+      },
+      closeModal: () => {}
+    }
   }
   return context
 }

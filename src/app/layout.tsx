@@ -77,10 +77,10 @@ export default function RootLayout({
               <PageShell>
                 {children}
               </PageShell>
+              <VoiceAgentWidget />
             </ConsultationProvider>
           </SplashProvider>
           <CookieNotice />
-          <VoiceAgentWidget />
         </LanguageProvider>
       </body>
     </html>
